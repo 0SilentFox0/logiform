@@ -1,0 +1,10 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.home {
+	background: var(--background, url(/src//assets/background.png) lightgray 50% / cover no-repeat);
+	height: 100%;
+  padding: 25px 120px 120px 120px;
+}
