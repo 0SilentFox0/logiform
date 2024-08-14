@@ -18,6 +18,12 @@ import GRAPH from '../../assets/cardsImages/graph.svg'
 import LOCK from '../../assets/cardsImages/lock.svg'
 import TARGET from '../../assets/cardsImages/target.svg'
 
+import AVA1 from '../../assets/avatars/ava1.png'
+import AVA2 from '../../assets/avatars/ava2.png'
+import AVA3 from '../../assets/avatars/ava3.png'
+import STARS from '../../assets/avatars/Star.png'
+
+
 function VisionSection() {
     return (
         <section className={styles.container}>
@@ -146,7 +152,7 @@ function VisionSection() {
                 <div className={styles.footer}>
                     <p>As an agile team
                         <div className={styles.avatars}>
-                            <img src='/src/assets/avatars/ava1.png' /><img src='/src/assets/avatars/ava2.png' /><img src='/src/assets/avatars/ava3.png' />
+                            <img src={AVA1} /><img src={AVA2} /><img src={AVA3} />
                         </div>
                         we cut through red tape and move quickly.
                     </p>
@@ -154,7 +160,7 @@ function VisionSection() {
                     <p>Proudly reliable, we tackle challenges with strong technical skills</p>
                     <p>and market expertise, delivering effective results
                         <div className={styles.doubleStars}>
-                            <img src='/src/assets/avatars/Star.png' />
+                            <img src={STARS} />
                         </div>
                     </p>
                 </div>
