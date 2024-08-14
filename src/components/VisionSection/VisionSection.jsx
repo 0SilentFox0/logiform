@@ -1,26 +1,44 @@
 import styles from './VisionSection.module.css'
 
+import NimiqLogo from '../../assets/companyLogos/nimiq.png'
+import MythicalLogo from '../../assets/companyLogos/mythical.png'
+import NexoLogo from '../../assets/companyLogos/nexo.png'
+import CoinboundLogo from '../../assets/companyLogos/coinbound.png'
+import HalbornLogo from '../../assets/companyLogos/halborn.svg'
+import EdmundoLogo from '../../assets/companyLogos/edmundo.png'
+import DeedyLogo from '../../assets/companyLogos/deedy.png'
+import TronLogo from '../../assets/companyLogos/tron.png'
+import OKXLogo from '../../assets/companyLogos/okx.png'
+import EtoroLogo from '../../assets/companyLogos/etoro.png'
+import KionlyLogo from '../../assets/companyLogos/kionly.png'
+
+import MEDAL from '../../assets/cardsImages/medal.svg'
+import LAMP from '../../assets/cardsImages/lamp.svg'
+import GRAPH from '../../assets/cardsImages/graph.svg'
+import LOCK from '../../assets/cardsImages/lock.svg'
+import TARGET from '../../assets/cardsImages/target.svg'
+
 function VisionSection() {
     return (
         <section className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.logos}>
                     <span className={styles.nimiqLogo}>
-                        <img src="/src/assets/companyLogos/nimiq.png" alt="nimiq logo" />
+                        <img src={NimiqLogo} alt="nimiq logo" />
                     </span>
-                    <img src="/src/assets/companyLogos/mythical.png" alt="mythical logo" />
+                    <img src={MythicalLogo} alt="mythical logo" />
 
-                    <img src="/src/assets/companyLogos/nexo.png" alt="nexo logo" />
-                    <img src="/src/assets/companyLogos/coinbound.png" alt="coinbound logo" />
-                    <img src="/src/assets/companyLogos/halborn.svg" alt="halborn logo" />
-                    <img src="/src/assets/companyLogos/edmundo.png" alt="edmundo logo" />
-                    <img src="/src/assets/companyLogos/deedy.png" alt="deedy logo" />
-                    <img src="/src/assets/companyLogos/tron.png" alt="tron logo" />
-                    <img src="/src/assets/companyLogos/okx.png" alt="okx logo" />
+                    <img src={NexoLogo} alt="nexo logo" />
+                    <img src={CoinboundLogo} alt="coinbound logo" />
+                    <img src={HalbornLogo} alt="halborn logo" />
+                    <img src={EdmundoLogo} alt="edmundo logo" />
+                    <img src={DeedyLogo} alt="deedy logo" />
+                    <img src={TronLogo} alt="tron logo" />
+                    <img src={OKXLogo} alt="okx logo" />
 
-                    <img src="/src/assets/companyLogos/etoro.png" alt="etoro logo" />
+                    <img src={EtoroLogo} alt="etoro logo" />
                     <span className={styles.kionlyLogo}>
-                        <img src="/src/assets/companyLogos/kionly.png" alt="kionly logo" />
+                        <img src={KionlyLogo} alt="kionly logo" />
                     </span>
 
                 </div>
@@ -36,7 +54,7 @@ function VisionSection() {
                 <div className={styles.features}>
                     <div className={styles.feature}>
                         <div className={styles.featureImage}>
-                            <img src="/src/assets/cardsImages/medal.svg" alt="okx logo" />
+                            <img src={MEDAL} alt="medal" />
                         </div>
                         <div className={styles.featureInfo}>
                             <h3>Web3 Experts</h3>
@@ -45,7 +63,7 @@ function VisionSection() {
                     </div>
                     <div className={styles.feature}>
                         <div className={styles.featureImage}>
-                            <img src="/src/assets/cardsImages/lamp.svg" alt="okx logo" />
+                            <img src={LAMP} alt="lamp" />
                         </div>
                         <div className={styles.featureInfo}>
                             <h3>End-to-End Solutions</h3>
@@ -54,7 +72,7 @@ function VisionSection() {
                     </div>
                     <div className={styles.feature}>
                         <div className={styles.featureImage}>
-                            <img src="/src/assets/cardsImages/graph.svg" alt="okx logo" />
+                            <img src={GRAPH} alt="graph" />
                         </div>
                         <div className={styles.featureInfo}>
                             <h3>Growth Focused</h3>
@@ -63,7 +81,7 @@ function VisionSection() {
                     </div>
                     <div className={styles.feature}>
                         <div className={styles.featureImage}>
-                            <img src="/src/assets/cardsImages/lock.svg" alt="okx logo" />
+                            <img src={LOCK} alt="lock" />
                         </div>
                         <div className={styles.featureInfo}>
                             <h3>Security First</h3>
@@ -72,7 +90,7 @@ function VisionSection() {
                     </div>
                     <div className={styles.feature}>
                         <div className={styles.featureImage}>
-                            <img src="/src/assets/cardsImages/target.svg" alt="okx logo" />
+                            <img src={TARGET} alt="target" />
                         </div>
                         <div className={styles.featureInfo}>
                             <h3>Proven Results</h3>
