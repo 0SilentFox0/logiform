@@ -72,6 +72,7 @@
 	display: flex;
 	justify-content: space-around;
 	gap: 16px;
+	align-self: stretch;
 }
 
 .feature {
@@ -97,6 +98,7 @@
 .featureInfo {
 	position: relative;
 	top: -31px;
+
 	display: flex;
 	padding: 40px 24px 24px 24px;
 	flex-direction: column;
@@ -265,17 +267,17 @@
 .line {
 	width: 1200px;
 	height: 16px;
-    border-radius: 0px 20px 20px 20px;
+	border-radius: 0px 20px 20px 20px;
 	background: var(--Button-animation-2, linear-gradient(102deg, #1b9ce1 12%, #0d15b8 126%));
 }
 
 .footerContainer {
-    background: var(--Gray-light, #f6f6f6);
+	background: var(--Gray-light, #f6f6f6);
 }
 
 .footer {
-    background-color: white;
-    border-radius: 48px 48px 0 0;
+	background-color: white;
+	border-radius: 48px 48px 0 0;
 	display: flex;
 	align-items: center;
 	padding: 80px 120px;
@@ -298,7 +300,7 @@
 }
 
 .avatars img {
-    width: 48px;
+	width: 48px;
 	height: 48px;
 	border-radius: 80px;
 }
@@ -309,7 +311,7 @@
 	height: 48px;
 	justify-content: center;
 	align-items: center;
-    margin-left: 16px;
+	margin-left: 16px;
 
 	border-radius: 120px;
 	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
