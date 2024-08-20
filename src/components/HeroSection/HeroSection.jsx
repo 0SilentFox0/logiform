@@ -1,13 +1,14 @@
 import styles from './HeroSection.module.css'
 
 // import gif from '../../assets/gif.gif'
+import GlitchEffect from './GlitchEffect/GlitchEffect';
 
 function HeroSection() {
     return (
         <section className={styles.hero}>
             <div className={styles.content}>
                 <h1>
-                    We provide agile secure <span className={styles.highlight}>web2</span> solutions
+                    We provide agile secure <GlitchEffect /> solutions
                 </h1>
                 <p>No bureaucracy, no excuses – raw talent and relentless execution for startups and mid-sized companies.</p>
                 <button className={styles.contactButton}>Contact us</button>
