@@ -29,29 +29,38 @@ function VisionSection() {
         <section className={styles.background}>
             <div className={styles.container}>
                 <div className={styles.logos}>
-                    <img className={`${styles.logo} ${styles.logo1}`} src={NimiqLogo} alt="nimiq logo" />
+                    <div className={styles.logosSlide}>
 
-                    <img className={`${styles.logo} ${styles.logo3}`} src={NexoLogo} alt="nexo logo" />
+                        <img src={NimiqLogo} alt="nimiq logo" />
+                        <img src={NexoLogo} alt="nexo logo" />
+                        <img src={MythicalLogo} alt="mythical logo" />
+                        <img src={CoinboundLogo} alt="coinbound logo" />
+                        <img src={HalbornLogo} alt="halborn logo" />
+                        <img src={EdmundoLogo} alt="edmundo logo" />
+                        <img src={DeedyLogo} alt="deedy logo" />
+                        <img src={TronLogo} alt="tron logo" />
+                        <img src={OKXLogo} alt="okx logo" />
+                        <img src={EtoroLogo} alt="etoro logo" />
+                        <img src={KionlyLogo} alt="kionly logo" />
 
-                    <img className={`${styles.logo} ${styles.logo2}`} src={MythicalLogo} alt="mythical logo" />
+                    </div>
+                    <div className={styles.logosSlide}>
 
-                    <img className={`${styles.logo} ${styles.logo4}`} src={CoinboundLogo} alt="coinbound logo" />
+                        <img src={NimiqLogo} alt="nimiq logo" />
+                        <img src={NexoLogo} alt="nexo logo" />
+                        <img src={MythicalLogo} alt="mythical logo" />
+                        <img src={CoinboundLogo} alt="coinbound logo" />
+                        <img src={HalbornLogo} alt="halborn logo" />
+                        <img src={EdmundoLogo} alt="edmundo logo" />
+                        <img src={DeedyLogo} alt="deedy logo" />
+                        <img src={TronLogo} alt="tron logo" />
+                        <img src={OKXLogo} alt="okx logo" />
+                        <img src={EtoroLogo} alt="etoro logo" />
+                        <img src={KionlyLogo} alt="kionly logo" />
 
-                    <img className={`${styles.logo} ${styles.logo5}`} src={HalbornLogo} alt="halborn logo" />
-
-                    <img className={`${styles.logo} ${styles.logo6}`} src={EdmundoLogo} alt="edmundo logo" />
-
-                    <img className={`${styles.logo} ${styles.logo7}`} src={DeedyLogo} alt="deedy logo" />
-
-                    <img className={`${styles.logo} ${styles.logo8}`} src={TronLogo} alt="tron logo" />
-
-                    <img className={`${styles.logo} ${styles.logo9}`} src={OKXLogo} alt="okx logo" />
-
-                    <img className={`${styles.logo} ${styles.logo10}`} src={EtoroLogo} alt="etoro logo" />
-
-                    <img className={`${styles.logo} ${styles.logo11}`} src={KionlyLogo} alt="kionly logo" />
-
+                    </div>
                 </div>
+                
                 <div className={styles.content}>
                     <div className={styles.title}>
                         <h2>Your Vision, Our Code</h2>
