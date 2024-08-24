@@ -11,7 +11,7 @@
 
 .titleContainer {
 	display: flex;
-	width: 592px;
+	max-width: 592px;
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
@@ -92,12 +92,11 @@
 	align-items: center;
 	gap: 8px;
 	align-self: stretch;
-	width: 568px;
+	justify-content: center;
 }
 
 .card div {
 	display: flex;
-	width: 126px;
 	padding: 32px;
 	flex-direction: column;
 	align-items: center;
@@ -139,4 +138,73 @@
 	border-radius: 80px;
 	color: white;
 	background: var(--Neutral-Neutral-70, #0d0316);
+}
+
+@media (max-width: 1200px) {
+	.container {
+		gap: 40px;
+	}
+
+	.cards {
+		flex-direction: column;
+	}
+
+	.card {
+		flex-direction: column;
+	}
+
+	.title {
+		font-size: 44px; /* Smaller title on medium screens */
+		text-align: center;
+	}
+
+	.subtitle {
+		font-size: 19px; /* Smaller paragraph on medium screens */
+	}
+}
+
+@media (max-width: 968px) {
+	.container {
+		padding: 60px 100px;
+		gap: 32px;
+	}
+
+	.title {
+		font-size: 40px; /* Smaller title on medium screens */
+	}
+
+	.subtitle {
+		font-size: 18px; /* Smaller paragraph on medium screens */
+	}
+}
+
+@media (max-width: 500px) {
+	.container {
+		padding: 40px 20px;
+		gap: 24px;
+	}
+
+	.firstCard {
+		padding: 24px;
+	}
+
+	.firstCard h1 {
+		font-size: 64px;
+	}
+
+	.firstCard h3 {
+		font-size: 18px;
+	}
+
+	.firstCard p {
+		font-size: 14px;
+	}
+	
+	.title {
+		font-size: 32px; /* Smaller title on small screens */
+	}
+
+	.subtitle {
+		font-size: 16px; /* Smaller paragraph on small screens */
+	}
 }

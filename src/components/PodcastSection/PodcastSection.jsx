@@ -59,6 +59,7 @@ function PodcastSection() {
                     </div>
                 </div>
                 <div className={styles.podcastImageContainer}>
+
                     <div className={styles.playContainer}>
                         <div className={styles.playButton}>
                             <button className={styles.playIcon}><img src={PLAY} /></button>
@@ -72,7 +73,8 @@ function PodcastSection() {
                             </text>
                         </svg>
                     </div>
-                    <img src={GIRL} alt="Podcast" className={styles.podcastImage} />
+
+                        <img src={GIRL} alt="Podcast" className={styles.podcastImage} />
                 </div>
             </div>
         </section>

@@ -1,4 +1,4 @@
-import Header from "../Header/Header";
+//import Header from "../Header/Header";
 import HeroSection from "../HeroSection/HeroSection";
 
 import styles from './HomeSection.module.css'
@@ -6,7 +6,7 @@ import styles from './HomeSection.module.css'
 function HomeSection() {
     return (
         <div className={styles.home}>
-            <Header />
+            {/* <Header /> */}
             <HeroSection />
         </div>
     );

@@ -8,10 +8,11 @@
 
 .titleContainer {
 	display: flex;
-	width: 592px;
+	max-width: 592px;
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
+	flex-wrap: wrap;
 }
 
 .title {
@@ -151,4 +152,52 @@
 	font-weight: 500;
 	line-height: 120%; /* 16.8px */
 	letter-spacing: -0.28px;
+}
+
+@media (max-width: 1200px) {
+
+	.container {
+		gap: 40px;
+	}
+
+	.title {
+		font-size: 44px; /* Smaller title on medium screens */
+		text-align: center;
+	}
+
+	.subtitle {
+		font-size: 19px; /* Smaller paragraph on medium screens */
+	}
+}
+
+@media (max-width: 968px) {
+
+	.container {
+		padding: 60px 100px;
+		gap: 32px;
+	}
+
+	.title {
+		font-size: 40px; /* Smaller title on medium screens */
+	}
+
+	.subtitle {
+		font-size: 18px; /* Smaller paragraph on medium screens */
+	}
+}
+
+@media (max-width: 500px) {
+
+	.container {
+		padding: 40px 20px;
+		gap: 24px;
+	}
+
+	.title {
+		font-size: 32px; /* Smaller title on small screens */
+	}
+
+	.subtitle {
+		font-size: 17px; /* Smaller paragraph on small screens */
+	}
 }

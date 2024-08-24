@@ -75,7 +75,9 @@ function FAQSection() {
                         </div>
                     </div>
                 </div>
-                <img className={styles.picture} src={PICTURE} alt='FAQ picture'/>
+                <div className={styles.pictureContainer}>
+                    <img className={styles.picture} src={PICTURE} alt='FAQ picture'/>
+                </div>
             </div>
         </section>
     )

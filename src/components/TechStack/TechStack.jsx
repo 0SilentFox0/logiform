@@ -10,7 +10,7 @@ function TechStack() {
                 </p>
             </div>
 
-            <div className={styles.content}>
+            {/* <div className={styles.content}>
                 <div className={styles.tabs}>
                     <button>Blockchain</button>
                     <button>Back-end</button>
@@ -22,7 +22,7 @@ function TechStack() {
                 <div className={styles.cards}>
                     ff
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }

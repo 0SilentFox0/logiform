@@ -2,17 +2,20 @@ header {
 	display: flex;
 	align-items: center;
 	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	box-sizing: border-box; 
 }
 
 .headerContainer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 1200px;
-	min-width: 1200px;
-	height: 56px;
+	width: 100%;
+	height: auto;
 	
 	z-index: 1000;
+	margin: 0 auto; 
 
 }
 
@@ -42,7 +45,7 @@ nav {
 	height: 56px;
 	background-color: white;
 	border-radius: 80px;
-	padding: 0px 12px;
+	padding: 0px 5px;
 	gap: 10px;
 }
 
@@ -86,4 +89,73 @@ nav ul li {
 	align-items: center;
 	gap: 10px;
 	align-self: stretch;
+}
+
+@media (max-width: 1200px) {
+	.headerContainer {
+		padding: 0 20px;
+		min-width: auto;
+	}
+
+	nav ul li {
+		padding: 10px 14px;
+		font-size: 14px;
+	}
+
+	.contactButton button {
+		width: auto;
+		padding: 10px 20px;
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.headerContainer {
+		flex-direction: column;
+		height: auto;
+	}
+
+	nav {
+		margin-top: 10px;
+		width: 100%;
+		justify-content: space-between;
+		padding: 0 10px;
+	}
+
+	nav ul {
+		flex-direction: column;
+		width: 100%;
+		gap: 0;
+	}
+
+	nav ul li {
+		width: 100%;
+		text-align: center;
+	}
+
+	.contactButton {
+		margin-top: 10px;
+		width: 100%;
+	}
+
+	.contactButton button {
+		width: 100%;
+		padding: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+	.logo span {
+		font-size: 18px;
+	}
+
+	nav ul li {
+		padding: 8px 10px;
+		font-size: 14px;
+	}
+
+	.contactButton button {
+		font-size: 14px;
+		padding: 10px;
+	}
 }

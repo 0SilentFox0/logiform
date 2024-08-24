@@ -2,12 +2,13 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 74px 0px 0px 0;
+	margin-top: 74px;
 	color: white;
 }
 
 .content {
-	width: 590px;
+	width: 100%;
+	max-width: 590px;
 }
 
 .content h1 {
@@ -27,7 +28,7 @@
 	color: #1b9de2;
 }
 
-.contactButton {
+.contactButton button {
 	border-radius: 80px;
 	border: none;
 	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
@@ -43,7 +44,87 @@
 	gap: 10px;
 }
 
+.image {
+	display: flex;
+	justify-content: center;
+}
+
 .image img {
-	width: 663px;
+	width: 100%;
+	max-width: 663px;
 	background-blend-mode: screen;
+}
+
+@media (max-width: 1200px) {
+	.content h1 {
+		font-size: 48px;
+		line-height: 56px;
+	}
+
+	.image img {
+		max-width: 550px; /* Scale down image */
+	}
+}
+
+/* For screens 968px and below */
+@media (max-width: 968px) {
+	.hero {
+		flex-direction: column; /* Stack image below content */
+		align-items: center;
+		text-align: center; /* Center text for narrow screens */
+	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 48px;
+		max-width: 100%; /* Full width for content */
+	}
+
+	.content h1, .content p {
+		margin: 0;
+	}
+
+	.contactButton {
+		
+		display: flex;
+		justify-content: center;
+	}
+
+	.contactButton button {
+		width: 100%;
+		max-width: 330px;
+		font-size: 18px; /* Adjust font size for mobile */
+		padding: 17px 24px; /* Adjust padding for smaller screens *//* Limit max width */
+	}
+
+	.image img {
+		max-width: 500px; /* Further scale down image */
+	}
+}
+
+/* For screens 500px and below */
+@media (max-width: 500px) {
+	.content {
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	.content h1 {
+		font-size: 40px; /* Smaller font size for mobile */
+		line-height: 42px;
+		margin-bottom: 0;
+	}
+
+	.content p {
+		font-size: 18px; /* Adjust font size for mobile */
+		margin-bottom: 0; /* Less margin for smaller screens */
+	}
+
+
+	.image img {
+		max-width: 100%; /* Full width image for mobile */
+	}
 }

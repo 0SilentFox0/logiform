@@ -10,7 +10,7 @@
 
 .title h2 {
 	text-align: center;
-	width: 592px;
+	max-width: 592px;
 
 	font-size: 48px;
 	font-style: normal;
@@ -23,12 +23,11 @@
 	display: flex;
 	align-items: flex-start;
 	gap: 32px;
-	align-self: stretch;
 }
 
 .cards {
 	display: flex;
-	width: 729px;
+	max-width: 729px;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 8px;
@@ -141,13 +140,81 @@
 	height: 20px;
 	flex-shrink: 0;
 
-    position: relative;
-    top: 2px;
-    left: 2px;
+	position: relative;
+	top: 2px;
+	left: 2px;
+}
+
+.pictureContainer {
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border-radius: 48px;
+	
+	max-height: 706px;
+	width: 100%; /* Ensure the container can stretch to its parent's width */
+	height: 100%; /* Ensure the container can stretch to its parent's height */
 }
 
 .picture {
-    width: 439px;
-    height: 706px;
-    border-radius: 48px;
+	border-radius: inherit;
+	width: 100%;
+	height: 1000px;
+	object-fit: cover; /* Ensure the image covers the entire container */
+}
+
+@media (max-width: 1200px) {
+
+	.container {
+		padding: 60px 100px;
+	}
+
+	.content {
+		flex-direction: column-reverse;
+	}
+
+	
+
+	.picture {
+		height: 400px;
+	}
+
+	
+}
+
+@media (max-width: 968px) {
+	.container {
+		padding: 40px 80px;
+	}
+
+	.picture {
+		height: 300px;
+	}
+}
+
+@media (max-width: 500px) {
+
+	.container {
+		padding: 40px 20px;
+	}
+
+	.picture {
+		height: 228px;
+
+	}
+
+	.card {
+		padding: 20px;
+	}
+
+	.cardText h2 {
+		font-size: 18px;
+	}
+
+	.cardContent {
+		gap: 8px;
+	}
+
 }

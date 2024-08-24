@@ -11,7 +11,7 @@ function TestimonialsSection() {
                 </p>
             </div>
 
-            <div className={styles.testimonials}>
+            {/* <div className={styles.testimonials}>
                 <div className={styles.testimonialContainer}>
                     <div className={styles.testimonialFirst}>
                         <div className={styles.quote}>&ldquo;</div>
@@ -50,7 +50,7 @@ function TestimonialsSection() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }

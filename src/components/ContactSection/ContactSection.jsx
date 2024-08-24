@@ -5,8 +5,29 @@ import TWITTER from '../../assets/contactImages/twitter.svg'
 import LINKEDIN from '../../assets/contactImages/linkedin.svg'
 
 import UPLOAD from '../../assets/contactImages/Upload.png'
+import { useEffect, useState } from 'react'
 
 function ContactSection() {
+
+    const [uploadText, setUploadText] = useState('Drag & Drop a File');
+
+    useEffect(() => {
+        const updateTextBasedOnScreenSize = () => {
+            if (window.innerWidth <= 968) {
+                setUploadText('Upload file');
+            } else {
+                setUploadText('Drag & Drop a File');
+            }
+        };
+
+        updateTextBasedOnScreenSize();
+        window.addEventListener('resize', updateTextBasedOnScreenSize);
+
+        return () => {
+            window.removeEventListener('resize', updateTextBasedOnScreenSize);
+        };
+    }, []);
+
     return (
         <section className={styles.container}>
             <div className={styles.contactCard}>
@@ -36,7 +57,7 @@ function ContactSection() {
                     <div className={styles.upload}>
                         <div className={styles.uploadFile}>
                             <img src={UPLOAD} />
-                            <p>Drag & Drop a File</p>
+                            <p>{uploadText}</p>
                         </div>
                     </div>
                     <div className={styles.contactButton}>

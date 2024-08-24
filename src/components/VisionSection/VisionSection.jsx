@@ -60,7 +60,7 @@ function VisionSection() {
 
                     </div>
                 </div>
-                
+
                 <div className={styles.content}>
                     <div className={styles.title}>
                         <h2>Your Vision, Our Code</h2>
@@ -117,66 +117,66 @@ function VisionSection() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.statisticBackground}>
-                    <div className={styles.statisticsContainer}>
-                        <div className={styles.statistics}>
-                            <div className={styles.statistic}>
-                                <div className={styles.numbersOfPeople}>
-                                    <h2>20+</h2>
-                                    <p>People Onboard</p>
-                                </div>
-                            </div>
-                            <div className={styles.statistic}>
-                                <div className={styles.numbersOfProjects}>
-                                    <h2>50+</h2>
-                                    <p>Successfully Delivered Projects</p>
-                                </div>
-                            </div>
-                            <div className={styles.statistic}>
-                                <div className={styles.numbersOfClients}>
-                                    <h2>60%</h2>
-                                    <p>Clients Who Came To Us By Referrals</p>
-                                </div>
+
+                <div className={styles.statisticsContainer}>
+                    <div className={styles.statistics}>
+                        <div className={styles.statistic}>
+                            <div className={styles.text}>
+                                <h2>20+</h2>
+                                <p>People Onboard</p>
                             </div>
                         </div>
-
-                        <div className={styles.statisticsInfo}>
-                            <p>Logiform streamlines the development process, delivering clean, secure, and scalable code that brings your vision to life. Our expertise tackles projects of any complexity.</p>
-
-                            <div className={styles.rating}>
-                                <div className={styles.stars}>
-                                    <span>★</span>
-                                    <span>★</span>
-                                    <span>★</span>
-                                    <span>★</span>
-                                    <span>★</span>
-                                </div>
-
-                                <button className={styles.contactButton}>Contact us</button>
+                        <div className={styles.statistic}>
+                            <div className={styles.text}>
+                                <h2>50+</h2>
+                                <p>Successfully Delivered Projects</p>
+                            </div>
+                        </div>
+                        <div className={styles.statistic}>
+                            <div className={styles.text}>
+                                <h2>60%</h2>
+                                <p>Clients Who Came To Us By Referrals</p>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.line} />
 
-                </div>
+                    <div className={styles.statisticsInfo}>
+                        <p>Logiform streamlines the development process, delivering clean, secure, and scalable code that brings your vision to life. Our expertise tackles projects of any complexity.</p>
 
-                <div className={styles.footerContainer}>
-                    <div className={styles.footer}>
-                        <p>As an agile team
-                            <div className={styles.avatars}>
-                                <img src={AVA1} /><img src={AVA2} /><img src={AVA3} />
+                        <div className={styles.rating}>
+                            <div className={styles.stars}>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
                             </div>
-                            we cut through red tape and move quickly.
-                        </p>
-                        <p> We are dedicated, transparent, communicate clearly and honestly.</p>
-                        <p>Proudly reliable, we tackle challenges with strong technical skills</p>
-                        <p>and market expertise, delivering effective results
-                            <div className={styles.doubleStars}>
-                                <img src={STARS} />
-                            </div>
-                        </p>
+
+                            <button className={styles.contactButton}>Contact us</button>
+                        </div>
                     </div>
                 </div>
+                {/* <div className={styles.line} /> */}
+                <div className={styles.teamBackground}>
+                    <div className={styles.teamContainer}>
+                        <div className={styles.agileTeamSection}>
+                            As an agile team<span className={styles.teamImages}><img src={AVA1} /> <img src={AVA2} /> <img src={AVA3} /></span>we cut through red tape and move quickly.
+                            We are dedicated, transparent, communicate clearly and honestly.
+                            Proudly reliable, we tackle challenges with strong technical skills
+                            and market expertise, delivering effective results<span className={styles.starsImage}><img src={STARS} /></span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* <div className={styles.agileTeamSection}>
+                    <p className={styles.teamText}>
+                        As an agile team <span className={styles.teamImages}><img src={AVA1} /> <img src={AVA2} /> <img src={AVA3} /></span> we cut through red tape and move quickly.
+                        <br />
+                        We are dedicated, transparent, communicate clearly and honestly.
+                        <br />
+                        <span className={styles.teamHighlight}>Proudly reliable</span>, we tackle challenges with strong technical skills and market expertise, delivering effective results <span className={styles.starIcon}><img src={STARS} /></span>
+                    </p>
+                </div> */}
 
             </div>
         </section>

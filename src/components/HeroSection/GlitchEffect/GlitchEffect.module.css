@@ -454,3 +454,15 @@
 	animation: paths 8s step-end infinite, opacity 7s step-end infinite, font 7s step-end infinite,
 		movement 2s step-end infinite;
 }
+
+@media (max-width: 1200px) {
+	span, .glitch {
+		font-size: 48px;
+	}
+}
+
+@media (max-width: 500px) {
+	span, .glitch {
+		font-size: 40px;
+	}
+}

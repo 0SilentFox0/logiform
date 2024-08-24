@@ -116,3 +116,71 @@
 
 	color: var(--Neutral-Neutral-05, #fff);
 }
+
+@media (max-width: 1200px) {
+	.infoContainer {
+		padding: 0 20px;
+		gap: 32px
+	}
+
+
+	
+
+	.logo span {
+		font-size: 28px;
+	}
+}
+
+@media (max-width: 968px) {
+	.infoContainer {
+		flex-direction: column;
+		text-align: center;
+	}
+
+
+
+	.info {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.actions {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	
+
+	.actions button {
+		font-size: 18px;
+		padding: 5px 12px;
+	}
+
+	.socialsContainer {
+		width: auto;
+	}
+
+	.social {
+		width: 26px;
+		height: 26px;
+	}
+}
+
+@media (max-width: 500px) {
+	.container {
+		margin-top: -21px;
+		position: absolute;
+		background: none;
+		width: 100%;
+	}
+
+	.footer {
+		border-radius: 24px 24px 0 0;
+	}
+
+	.info {
+		gap: 16px;
+	}
+
+	
+}

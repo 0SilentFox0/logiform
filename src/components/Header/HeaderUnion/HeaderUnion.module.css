@@ -1,8 +1,6 @@
 .union {
     display: flex;
-    justify-content: center;
     position: absolute;
-    left: -7px;
-    top: -8px;
-
+    max-width: 1200px;
+    width: 100%;
 }
