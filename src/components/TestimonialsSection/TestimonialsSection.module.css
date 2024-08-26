@@ -1,9 +1,9 @@
 .container {
 	display: flex;
-	padding: 80px 120px;
 	flex-direction: column;
 	align-items: center;
 	gap: 48px;
+	padding: 80px 0;
 }
 
 .titleContainer {
@@ -33,62 +33,42 @@
 	color: var(--Neutral-Neutral-60, #363f45);
 }
 
-.testimonials {
-	display: flex;
-	align-items: center;
-	gap: 24px;
+/* SwiperComponent.module.css */
+.swiperContainer {
+	width: 100%;
 }
 
-.testimonialContainer {
+.sliderWrapper {
 	display: flex;
-	padding-top: 48px;
-	align-items: center;
-	gap: 10px;
-	width: 373px;
+	gap: 16px;
+	padding: 30px 0;
+
 }
 
-.testimonialContainerCenter {
+.swiperSlide {
+	border-radius: 24px;
 	display: flex;
-	padding-bottom: 24px;
 	align-items: center;
-	gap: 10px;
-	width: 382.98px;
+	max-width: 367px;
+	margin: 0 20px;
 }
 
-.testimonialFirst {
+.testimonial {
+	max-width: 367px;
 	display: flex;
 	padding: 32px;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 24px;
-
 	border-radius: 24px;
+
+
 	background: var(--Gray-light, #f6f6f6);
 }
 
-.testimonialThird {
-	display: flex;
-	padding: 32px;
-	height: 310px;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 24px;
-
-	border-radius: 24px;
-	background: var(--Gray-light, #f6f6f6);
-}
-
-.testimonialCenter {
-	display: flex;
-	padding: 40px;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 24px;
-
-	border-radius: 24px;
-	background: var(--Gray-light, #f6f6f6);
-	/* Testimonial shadow */
-	box-shadow: 0px 6px 32px 0px rgba(0, 0, 0, 0.2);
+.activeSlide {
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+	transition: box-shadow 0.3s ease-in-out;
 }
 
 .testimonialInfo {
@@ -97,14 +77,6 @@
 	align-items: flex-start;
 	gap: 32px;
 	align-self: stretch;
-}
-
-.testimonialInfoThird {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 32px;
-	flex: 1 0 0;
 }
 
 .quote {
@@ -120,18 +92,7 @@
 }
 
 .text {
-	width: 302.98px;
-
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 24px;
-}
-
-.textThird {
-	width: 302.98px;
-	flex: 1 0 0;
-
+	margin: 0;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
@@ -145,6 +106,10 @@
 	gap: 8px;
 }
 
+.authorInfo p {
+	margin: 0;
+}
+
 .company {
 	color: var(--Cyan-Cyan-30, #1b9de2);
 	font-size: 14px;
@@ -152,10 +117,10 @@
 	font-weight: 500;
 	line-height: 120%; /* 16.8px */
 	letter-spacing: -0.28px;
+	margin: 0;
 }
 
 @media (max-width: 1200px) {
-
 	.container {
 		gap: 40px;
 	}
@@ -171,7 +136,6 @@
 }
 
 @media (max-width: 968px) {
-
 	.container {
 		padding: 60px 100px;
 		gap: 32px;
@@ -187,7 +151,6 @@
 }
 
 @media (max-width: 500px) {
-
 	.container {
 		padding: 40px 20px;
 		gap: 24px;
