@@ -66,7 +66,7 @@
 	overflow: hidden;
 	justify-content: center;
 	align-items: flex-start;
-	transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
+	transition: 0.7s cubic-bezier(.08, -0.03, 0, .85);
 }
 
 .card > .row {
@@ -100,13 +100,13 @@
 }
 
 .description p {
-	color: #b0b0ba;
+	color: white;
 	font-size: 14px;
 }
 
 .description h4 {
 	text-transform: uppercase;
-	color: #b0b0ba;
+	color: white;
 }
 
 input {
