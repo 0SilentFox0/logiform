@@ -29,6 +29,24 @@
 	align-items: flex-start;
 	gap: 32px;
 	align-self: stretch;
+    overflow-y: scroll;
+    min-width: 410px;
+}
+
+.episodeList::-webkit-scrollbar {
+    width: 8px;
+}
+
+.episodeList::-webkit-scrollbar-thumb {
+    background-color: #1b9de2;
+    border-radius: 80px;
+
+}
+
+.episodeList::-webkit-scrollbar-track {
+    background-color: #ededed;
+    border-radius: 80px;
+
 }
 
 .episodeContainer {
@@ -36,7 +54,31 @@
 	flex-direction: column;
 	align-items: flex-end;
 	gap: 24px;
-	width: 484px;
+    width: 484px;
+    min-width: 370px;
+    position: relative;
+}
+
+.episodeContainer::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: 102px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 9.48%, #FFF 212.07%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.episodeLink {
+    text-decoration: none;
+    color: inherit;
+	align-self: stretch;
+}
+
+.episodeLink:hover .episode {
+    /* Add your hover effects here, if any */
+    background-color: #eeeeee;
 }
 
 .episode {
@@ -44,7 +86,9 @@
 	justify-content: center;
 	align-items: flex-start;
 	gap: 16px;
-	align-self: stretch;
+	padding: 10px 0px;
+	border-radius: 8px;
+
 }
 
 .line {
@@ -266,6 +310,10 @@
 		justify-content: center;
 	}
 
+    .episodeList::-webkit-scrollbar {
+        display: none;
+    }
+
 	.episodeContainer {
 		width: 100%;
 	}
@@ -296,6 +344,14 @@
 	.content {
 		flex-direction: column-reverse;
 	}
+
+    .episodeContainer {
+        min-width: 325px;
+    }
+
+    .episodeList {
+        min-width: 325px;
+    }
 
 	.episode {
 		justify-content: start;
