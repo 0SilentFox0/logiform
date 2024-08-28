@@ -147,6 +147,15 @@
 	.picture {
 		height: 400px;
 	}
+
+	.arrowDownImg {
+		top: -25px
+	}
+
+	.arrowUpImg {
+		position: relative;
+		top: -26px
+	}
 }
 
 @media (max-width: 968px) {
