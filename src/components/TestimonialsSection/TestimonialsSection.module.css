@@ -40,9 +40,7 @@
 
 .sliderWrapper {
 	display: flex;
-	gap: 16px;
 	padding: 30px 0;
-
 }
 
 .swiperSlide {

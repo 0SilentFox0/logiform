@@ -86,7 +86,6 @@
 	justify-content: center;
 	align-items: flex-start;
 	gap: 16px;
-	padding: 10px 0px;
 	border-radius: 8px;
 
 }
@@ -188,24 +187,6 @@
 	color: var(--Neutral-Neutral-50, #7c7f86);
 }
 
-.scrollContainer {
-	display: flex;
-	align-items: flex-start;
-	gap: 10px;
-	align-self: stretch;
-
-	border-radius: 80px;
-	background: var(--Neutral-Neutral-30, #ededed);
-}
-
-.scroll {
-	width: 8px;
-	height: 38px;
-
-	border-radius: 80px;
-	background: var(--Cyan-Cyan-30, #1b9de2);
-}
-
 .podcastImageContainer {
 	position: relative;
 	padding-left: 29.5px;
@@ -229,17 +210,20 @@
 	position: absolute;
 	top: 180px;
 	left: 10px;
-	width: 102px;
-	height: 102px;
+	width: 100px;
+	height: 100px;
 }
 
 .circle {
 	transform: rotate(-100deg);
+	animation: rotate 14s linear infinite;
+
 }
 
 .circularText {
 	font-size: 16px;
-	letter-spacing: 7px;
+	letter-spacing: 5.9px;
+	pointer-events: none;
 }
 
 .playButton {
@@ -247,17 +231,25 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	z-index: 100;
 }
 
 .playIcon {
+	position: relative;
+	left: 1px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 24px;
 	height: 24px;
 	border: none;
 	background: none;
 	cursor: pointer;
+}
+
+.playIcon img {
+	width: 18px;
+	height: 18px;
 }
 
 .circle path {

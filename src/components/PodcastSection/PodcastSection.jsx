@@ -68,8 +68,8 @@ function PodcastSection() {
                         <div className={styles.playButton}>
                             <button className={styles.playIcon}><img src={PLAY} /></button>
                         </div>
-                        <svg className={styles.circle} viewBox="0 2 100 100">
-                            <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 78,0 a 38,38 0 1,1 -78,0" />
+                        <svg className={styles.circle} viewBox="0 0 100 100">
+                            <path id="circlePath" d="M50 12 a37 37 0 1 1 0 77 a37 37 0 1 1 0 -77" />
                             <text className={styles.circularText}>
                                 <textPath href="#circlePath">
                                     Discover Discover
