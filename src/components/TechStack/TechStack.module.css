@@ -92,11 +92,7 @@
 		gap: 32px;
 	}
 
-	.tabs {
-		overflow: hidden;
-	}
-
-	.tabs button {
+	.tab {
 		font-weight: 400;
 		font-size: 16px;
 	}
@@ -117,10 +113,11 @@
 	}
 
 	.tabs {
-		overflow: scroll;
+		max-width: 337px;
+		overflow-x: scroll;
 	}
 
-	.tabs button {
+	.tab {
 		height: 40px;
 	}
 

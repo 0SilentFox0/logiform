@@ -4,29 +4,22 @@ import INSTAGRAM from '../../assets/contactImages/instagram.svg'
 import TWITTER from '../../assets/contactImages/twitter.svg'
 import LINKEDIN from '../../assets/contactImages/linkedin.svg'
 
-import UPLOAD from '../../assets/contactImages/Upload.png'
-import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import UploadFiles from './UploadFiles/UploadFiles';
 
 function ContactSection() {
 
-    const [uploadText, setUploadText] = useState('Drag & Drop a File');
+    const { register, handleSubmit, formState, setValue, trigger } = useForm({
+        mode: 'onChange'
+    })
 
-    useEffect(() => {
-        const updateTextBasedOnScreenSize = () => {
-            if (window.innerWidth <= 968) {
-                setUploadText('Upload file');
-            } else {
-                setUploadText('Drag & Drop a File');
-            }
-        };
+    const nameError = formState.errors['name']?.message
+    const emailError = formState.errors['email']?.message
+    const messageError = formState.errors['message']?.message
 
-        updateTextBasedOnScreenSize();
-        window.addEventListener('resize', updateTextBasedOnScreenSize);
-
-        return () => {
-            window.removeEventListener('resize', updateTextBasedOnScreenSize);
-        };
-    }, []);
+    const onSubmit = (data) => {
+        console.log(data)
+    }
 
     return (
         <section className={styles.container}>
@@ -48,23 +41,43 @@ function ContactSection() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.formContainer}>
+                <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.form}>
-                        <input className={styles.name} type='text' placeholder='Your name *' />
-                        <input className={styles.email} type='text' placeholder='Your email address *' />
-                        <textarea className={styles.tellUs} type='textarea' placeholder='Tell us about your project' />
+                        {nameError && (
+                            <p className={styles.errorText}>
+                                {nameError}
+                            </p>
+                        )}
+                        <input className={styles.name} type='text' placeholder='Your name *' {...register('name', {
+                            required: 'This field is required'
+                        })} />
+                        {emailError && (
+                            <p className={styles.errorText}>
+                                {emailError}
+                            </p>
+                        )}
+                        <input className={styles.email} type='text' placeholder='Your email address *' {...register('email', {
+                            required: 'This field is required',
+                            pattern: {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                message: 'Invalid email address'
+                            }
+                        })} />
+                        {messageError && (
+                            <p className={styles.errorText}>
+                                {messageError}
+                            </p>
+                        )}
+                        <textarea className={styles.tellUs} type='textarea' placeholder='Tell us about your project' {...register('message', {
+                            required: 'This field is required'
+                        })} />
                     </div>
-                    <div className={styles.upload}>
-                        <div className={styles.uploadFile}>
-                            <img src={UPLOAD} />
-                            <p>{uploadText}</p>
-                        </div>
-                    </div>
+                    <UploadFiles setValue={setValue} trigger={trigger} />
                     <div className={styles.contactButton}>
-                        <button>Contact us</button>
+                        <button type='submit'>Contact us</button>
                         <p>*By clicking the button on the left, you agree to the Privacy Policy.</p>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
     )
