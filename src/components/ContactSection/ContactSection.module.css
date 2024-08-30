@@ -298,5 +298,6 @@
 	.contactButton button {
 		padding: 15px 24px;
 		font-size: 18px;
+		color: black;
 	}
 }
