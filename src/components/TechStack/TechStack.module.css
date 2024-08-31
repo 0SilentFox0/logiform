@@ -448,6 +448,10 @@
 		height: 40px;
 	}
 
+	.tab {
+		text-wrap: nowrap;
+	}
+
 	.title {
 		font-size: 32px; /* Smaller title on small screens */
 	}
