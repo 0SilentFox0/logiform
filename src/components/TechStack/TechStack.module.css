@@ -61,6 +61,7 @@
 	text-wrap: nowrap;
 	font-size: 16px;
 	font-weight: 500;
+	color: black;
 
 	border-radius: 80px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
@@ -414,6 +415,7 @@
 	.tab {
 		font-weight: 400;
 		font-size: 16px;
+		text-wrap: nowrap;
 	}
 
 	.title {
