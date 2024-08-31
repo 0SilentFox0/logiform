@@ -79,6 +79,7 @@
 	grid-template-columns: repeat(6, 1fr); /* Define 6 equal columns */
 	grid-template-rows: repeat(8, 1fr); /* Define 4 equal rows */
 	gap: 16px; /* Space between grid items */
+	width: 1200px;
 }
 
 .activeContainerGrid {
@@ -427,7 +428,7 @@
 	}
 
     .content {
-        transform: scale(0.40); /* Уменьшение до 75% от исходного размера */
+        transform: scale(0.38); /* Уменьшение до 75% от исходного размера */
         transform-origin: top center; /* Устанавливает точку масштабирования */
 		height: 222px;
     }
@@ -461,9 +462,9 @@
 	}
 
     .content {
-        transform: scale(0.32); /* Уменьшение до 75% от исходного размера */
+        transform: scale(0.29); /* Уменьшение до 75% от исходного размера */
         transform-origin: top center; /* Устанавливает точку масштабирования */
 		height: 177px;
-		width: 375px;
+
     }
 }

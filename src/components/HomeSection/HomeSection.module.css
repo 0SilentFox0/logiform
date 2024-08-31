@@ -8,7 +8,6 @@
 	height: 100%;
 	max-width: 1440px;
   	padding: 25px 120px 120px 120px;
-	position: relative;
 }
 
 @media (max-width: 1200px) {
@@ -21,10 +20,18 @@
 	.home {
 		padding: 20px 60px 40px 60px;
 	}
+
+	.noPadding {
+		padding: 0; /* Убираем padding, если overlay открыт */
+	}
 }
 
 @media (max-width: 500px) {
 	.home {
 		padding: 20px 24px 0px 24px;
+	}
+
+	.noPadding {
+		padding: 0; /* Убираем padding, если overlay открыт */
 	}
 }

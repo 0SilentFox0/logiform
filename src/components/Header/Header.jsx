@@ -7,12 +7,15 @@ import { useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { IoMenuOutline } from 'react-icons/io5'
 
-function Header() {
+// eslint-disable-next-line react/prop-types
+function Header({ setIsOverlayOpen }) {
 
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleNavbar = () => {
-        setIsOpen(!isOpen)
+        const newState = !isOpen;
+        setIsOpen(newState);
+        setIsOverlayOpen(newState);
     }
 
     return (

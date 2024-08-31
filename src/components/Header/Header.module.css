@@ -93,7 +93,8 @@ nav ul li {
 .burgerMenu,
 .overlayMenu,
 .contactButtonMenu,
-.burgerMenuOpen {
+.burgerMenuOpen,
+.overlay {
 	display: none;
 }
 
@@ -221,6 +222,8 @@ nav ul li {
 	}
 
 	.burgerMenuOpen {
+		right: 61px;
+		top: 21px;
 		display: block;
 		position: relative;
 		background: black;
@@ -241,13 +244,13 @@ nav ul li {
 	}
 
 	.overlay {
-		position: fixed; /* Changes from fixed to absolute */
+		position: absolute; /* Changes from fixed to absolute */
 		padding: 80px 60px 68px 60px;
 		top: 0;
 		left: 0;
 		width: calc(100% - 120px);
-		height: 100%; /* Makes overlay fill the height of its parent */
-		background-color: rgb(255, 255, 255); /* Полупрозрачный черный фон */
+		height: 590px; /* Makes overlay fill the height of its parent */
+		background: linear-gradient(180deg, #F6F6F6 80%, rgba(246, 246, 246, 0.00) 100%);
 		display: flex;
 		flex-direction: column;
 		gap: 140px;
@@ -292,7 +295,8 @@ nav ul li {
 @media (max-width: 500px) {
 	.overlay {
 		padding: 80px 24px 48px 24px;
-		width: calc(100% - 49px);
+		width: calc(100% - 48px);
+		height: 670px;
 	}
 
 	.overlay li {
@@ -318,6 +322,12 @@ nav ul li {
 
 	.burgerMenu button {
 		font-size: 22px;
+	}
+
+	.burgerMenuOpen {
+		padding: 12px;
+		right: 24px;
+		top: 20px
 	}
 
 	.contactButtonMenu button {
