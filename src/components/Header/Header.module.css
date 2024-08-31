@@ -4,7 +4,7 @@ header {
 	position: relative;
 	width: 100%;
 	max-width: 1200px;
-	box-sizing: border-box; 
+	box-sizing: border-box;
 }
 
 .headerContainer {
@@ -13,10 +13,7 @@ header {
 	align-items: center;
 	width: 100%;
 	height: auto;
-	
-	z-index: 1000;
-	margin: 0 auto; 
-
+	position: relative;
 }
 
 .logo {
@@ -52,8 +49,10 @@ nav {
 nav ul {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	list-style-type: none;
 	gap: 8px;
+	width: 100%;
 }
 
 nav ul li {
@@ -91,71 +90,237 @@ nav ul li {
 	align-self: stretch;
 }
 
-@media (max-width: 1200px) {
+.burgerMenu,
+.overlayMenu,
+.contactButtonMenu,
+.burgerMenuOpen {
+	display: none;
+}
+
+@media (max-width: 1376px) {
 	.headerContainer {
-		padding: 0 20px;
-		min-width: auto;
+		background: white;
+		border-radius: 80px;
+		filter: drop-shadow(0px 0px 8px #1b9de2) drop-shadow(0px 0px 4px #1b9de2);
+	}
+
+	.logo {
+		padding: 8px 4px 8px 24px;
+	}
+
+	.logo img {
+		width: 30px;
+	}
+
+	.logo span {
+		font-size: 20px;
 	}
 
 	nav ul li {
-		padding: 10px 14px;
+		padding: 10px 11px;
 		font-size: 14px;
 	}
 
+	.nav {
+		padding: 0;
+		width: 100%;
+	}
+
 	.contactButton button {
-		width: auto;
-		padding: 10px 20px;
 		font-size: 16px;
+		width: 170px;
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 	.headerContainer {
-		flex-direction: column;
-		height: auto;
+		gap: 0px;
 	}
 
-	nav {
-		margin-top: 10px;
-		width: 100%;
-		justify-content: space-between;
-		padding: 0 10px;
+	.logo {
+		padding: 8px 16px;
 	}
 
-	nav ul {
-		flex-direction: column;
-		width: 100%;
-		gap: 0;
+	.logo img {
+		width: 25px;
 	}
 
-	nav ul li {
-		width: 100%;
-		text-align: center;
-	}
-
-	.contactButton {
-		margin-top: 10px;
-		width: 100%;
-	}
-
-	.contactButton button {
-		width: 100%;
-		padding: 12px;
-	}
-}
-
-@media (max-width: 480px) {
 	.logo span {
 		font-size: 18px;
 	}
 
+	nav ul {
+		gap: 0px;
+		justify-content: space-around;
+	}
+
 	nav ul li {
-		padding: 8px 10px;
-		font-size: 14px;
+		padding: 10px 8px;
+		font-size: 12px;
+	}
+
+	.nav {
+		padding: 0;
 	}
 
 	.contactButton button {
+		width: 130px;
+		padding: 13px 18px;
 		font-size: 14px;
-		padding: 10px;
+	}
+}
+
+@media (max-width: 968px) {
+	.nav,
+	.contactButton {
+		display: none;
+	}
+
+	.headerContainer {
+		background: none;
+		filter: none;
+	}
+
+	.logo {
+		background: none;
+		padding: 0;
+	}
+
+	.logo span {
+		color: white;
+	}
+
+	.logo span {
+		font-size: 30px;
+	}
+
+	.logo img {
+		width: 45px;
+		height: 45px;
+	}
+
+	.burgerMenu {
+		display: block;
+		position: relative;
+		background: none;
+		border: 1px solid white;
+		border-radius: 120px;
+		padding: 14px;
+		z-index: 9999;
+	}
+
+	.burgerMenu button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: none;
+		border: none;
+		color: white;
+		font-size: 24px;
+		z-index: 9999;
+	}
+
+	.burgerMenuOpen {
+		display: block;
+		position: relative;
+		background: black;
+		border-radius: 120px;
+		padding: 14px;
+		z-index: 9999;
+	}
+
+	.burgerMenuOpen button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: black;
+		border: none;
+		color: white;
+		font-size: 24px;
+		z-index: 9999;
+	}
+
+	.overlay {
+		position: fixed; /* Changes from fixed to absolute */
+		padding: 80px 60px 68px 60px;
+		top: 0;
+		left: 0;
+		width: calc(100% - 120px);
+		height: 100%; /* Makes overlay fill the height of its parent */
+		background-color: rgb(255, 255, 255); /* Полупрозрачный черный фон */
+		display: flex;
+		flex-direction: column;
+		gap: 140px;
+		z-index: 9998; /* Поверх всех элементов */
+	}
+
+	.overlayMenu {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		gap: 8px;
+	}
+
+	.overlayMenu li {
+		padding: 4px 0;
+		font-size: 24px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.contactButtonMenu {
+		display: block;
+	}
+
+	.contactButtonMenu {
+		display: flex;
+		justify-content: center;
+	}
+
+	.contactButtonMenu button {
+		width: 300px;
+		font-size: 18px;
+		color: white;
+		border: none;
+		padding: 13px 24px;
+		align-self: stretch;
+		border-radius: 80px;
+		background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
+	}
+}
+
+@media (max-width: 500px) {
+	.overlay {
+		padding: 80px 24px 48px 24px;
+		width: calc(100% - 49px);
+	}
+
+	.overlay li {
+		font-size: 16px;
+	}
+
+	.overlayMenu {
+		width: 100%;
+	}
+
+	.logo img {
+		width: 37px;
+		height: 37px;
+	}
+
+	.logo span {
+		font-size: 22px;
+	}
+
+	.burgerMenu {
+		padding: 12px;
+	}
+
+	.burgerMenu button {
+		font-size: 22px;
+	}
+
+	.contactButtonMenu button {
+		width: 100%;
 	}
 }

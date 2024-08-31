@@ -4,10 +4,11 @@
 }
 
 .home {
-	background: var(--background, url(/src//assets/background.png) lightgray 50% / cover no-repeat);
+	background: var(--background, url(/src/assets/background.png) lightgray 50% / cover no-repeat);
 	height: 100%;
 	max-width: 1440px;
   	padding: 25px 120px 120px 120px;
+	position: relative;
 }
 
 @media (max-width: 1200px) {
@@ -18,7 +19,7 @@
 
 @media (max-width: 968px) {
 	.home {
-		padding: 20px 80px 40px 80px;
+		padding: 20px 60px 40px 60px;
 	}
 }
 
