@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 74px;
+	margin-top: 120px;
 	color: white;
 }
 
@@ -26,6 +26,10 @@
 
 .highlight {
 	color: #1b9de2;
+}
+
+.anchor {
+	text-decoration: none;
 }
 
 .contactButton button {
@@ -94,8 +98,7 @@
 	}
 
 	.contactButton button {
-		width: 100%;
-		max-width: 330px;
+		width: 327px;
 		font-size: 18px; /* Adjust font size for mobile */
 		padding: 17px 24px; /* Adjust padding for smaller screens *//* Limit max width */
 	}
@@ -123,7 +126,6 @@
 		font-size: 18px; /* Adjust font size for mobile */
 		margin-bottom: 0; /* Less margin for smaller screens */
 	}
-
 
 	.image img {
 		max-width: 100%; /* Full width image for mobile */

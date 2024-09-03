@@ -22,7 +22,7 @@ function ContactSection() {
     }
 
     return (
-        <section className={styles.container}>
+        <section className={styles.container} id='contact'>
             <div className={styles.contactCard}>
                 <div className={styles.content}>
                     <div className={styles.text}>

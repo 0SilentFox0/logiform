@@ -6,19 +6,44 @@
 .home {
 	background: var(--background, url(/src/assets/background.png) lightgray 50% / cover no-repeat);
 	height: 100%;
-	max-width: 1440px;
+	max-width: 100%;
   	padding: 25px 120px 120px 120px;
+	position: relative;
+	display: flex;
+    flex-direction: column;
+}
+
+.headerWrapper {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+    top: 30px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 120px;
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
 @media (max-width: 1200px) {
 	.home {
 		padding: 20px 100px 60px 100px;
 	}
+
+	.headerWrapper {
+		padding: 0 100px;
+	}
 }
 
 @media (max-width: 968px) {
 	.home {
 		padding: 20px 60px 40px 60px;
+	}
+
+	.headerWrapper {
+		padding: 0 60px;
 	}
 
 	.noPadding {
@@ -29,6 +54,10 @@
 @media (max-width: 500px) {
 	.home {
 		padding: 20px 24px 0px 24px;
+	}
+
+	.headerWrapper {
+		padding: 0 24px;
 	}
 
 	.noPadding {

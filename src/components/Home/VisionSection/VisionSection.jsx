@@ -1,27 +1,28 @@
 import styles from './VisionSection.module.css'
 
-import NimiqLogo from '../../assets/companyLogos/nimiq.png'
-import MythicalLogo from '../../assets/companyLogos/mythical.png'
-import NexoLogo from '../../assets/companyLogos/nexo.png'
-import CoinboundLogo from '../../assets/companyLogos/coinbound.png'
-import HalbornLogo from '../../assets/companyLogos/halborn.svg'
-import EdmundoLogo from '../../assets/companyLogos/edmundo.png'
-import DeedyLogo from '../../assets/companyLogos/deedy.png'
-import TronLogo from '../../assets/companyLogos/tron.png'
-import OKXLogo from '../../assets/companyLogos/okx.png'
-import EtoroLogo from '../../assets/companyLogos/etoro.png'
-import KionlyLogo from '../../assets/companyLogos/kionly.png'
+import NimiqLogo from '../../../assets/companyLogos/nimiq.png'
+import MythicalLogo from '../../../assets/companyLogos/mythical.png'
+import NexoLogo from '../../../assets/companyLogos/nexo.png'
+import CoinboundLogo from '../../../assets/companyLogos/coinbound.png'
+import HalbornLogo from '../../../assets/companyLogos/halborn.svg'
+import EdmundoLogo from '../../../assets/companyLogos/edmundo.png'
+import DeedyLogo from '../../../assets/companyLogos/deedy.png'
+import TronLogo from '../../../assets/companyLogos/tron.png'
+import OKXLogo from '../../../assets/companyLogos/okx.png'
+import EtoroLogo from '../../../assets/companyLogos/etoro.png'
+import KionlyLogo from '../../../assets/companyLogos/kionly.png'
 
-import MEDAL from '../../assets/cardsImages/medal.svg'
-import LAMP from '../../assets/cardsImages/lamp.svg'
-import GRAPH from '../../assets/cardsImages/graph.svg'
-import LOCK from '../../assets/cardsImages/lock.svg'
-import TARGET from '../../assets/cardsImages/target.svg'
+import MEDAL from '../../../assets/cardsImages/medal.svg'
+import LAMP from '../../../assets/cardsImages/lamp.svg'
+import GRAPH from '../../../assets/cardsImages/graph.svg'
+import LOCK from '../../../assets/cardsImages/lock.svg'
+import TARGET from '../../../assets/cardsImages/target.svg'
 
-import AVA1 from '../../assets/avatars/ava1.png'
-import AVA2 from '../../assets/avatars/ava2.png'
-import AVA3 from '../../assets/avatars/ava3.png'
-import STARS from '../../assets/avatars/Star.png'
+import AVA1 from '../../../assets/avatars/ava1.png'
+import AVA2 from '../../../assets/avatars/ava2.png'
+import AVA3 from '../../../assets/avatars/ava3.png'
+import STARS from '../../../assets/avatars/Star.png'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 
 function VisionSection() {
@@ -152,11 +153,11 @@ function VisionSection() {
                                 <span>★</span>
                             </div>
 
-                            <button className={styles.contactButton}>Contact us</button>
+                            <AnchorLink href='#contact' className={styles.anchor}><button className={styles.contactButton}>Contact us</button></AnchorLink>
                         </div>
                     </div>
                 </div>
-                {/* <div className={styles.line} /> */}
+
                 <div className={styles.teamBackground}>
                     <div className={styles.teamContainer}>
                         <div className={styles.agileTeamSection}>
@@ -167,17 +168,6 @@ function VisionSection() {
                         </div>
                     </div>
                 </div>
-
-                {/* <div className={styles.agileTeamSection}>
-                    <p className={styles.teamText}>
-                        As an agile team <span className={styles.teamImages}><img src={AVA1} /> <img src={AVA2} /> <img src={AVA3} /></span> we cut through red tape and move quickly.
-                        <br />
-                        We are dedicated, transparent, communicate clearly and honestly.
-                        <br />
-                        <span className={styles.teamHighlight}>Proudly reliable</span>, we tackle challenges with strong technical skills and market expertise, delivering effective results <span className={styles.starIcon}><img src={STARS} /></span>
-                    </p>
-                </div> */}
-
             </div>
         </section>
     )

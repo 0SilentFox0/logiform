@@ -1,3 +1,4 @@
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import styles from './HowItWorksSection.module.css'
 
 function HowItWorksSection() {
@@ -67,7 +68,7 @@ function HowItWorksSection() {
                     </label>
                 </div>
             </div>
-            <button className={styles.contactButton}>Contact us</button>
+            <AnchorLink href='#contact' className={styles.anchor}><button className={styles.contactButton}>Contact us</button></AnchorLink>
         </section>
     )
 }

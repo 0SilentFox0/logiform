@@ -140,6 +140,10 @@ input:checked + label .description {
 	transform: translate(0) !important;
 }
 
+.anchor {
+	text-decoration: none;
+}
+
 .contactButton {
 	display: flex;
 	width: 175px;

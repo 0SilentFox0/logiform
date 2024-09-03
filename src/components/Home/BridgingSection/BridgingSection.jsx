@@ -1,12 +1,12 @@
 import styles from './BridgingSection.module.css'
 
-import TechnicalExpertise from '../../assets/bridgingImages/TechnicalExpertise.png'
-import TransparencyAndTrust from '../../assets/bridgingImages/TransparencyAndTrust.png'
-import DeadlinesAndCosts from '../../assets/bridgingImages/DeadlinesAndCosts.png'
+import TechnicalExpertise from '../../../assets/bridgingImages/TechnicalExpertise.png'
+import TransparencyAndTrust from '../../../assets/bridgingImages/TransparencyAndTrust.png'
+import DeadlinesAndCosts from '../../../assets/bridgingImages/DeadlinesAndCosts.png'
 
-import BAG from '../../assets/bridgingImages/bag.svg'
-import FLAG from '../../assets/bridgingImages/flag.svg'
-import HANDS from '../../assets/bridgingImages/hands.svg'
+import BAG from '../../../assets/bridgingImages/bag.svg'
+import FLAG from '../../../assets/bridgingImages/flag.svg'
+import HANDS from '../../../assets/bridgingImages/hands.svg'
 
 
 

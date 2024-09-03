@@ -3,45 +3,78 @@ import styles from './Header.module.css'
 import logoImage from '../../assets/logo.svg'
 import Dropdown from './Dropdown/Dropdown'
 import HeaderUnion from './HeaderUnion/HeaderUnion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { IoMenuOutline } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../utils/routes'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-// eslint-disable-next-line react/prop-types
-function Header({ setIsOverlayOpen }) {
+function Header() {
 
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleNavbar = () => {
         const newState = !isOpen;
         setIsOpen(newState);
-        setIsOverlayOpen(newState);
     }
 
+    useEffect(() => {
+        if (isOpen) {
+            // Disable body scroll when overlay is open
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Enable body scroll when overlay is closed
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cleanup function to reset overflow style when component unmounts
+        return () => {
+            document.body.style.overflow = 'auto';
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 968 && isOpen) {
+                setIsOpen(false);
+            }
+        };
+
+        // Add resize event listener
+        window.addEventListener('resize', handleResize);
+
+        // Initial check in case the screen is already wide
+        handleResize();
+
+        // Cleanup event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isOpen]);
+
     return (
-        <header>
+        <header >
             <HeaderUnion />
 
             <div className={styles.headerContainer}>
-                <div className={styles.logo}>
+                <Link to={ROUTES.HOME} className={styles.logo}>
                     <img src={logoImage} alt="Logiform Logo" />
                     <span>Logiform</span>
-                </div>
+                </Link>
                 <nav className={styles.nav}>
                     <ul>
                         <li><Dropdown title="Services" options={['Smart Contracts', 'Web3&BlockChain', 'Web Development', 'UI/UX design']} /></li>
-                        <li>Case studies</li>
-                        <li>About us</li>
+                        <li><Link to={'/case-studies'}>Case studies</Link></li>
+                        <li><Link to={'/about-us'}>About us</Link></li>
                         <li>Blog</li>
                         <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
                         <li>Partner with us</li>
                     </ul>
                 </nav>
                 <div className={styles.contactButton}>
-                    <button>Contact us</button>
+                    <AnchorLink href='#contact' className={styles.anchor}><button>Contact us</button></AnchorLink>
                 </div>
                 <div className={` ${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}>
-                    <button onClick={toggleNavbar}>{isOpen ? <IoMdClose/> : <IoMenuOutline  />}</button>
+                    <button onClick={toggleNavbar}>{isOpen ? <IoMdClose /> : <IoMenuOutline />}</button>
                 </div>
             </div>
 
@@ -60,7 +93,6 @@ function Header({ setIsOverlayOpen }) {
                     </div>
                 </div>
             )}
-
         </header>
     )
 }

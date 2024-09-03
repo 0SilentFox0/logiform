@@ -60,7 +60,7 @@
 	cursor: pointer;
 }
 
-@media (max-width: 1376px) {
+@media (max-width: 1410px) {
 	.dropdownButton {
 		font-size: 14px;
 	}
@@ -97,6 +97,7 @@
 		padding: 8px 30px;
 		margin: 0;
 		gap: 16px;
+		backdrop-filter: none;
 	}
 
 	.dropdownMenu li {

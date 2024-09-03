@@ -1,9 +1,9 @@
 import styles from './FAQSection.module.css'
 
-import ARROW_UP from '../../assets/FAQimages/arrowUp.svg'
-import ARROW_DOWN from '../../assets/FAQimages/arrowDown.svg'
+import ARROW_UP from '../../../assets/FAQimages/arrowUp.svg'
+import ARROW_DOWN from '../../../assets/FAQimages/arrowDown.svg'
 
-import PICTURE from '../../assets/FAQimages/picture.png'
+import PICTURE from '../../../assets/FAQimages/picture.png'
 
 import { useState } from 'react';
 
@@ -49,7 +49,7 @@ function FAQSection() {
             <div className={styles.content}>
                 <div className={styles.cards}>
                     {faqs.map((faq, index) => (
-                        <div key={index} className={`${styles.card} ${openFaqs === index ? styles.open : ''}`}>
+                        <div key={index} className={`${styles.card} ${openFaqs === index ? styles.open : ''}`}  onClick={() => toggleFaq(index)}>
                             <div className={`${styles.cardContent} ${openFaqs === index ? styles.open : ''}`}>
                                 <div className={styles.cardQuestion}>
                                     <span className={styles.question}>{faq.question}</span>
@@ -63,7 +63,7 @@ function FAQSection() {
                                 )}
 
                             </div>
-                            <span className={`${styles.cardImage} ${openFaqs === index ? styles.arrowUp : styles.arrowDown} `} onClick={() => toggleFaq(index)}>
+                            <span className={`${styles.cardImage} ${openFaqs === index ? styles.arrowUp : styles.arrowDown} `}>
                                 <img src={openFaqs === index ? ARROW_UP : ARROW_DOWN} alt="Arrow Icon" className={openFaqs === index ? styles.arrowUpImg : styles.arrowDownImg} />
                             </span>
                         </div>

@@ -5,9 +5,10 @@ function HeaderUnion() {
         <svg
             className={styles.union}
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1197 73"
+            viewBox="0 0 1200 73" // Increased width from 1200 to 1500
+            width="1200" // Explicit width
+            height="73" // Keep height the same, or adjust if needed
             fill="none"
-            style={{ width: '100%', height: 'auto' }}
             preserveAspectRatio="xMidYMid meet"
         >
             <g filter="url(#filter0_dd_478_1046)">
@@ -19,7 +20,7 @@ function HeaderUnion() {
                 />
             </g>
             <defs>
-                <filter id="filter0_dd_478_1046" x="0" y="0" width="1197" height="72.1057" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <filter id="filter0_dd_478_1046" x="0" y="0" width="1250" height="72.1057" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                     <feOffset />

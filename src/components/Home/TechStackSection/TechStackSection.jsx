@@ -1,43 +1,43 @@
-import styles from './TechStack.module.css'
+import styles from './TechStackSection.module.css'
 
-import TON from '../../assets/TechImages/blockchain/TON logo.svg'
-import Avalanche from '../../assets/TechImages/blockchain/Avalanche.svg'
-import Binance from '../../assets/TechImages/blockchain/Binance.svg'
-import Ethereum from '../../assets/TechImages/blockchain/Ethereum.svg'
-import Near from '../../assets/TechImages/blockchain/Near.svg'
-import Solana from '../../assets/TechImages/blockchain/Solana.svg'
-import Polygon from '../../assets/TechImages/blockchain/Polygon.svg'
+import TON from '../../../assets/TechImages/blockchain/TON logo.svg'
+import Avalanche from '../../../assets/TechImages/blockchain/Avalanche.svg'
+import Binance from '../../../assets/TechImages/blockchain/Binance.svg'
+import Ethereum from '../../../assets/TechImages/blockchain/Ethereum.svg'
+import Near from '../../../assets/TechImages/blockchain/Near.svg'
+import Solana from '../../../assets/TechImages/blockchain/Solana.svg'
+import Polygon from '../../../assets/TechImages/blockchain/Polygon.svg'
 
-import EX from '../../assets/TechImages/backend/ex.svg'
-import GO from '../../assets/TechImages/backend/go.svg'
-import Microservice from '../../assets/TechImages/backend/Microservice.svg'
-import Nest from '../../assets/TechImages/backend/Nest js.svg'
-import Node from '../../assets/TechImages/backend/node-js.svg'
-import Python from '../../assets/TechImages/backend/python.svg'
+import EX from '../../../assets/TechImages/backend/ex.svg'
+import GO from '../../../assets/TechImages/backend/go.svg'
+import Microservice from '../../../assets/TechImages/backend/Microservice.svg'
+import Nest from '../../../assets/TechImages/backend/Nest js.svg'
+import Node from '../../../assets/TechImages/backend/node-js.svg'
+import Python from '../../../assets/TechImages/backend/python.svg'
 
-import Javascript from '../../assets/TechImages/frontend/Javascript logo.svg'
-import Next from '../../assets/TechImages/frontend/nextjs.svg'
-import React from '../../assets/TechImages/frontend/reactjs logo.svg'
-import ReactNative from '../../assets/TechImages/frontend/reactnative.svg'
-import Saas from '../../assets/TechImages/frontend/Saas.svg'
-import SCSS from '../../assets/TechImages/frontend/SCSS.svg'
-import Tailwind from '../../assets/TechImages/frontend/Tailwind CSS.svg'
+import Javascript from '../../../assets/TechImages/frontend/Javascript logo.svg'
+import Next from '../../../assets/TechImages/frontend/nextjs.svg'
+import React from '../../../assets/TechImages/frontend/reactjs logo.svg'
+import ReactNative from '../../../assets/TechImages/frontend/reactnative.svg'
+import Saas from '../../../assets/TechImages/frontend/Saas.svg'
+import SCSS from '../../../assets/TechImages/frontend/SCSS.svg'
+import Tailwind from '../../../assets/TechImages/frontend/Tailwind CSS.svg'
 
-import MongoDB from '../../assets/TechImages/databases/MongoDB.svg'
-import MySQL from '../../assets/TechImages/databases/MySQL.svg'
-import PostgreSQL from '../../assets/TechImages/databases/PostgreSQL.svg'
+import MongoDB from '../../../assets/TechImages/databases/MongoDB.svg'
+import MySQL from '../../../assets/TechImages/databases/MySQL.svg'
+import PostgreSQL from '../../../assets/TechImages/databases/PostgreSQL.svg'
 
-import AWS from '../../assets/TechImages/cloudServices/AWS.svg'
-import Azure from '../../assets/TechImages/cloudServices/Azure.svg'
-import Cloud from '../../assets/TechImages/cloudServices/google-cloud logo.svg'
+import AWS from '../../../assets/TechImages/cloudServices/AWS.svg'
+import Azure from '../../../assets/TechImages/cloudServices/Azure.svg'
+import Cloud from '../../../assets/TechImages/cloudServices/google-cloud logo.svg'
 
-import Docker from '../../assets/TechImages/devops/Docker.svg'
-import Kubernetes from '../../assets/TechImages/devops/Kubernetes.svg'
+import Docker from '../../../assets/TechImages/devops/Docker.svg'
+import Kubernetes from '../../../assets/TechImages/devops/Kubernetes.svg'
 
 
 import { useState } from 'react'
 
-function TechStack() {
+function TechStackSection() {
 
     const [toggleState, setToggleState] = useState(1)
 
@@ -207,4 +207,4 @@ function TechStack() {
     )
 }
 
-export default TechStack
+export default TechStackSection

@@ -2,6 +2,7 @@ import styles from './HeroSection.module.css'
 
 // import gif from '../../assets/gif.gif'
 import GlitchEffect from './GlitchEffect/GlitchEffect';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 function HeroSection() {
     return (
@@ -12,7 +13,7 @@ function HeroSection() {
                 </h1>
                 <p>No bureaucracy, no excuses – raw talent and relentless execution for startups and mid-sized companies.</p>
                 <div className={styles.contactButton}>
-                    <button >Contact us</button>
+                    <AnchorLink href='#contact' className={styles.anchor}><button>Contact us</button></AnchorLink>
                 </div>
             </div>
             <div className={styles.image}>

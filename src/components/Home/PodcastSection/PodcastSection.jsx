@@ -1,14 +1,14 @@
 import styles from './PodcastSection.module.css'
 
-import HUMAN from '../../assets/episodeImages/human.png'
-import DUCK from '../../assets/episodeImages/duck.png'
-import GOD from '../../assets/episodeImages/god.png'
+import HUMAN from '../../../assets/episodeImages/human.png'
+import DUCK from '../../../assets/episodeImages/duck.png'
+import GOD from '../../../assets/episodeImages/god.png'
 
-import MUSIC from '../../assets/episodeImages/music.png'
+import MUSIC from '../../../assets/episodeImages/music.png'
 
-import GIRL from '../../assets/episodeImages/girl.png'
+import GIRL from '../../../assets/episodeImages/girl.png'
 
-import PLAY from '../../assets/episodeImages/play.svg'
+import PLAY from '../../../assets/episodeImages/play.svg'
 import { Fragment } from 'react'
 
 
