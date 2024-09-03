@@ -93,7 +93,7 @@
 
 .features {
 	display: flex;
-	gap: 16px;
+	gap: 14px;
 	flex-wrap: wrap;
 	justify-content: center;
 	margin: 0 auto;
@@ -210,6 +210,8 @@
 	.title p {
 		font-size: 18px; /* Smaller paragraph on medium screens */
 	}
+
+	
 }
 
 @media (max-width: 500px) {
@@ -246,6 +248,10 @@
 
 	.title p {
 		font-size: 17px; /* Smaller paragraph on small screens */
+	}
+
+	.features {
+		gap: 0;
 	}
 }
 

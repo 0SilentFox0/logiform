@@ -98,6 +98,12 @@
 	flex-direction: column;
 	font-weight: 700;
 	font-size: 20px;
+	transition: background 0.3s ease; /* Smooth transition */
+}
+
+.item:hover {
+    background: var(--Cyan-Cyan-10, #dbecf6);
+
 }
 
 /* BLOCKCHAIN */
@@ -129,7 +135,6 @@
 }
 
 .ethereum {
-	background: var(--Cyan-Cyan-10, #dbecf6);
 	grid-column: 3 / 5; /* Spans from column 3 to 4 */
 	grid-row: 3 / 7; /* Occupies the second row */
 	width: 402px;
@@ -193,7 +198,6 @@
 }
 
 .microservices {
-	background: var(--Cyan-Cyan-10, #dbecf6);
 	grid-column: 3 / 5; /* Spans from column 3 to 4 */
 	grid-row: 3 / 7; /* Occupies the second row */
 	width: 402px;
@@ -256,7 +260,6 @@
 }
 
 .javaScript {
-	background: var(--Cyan-Cyan-10, #dbecf6);
 	grid-column: 3 / 5; /* Spans from column 3 to 4 */
 	grid-row: 3 / 7; /* Occupies the second row */
 	width: 402px;
@@ -302,7 +305,6 @@
 }
 
 .mySQL {
-	background: var(--Cyan-Cyan-10, #dbecf6);
 	grid-column: 3 / 5; /* Spans from column 3 to 4 */
 	grid-row: 3 / 7; /* Occupies the second row */
 	width: 402px;
@@ -331,7 +333,6 @@
 }
 
 .aws {
-	background: var(--Cyan-Cyan-10, #dbecf6);
 	grid-column: 3 / 5; /* Spans from column 3 to 4 */
 	grid-row: 3 / 7; /* Occupies the second row */
 	width: 402px;
@@ -351,7 +352,6 @@
 /* DEBOPS */
 
 .docker {
-	background: var(--Cyan-Cyan-10, #dbecf6);
 	grid-column: 2 / 4; /* Spans from column 3 to 4 */
 	grid-row: 4 / 8; /* Occupies the second row */
 	width: 402px;
