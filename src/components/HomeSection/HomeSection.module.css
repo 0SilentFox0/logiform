@@ -38,6 +38,11 @@
 }
 
 @media (max-width: 968px) {
+
+	.headerWrapper {
+		position: absolute;
+	}
+
 	.home {
 		padding: 20px 60px 40px 60px;
 	}
