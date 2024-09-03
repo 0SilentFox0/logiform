@@ -253,6 +253,7 @@ nav ul li a {
 	}
 
 	.overlay {
+		height: 100vh;
 		position: fixed; /* Changes from fixed to absolute */
 		padding: 80px 60px 68px 60px;
 		top: 0;
@@ -263,14 +264,18 @@ nav ul li a {
 		flex-direction: column;
 		gap: 140px;
 		z-index: 1000;
+		
 	}
 
 	.overlayMenu {
+		overflow-y: auto; /* Enable vertical scrolling */
+		overflow-x: hidden; /* Hide horizontal scrolling if not needed */	
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		list-style: none;
 		gap: 8px;
+		max-height: 300px;
 	}
 
 	.overlayMenu li {
