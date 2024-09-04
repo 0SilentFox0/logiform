@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 
 // eslint-disable-next-line react/prop-types
-function Card({ title, description, image, imageHeight }) {
+function Card({ id, title, description, image, imageHeight }) {
     return (
         <div className={styles.card}>
             <div className={`${styles.imageWrapper} ${imageHeight}`} >
@@ -23,7 +24,7 @@ function Card({ title, description, image, imageHeight }) {
                     <h3>{title}</h3>
                     <p className={styles.description}>{description}</p>
                 </div>
-                <button className={styles.viewButton}>View</button>
+                <Link to={`/case-studies/${id}`}><button className={styles.viewButton}>View</button></Link>
             </div>
         </div>
     );

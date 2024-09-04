@@ -63,6 +63,12 @@
 	align-items: flex-start;
 	gap: 32px;
 	align-self: stretch;
+	/* height: 237px; */
+	height: auto;
+}
+
+.content a {
+	text-decoration: none;
 }
 
 .text {
@@ -92,6 +98,7 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 150%; /* 24px */
+	height: 72px;
 }
 
 .viewButton {
@@ -107,11 +114,17 @@
 	border-radius: 80px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 	background: #fff;
+
+	color: black;
 }
 
 @media (max-width: 1200px) {
 	.overlayTabs {
 		width: calc(100% - 60px); 
+	}
+
+	.text p {
+		font-size: 14px;
 	}
 }
 
@@ -122,6 +135,10 @@
 
 	.overlayTabs button {
 		font-size: 11px;
+	}
+
+	.text p {
+		font-size: 16px;
 	}
 }
 
@@ -138,5 +155,9 @@
 
 	.overlayTabs {
 		width: calc(100% - 60px);
+	}
+
+	.text p {
+		height: 90px;
 	}
 }

@@ -72,6 +72,9 @@ function Header() {
                         <li>Partner with us</li>
                     </ul>
                 </nav>
+                <div className={styles.contactButton}>
+                    <AnchorLink href='#contact' className={styles.anchor}><button>Contact us</button></AnchorLink>
+                </div>
                 <div className={`${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}>
                     <button onClick={toggleNavbar}>{isOpen ? <IoMdClose /> : <IoMenuOutline />}</button>
                 </div>
@@ -87,6 +90,7 @@ function Header() {
                         <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
                         <li>Partner with us</li>
                     </ul>
+                    
                     <div className={styles.contactButtonMenu}>
                         <AnchorLink href='#contact' className={styles.anchor}><button onClick={closeNavbar}>Contact us</button></AnchorLink>
                     </div>
@@ -97,3 +101,6 @@ function Header() {
 }
 
 export default Header
+
+
+

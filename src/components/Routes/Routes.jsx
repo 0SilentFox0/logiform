@@ -9,6 +9,7 @@ import GlitchEffect from '../HeroSection/GlitchEffect/GlitchEffect';
 
 import PhoneImage from '../../assets/caseStudiesImg/Phone.png'
 import GIF from '../../assets/gif.gif'
+import CaseStudiesDetails from "../CaseStudies/CaseStudiesDetails/CaseStudiesDetails";
 
 function AppRoutes() {
   return (
@@ -35,6 +36,7 @@ function AppRoutes() {
           <CaseStudies />
         </>}
       />
+      <Route path={`${ROUTES.CASE_STUDIES}/:id`} element={<CaseStudiesDetails />} />
 
       <Route path={ROUTES.ABOUT_US} element='' />
       <Route path={ROUTES.BLOG} element='' />

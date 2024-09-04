@@ -8,14 +8,16 @@ function HeroSection({ title, description, imageSrc }) {
     return (
         <section className={styles.hero}>
             <div className={styles.content}>
-                <h1>{title}</h1>
-                <p>{description}</p>
+                <div className={styles.text}>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </div>
                 <div className={styles.contactButton}>
                     <AnchorLink href='#contact' className={styles.anchor}><button>Contact us</button></AnchorLink>
                 </div>
             </div>
             <div className={styles.image}>
-                <img src={imageSrc} alt='Hero Image'/>
+                <img src={imageSrc} alt='Hero Image' />
             </div>
         </section>
     )

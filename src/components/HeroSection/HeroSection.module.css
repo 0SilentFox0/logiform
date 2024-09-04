@@ -12,21 +12,27 @@
 }
 
 .content {
-	width: 100%;
+	display: flex;
+	flex-direction: column;
 	max-width: 590px;
 	z-index: 100;
+	gap: 56px;
 }
 
-.content h1 {
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.text h1 {
 	font-size: 64px;
-	margin-bottom: 24px;
 	line-height: 64px;
 	font-weight: 700;
 }
 
-.content p {
+.text p {
 	font-size: 20px;
-	margin-bottom: 56px;
 	color: #818195;
 }
 
@@ -70,7 +76,7 @@
 		padding: 145px 100px 60px 100px;
 	}
 
-	.content h1 {
+	.text h1 {
 		font-size: 48px;
 		line-height: 56px;
 	}
@@ -102,12 +108,11 @@
 		max-width: 100%; /* Full width for content */
 	}
 
-	.content h1, .content p {
+	.text h1, .text p {
 		margin: 0;
 	}
 
 	.contactButton {
-		
 		display: flex;
 		justify-content: center;
 	}
@@ -120,7 +125,6 @@
 
 	.image {
 		position: relative;
-		display: block;
 		left: 0;
 		top: 45px
 	}
@@ -135,16 +139,18 @@
 	.content {
 		display: flex;
 		flex-direction: column;
-		gap: 48px;
 	}
 
-	.content h1 {
+	.text {
+		gap: 16px;
+	}
+
+	.text h1 {
 		font-size: 40px; /* Smaller font size for mobile */
-		line-height: 42px;
 		margin-bottom: 0;
 	}
 
-	.content p {
+	.text p {
 		font-size: 18px; /* Adjust font size for mobile */
 		margin-bottom: 0; /* Less margin for smaller screens */
 	}
