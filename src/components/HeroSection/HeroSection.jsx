@@ -1,24 +1,21 @@
 import styles from './HeroSection.module.css'
 
 // import gif from '../../assets/gif.gif'
-import GlitchEffect from './GlitchEffect/GlitchEffect';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
-function HeroSection() {
+// eslint-disable-next-line react/prop-types
+function HeroSection({ title, description, imageSrc }) {
     return (
         <section className={styles.hero}>
             <div className={styles.content}>
-                <h1>
-                    We provide agile secure <GlitchEffect /> solutions
-                </h1>
-                <p>No bureaucracy, no excuses – raw talent and relentless execution for startups and mid-sized companies.</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
                 <div className={styles.contactButton}>
                     <AnchorLink href='#contact' className={styles.anchor}><button>Contact us</button></AnchorLink>
                 </div>
             </div>
             <div className={styles.image}>
-                {/* <img src={gif} alt="Brain Illustration" /> */}
-                fff
+                <img src={imageSrc} alt='Hero Image'/>
             </div>
         </section>
     )

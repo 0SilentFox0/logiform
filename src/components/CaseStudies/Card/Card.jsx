@@ -4,12 +4,11 @@ import styles from './Card.module.css';
 function Card({ title, description, image, imageHeight }) {
     return (
         <div className={styles.card}>
-            <div className={styles.imageWrapper} style={{ height: imageHeight }} >
+            <div className={`${styles.imageWrapper} ${imageHeight}`} >
                 <img 
                     src={image} 
                     alt={title} 
                     className={styles.image} 
-                    
                 />
                 <div className={styles.overlayTabs}>
                     <button>Front-end</button>
@@ -30,4 +29,4 @@ function Card({ title, description, image, imageHeight }) {
     );
 }
 
-export default Card
+export default Card;

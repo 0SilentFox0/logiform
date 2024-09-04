@@ -5,6 +5,7 @@
 .container {
 	background: var(--Neutral-Neutral-10, #f6f6f6);
 	border-radius: 48px 48px 0 0;
+
 }
 
 .header {
@@ -13,6 +14,8 @@
 	align-items: center;
 	gap: 48px;
 	align-self: stretch;
+	z-index: 1001;
+
 }
 
 .actions {
@@ -32,6 +35,14 @@
 
 	border-radius: 120px;
 	border: 1px solid var(--Neutral-Neutral-60, #363f45);
+}
+
+.largeImage {
+    height: 682px; /* Задайте нужную высоту */
+}
+
+.smallImage {
+    height: 492px; /* Задайте нужную высоту */
 }
 
 .actionImg {
@@ -70,4 +81,59 @@
 	gap: 32px;
 	flex: 1 0 0;
 	align-self: stretch;
+}
+
+@media (max-width: 1200px) {
+	.header {
+		padding: 20px 100px;
+	}
+
+	.content {
+		padding: 0 100px;
+	}
+}
+
+@media (max-width: 968px) {
+	.header {
+		padding: 20px 50px;
+	}
+
+	.content {
+		padding: 0 50px;
+	}
+
+	.columnLeft {
+		display: none;
+	}
+
+	.largeImage {
+		height: 582px; /* Задайте нужную высоту */
+	}
+	
+	.smallImage {
+		height: 392px; /* Задайте нужную высоту */
+	}
+}
+
+@media (max-width: 500px) {
+	.container {
+		border-radius: 24px 24px 0px 0px;
+	}
+
+	.header {
+		padding: 8px 24px;
+
+	}
+
+	.content {
+		padding: 20px 24px 40px 24px;
+	}
+
+	.largeImage {
+		height: 381px; /* Задайте нужную высоту */
+	}
+	
+	.smallImage {
+		height: 273px; /* Задайте нужную высоту */
+	}
 }

@@ -17,24 +17,26 @@
 	border-radius: 32px 32px 0 0;
     position: relative;
     width: 100%;
-	
-    overflow: hidden; /* Разрешить выход изображения за границы */
+	overflow: hidden; /* Запрещаем выход содержимого за пределы */
 }
 
 .image {
 	position: absolute;
 	top: -20px;
-    width: 902px;
+    width: 906px;
     object-fit: cover; /* Сохранить пропорции изображения */
 }
 
 .overlayTabs {
     position: absolute;
-    top: 30px; /* Отступ сверху */
+	top: 30px;
     left: 30px; /* Отступ слева */
-	display: inline-flex;
+	display: flex;
 	align-items: center;
+	width: 100%;
 	gap: 8px;
+	flex-wrap: wrap;
+
 }
 
 .overlayTabs button {
@@ -85,7 +87,6 @@
 
 .text p {
 	color: var(--Black, #15172e);
-	font-feature-settings: 'liga' off, 'clig' off;
 	font-family: 'DM Sans';
 	font-size: 16px;
 	font-style: normal;
@@ -101,8 +102,41 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+	font-size: 18px;
 
 	border-radius: 80px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 	background: #fff;
+}
+
+@media (max-width: 1200px) {
+	.overlayTabs {
+		width: calc(100% - 60px); 
+	}
+}
+
+@media (max-width: 968px) {
+	.overlayTabs {
+		width: 100%;
+	}
+
+	.overlayTabs button {
+		font-size: 11px;
+	}
+}
+
+@media (max-width: 500px) {
+
+	.content {
+		padding: 0px 24px 24px 24px;
+		gap: 24px;
+	}
+
+	.viewButton {
+		width: 100%;
+	}
+
+	.overlayTabs {
+		width: calc(100% - 60px);
+	}
 }

@@ -9,9 +9,13 @@ import ContactSection from '../ContactSection/ContactSection';
 function CaseStudies() {
 
     const cardsData = [
-        { id: 1, title: "TeXifyMath", description: "The client’s goal was to create a service that uses machine learning or neural network algorithms to convert a picture of a mathematical formula...", image: caseStudiesImg, imageHeight: '682px' },
-        { id: 2, title: "TeXifyMath", description: "The client’s goal was to create a service that uses machine learning or neural network algorithms to convert a picture of a mathematical formula...", image: caseStudiesImg, imageHeight: '492px' },
+        { id: 1, title: "TeXifyMath", description: "The client's goal was to create a service that uses machine learning or neural network algorithms to convert a picture of a mathematical", image: caseStudiesImg },
+        { id: 2, title: "TeXifyMath", description: "The client’s goal was to create a service that uses machine learning or neural network algorithms to convert a picture of a mathematical", image: caseStudiesImg },
     ];
+
+    const getImageHeightClass = (index) => {
+        return index === 0 ? styles.largeImage : styles.smallImage;
+    };
 
     return (
         <section className={styles.background}>
@@ -30,25 +34,25 @@ function CaseStudies() {
                 <div className={styles.content}>
                     <div className={styles.block}>
                         <div className={styles.columnLeft}>
-                            {cardsData.map(card => (
+                            {cardsData.map((card, index) => (
                                 <Card
                                     key={card.id}
                                     title={card.title}
                                     description={card.description}
                                     image={card.image}
-                                    imageHeight={card.imageHeight}
+                                    imageHeight={getImageHeightClass(index)}
                                 />
                             ))}
                         </div>
 
                         <div className={styles.columnRight}>
-                            {cardsData.map(card => (
+                            {cardsData.map((card, index) => (
                                 <Card
                                     key={card.id}
                                     title={card.title}
                                     description={card.description}
                                     image={card.image}
-                                    imageHeight={card.imageHeight}
+                                    imageHeight={getImageHeightClass(index)}
                                 />
                             ))}
                         </div>
@@ -56,25 +60,25 @@ function CaseStudies() {
 
                     <div className={styles.block}>
                         <div className={styles.columnRight}>
-                            {cardsData.map(card => (
+                            {cardsData.map((card, index) => (
                                 <Card
                                     key={card.id}
                                     title={card.title}
                                     description={card.description}
                                     image={card.image}
-                                    imageHeight={card.imageHeight}
+                                    imageHeight={getImageHeightClass(index)}
                                 />
                             ))}
                         </div>
 
                         <div className={styles.columnLeft}>
-                            {cardsData.map(card => (
+                            {cardsData.map((card, index) => (
                                 <Card
                                     key={card.id}
                                     title={card.title}
                                     description={card.description}
                                     image={card.image}
-                                    imageHeight={card.imageHeight}
+                                    imageHeight={getImageHeightClass(index)}
                                 />
                             ))}
                         </div>
@@ -89,4 +93,4 @@ function CaseStudies() {
     )
 }
 
-export default CaseStudies
+export default CaseStudies;
