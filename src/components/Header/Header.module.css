@@ -283,6 +283,11 @@ nav ul li a {
 		font-size: 24px;
 	}
 
+	.overlayMenu li a {
+		color: black;
+		text-decoration: none;
+	}
+
 	.contactButtonMenu {
 		display: block;
 	}
@@ -339,7 +344,11 @@ nav ul li a {
 		padding: 12px;
 	}
 
-	.contactButtonMenu button {
+	.contactButtonMenu  {
 		width: 100%;
+	}
+
+	.contactButtonMenu button {
+		width: 327px;
 	}
 }

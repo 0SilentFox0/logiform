@@ -11,12 +11,14 @@ import { ROUTES } from '../../utils/routes'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 function Header() {
-
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleNavbar = () => {
-        const newState = !isOpen;
-        setIsOpen(newState);
+        setIsOpen(prevState => !prevState);
+    }
+
+    const closeNavbar = () => {
+        setIsOpen(false);
     }
 
     useEffect(() => {
@@ -52,7 +54,7 @@ function Header() {
     }, [isOpen]);
 
     return (
-        <header >
+        <header>
             <HeaderUnion />
 
             <div className={styles.headerContainer}>
@@ -63,17 +65,14 @@ function Header() {
                 <nav className={styles.nav}>
                     <ul>
                         <li><Dropdown title="Services" options={['Smart Contracts', 'Web3&BlockChain', 'Web Development', 'UI/UX design']} /></li>
-                        <li><Link to={'/case-studies'}>Case studies</Link></li>
-                        <li><Link to={'/about-us'}>About us</Link></li>
+                        <li><Link to={'/case-studies'} >Case studies</Link></li>
+                        <li><Link to={'/about-us'} >About us</Link></li>
                         <li>Blog</li>
                         <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
                         <li>Partner with us</li>
                     </ul>
                 </nav>
-                <div className={styles.contactButton}>
-                    <AnchorLink href='#contact' className={styles.anchor}><button>Contact us</button></AnchorLink>
-                </div>
-                <div className={` ${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}>
+                <div className={`${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}>
                     <button onClick={toggleNavbar}>{isOpen ? <IoMdClose /> : <IoMenuOutline />}</button>
                 </div>
             </div>
@@ -82,14 +81,14 @@ function Header() {
                 <div className={styles.overlay}>
                     <ul className={styles.overlayMenu}>
                         <li><Dropdown title="Services" options={['Smart Contracts', 'Web3&BlockChain', 'Web Development', 'UI/UX design']} /></li>
-                        <li>Case studies</li>
-                        <li>About us</li>
+                        <li><Link to={'/case-studies'} onClick={closeNavbar}>Case studies</Link></li>
+                        <li><Link to={'/about-us'} onClick={closeNavbar}>About us</Link></li>
                         <li>Blog</li>
                         <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
                         <li>Partner with us</li>
                     </ul>
                     <div className={styles.contactButtonMenu}>
-                        <button>Contact us</button>
+                        <AnchorLink href='#contact' className={styles.anchor}><button onClick={closeNavbar}>Contact us</button></AnchorLink>
                     </div>
                 </div>
             )}
