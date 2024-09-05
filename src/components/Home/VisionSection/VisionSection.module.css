@@ -473,10 +473,12 @@
 		gap: 24px;
 	}
 
+
 	.contactButton {
 		padding: 13px 24px;
 		border-radius: 80px;
 		font-size: 18px;
+		width: 100%;
 	}
 
 	.logos::before,
