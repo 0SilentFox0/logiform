@@ -8,8 +8,10 @@ import CaseStudies from "../CaseStudies/CaseStudies"
 import GlitchEffect from '../HeroSection/GlitchEffect/GlitchEffect';
 
 import PhoneImage from '../../assets/caseStudiesImg/Phone.png'
-import GIF from '../../assets/gif.gif'
 import CaseStudiesDetails from "../CaseStudies/CaseStudiesDetails/CaseStudiesDetails";
+
+import desktopVideo from '../../assets/fullVersion.MOV'
+import mobileVideo from '../../assets/mobile.MOV'
 
 function AppRoutes() {
   return (
@@ -19,7 +21,8 @@ function AppRoutes() {
           <HeroSection
             title={<>We provide agile secure <GlitchEffect /> solutions</>}
             description={"No bureaucracy, no excuses – raw talent and relentless execution for startups and mid-sized companies."}
-            imageSrc={GIF}
+            videoSrc={desktopVideo}
+            mobileVideoSrc={mobileVideo}
           />
           <Home />
         </>}

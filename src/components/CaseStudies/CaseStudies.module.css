@@ -35,6 +35,11 @@
 
 	border-radius: 120px;
 	border: 1px solid var(--Neutral-Neutral-60, #363f45);
+	background: #f6f6f6;
+}
+
+.action img {
+	color: black;
 }
 
 .largeImage {

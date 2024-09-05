@@ -67,13 +67,13 @@ function Header() {
                         <li><Dropdown title="Services" options={['Smart Contracts', 'Web3&BlockChain', 'Web Development', 'UI/UX design']} /></li>
                         <li><Link to={'/case-studies'} >Case studies</Link></li>
                         <li><Link to={'/about-us'} >About us</Link></li>
-                        <li>Blog</li>
+                        <li><Link to={'/blog'} >Blog</Link></li>
                         <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
-                        <li>Partner with us</li>
+                        <li><AnchorLink href='#contact'>Partner with us</AnchorLink></li>
                     </ul>
                 </nav>
                 <div className={styles.contactButton}>
-                    <AnchorLink href='#contact' className={styles.anchor}><button>Contact us</button></AnchorLink>
+                    <AnchorLink href='#contact' className={styles.anchorContactButton}>Contact us</AnchorLink>
                 </div>
                 <div className={`${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}>
                     <button onClick={toggleNavbar}>{isOpen ? <IoMdClose /> : <IoMenuOutline />}</button>
@@ -90,7 +90,7 @@ function Header() {
                         <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
                         <li>Partner with us</li>
                     </ul>
-                    
+
                     <div className={styles.contactButtonMenu}>
                         <AnchorLink href='#contact' className={styles.anchor}><button onClick={closeNavbar}>Contact us</button></AnchorLink>
                     </div>

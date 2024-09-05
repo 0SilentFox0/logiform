@@ -142,17 +142,13 @@ input:checked + label .description {
 
 .anchor {
 	text-decoration: none;
-}
+	cursor: pointer;
 
-.contactButton {
 	display: flex;
-	width: 175px;
 	padding: 13px 24px;
 	justify-content: center;
 	align-items: center;
 	border: none;
-	gap: 10px;
-	flex-shrink: 0;
 
 	font-size: 18px;
 	font-style: normal;
@@ -162,7 +158,22 @@ input:checked + label .description {
 
 	border-radius: 80px;
 	color: white;
+	border: 1px solid var(--Neutral-Neutral-70, #0d0316);
 	background: var(--Neutral-Neutral-70, #0d0316);
+	transition: background .5s ease, box-shadow .5s ease, color .5s ease;
+}
+
+.contactButton {
+	width: 175px;
+	background: none;
+	border: none;
+}
+
+.anchor:hover {
+	
+	background: var(--Neutral-Neutral-05, #fff);
+	box-shadow: 0px 0px 8px 0px #1b9ce1;
+	color: black;
 }
 
 @media (max-width: 1200px) {

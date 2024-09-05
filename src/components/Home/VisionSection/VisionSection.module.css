@@ -5,7 +5,6 @@
 .container {
 	background: var(--Neutral-Neutral-10, #f6f6f6);
 	border-radius: 48px 48px 0 0;
-	
 }
 
 @keyframes slide {
@@ -210,8 +209,6 @@
 	.title p {
 		font-size: 18px; /* Smaller paragraph on medium screens */
 	}
-
-	
 }
 
 @media (max-width: 500px) {
@@ -234,8 +231,6 @@
 	.logos::after {
 		border-radius: 0 24px 0 0;
 	}
-
-	
 
 	.logosSlide img {
 		height: 14px;
@@ -302,27 +297,6 @@
 	letter-spacing: -0.484px;
 }
 
-/* .numbersOfPeople {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 8px;
-}
-
-.numbersOfProjects {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 8px;
-}
-
-.numbersOfClients {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 8px;
-} */
-
 .statisticsInfo {
 	display: flex;
 	padding: 0;
@@ -357,26 +331,34 @@
 	font-size: 24px;
 }
 
-.anchor {
-	text-decoration: none;
+.contactButton {
+	border: none;
+	width: 175px;
+	background: none;
 }
 
-.contactButton {
+.anchor {
+	text-decoration: none;
+	cursor: pointer;
+
 	display: flex;
 	border: none;
 	color: white;
-	width: 175px;
 	padding: 13px 24px;
 	font-size: 18px;
 	justify-content: center;
 	align-items: center;
-
+	border: 1px solid var(--Neutral-Neutral-70, #0d0316);
 	border-radius: 80px;
 	background: var(--Neutral-Neutral-70, #0d0316);
+	transition: background .5s ease, box-shadow .5s ease, color .5s ease;
+
 }
 
-.contactButton:hover {
-	background-color: #0056b3;
+.anchor:hover {
+	background: var(--Neutral-Neutral-05, #fff);
+	box-shadow: 0px 0px 8px 0px #1b9ce1;
+	color: black;
 }
 
 @media (max-width: 1200px) {
@@ -512,7 +494,7 @@
 	justify-content: center;
 	background: white;
 	border-radius: 48px 48px 0 0;
-	
+
 	padding: 80px 120px;
 }
 
@@ -523,7 +505,6 @@
 	max-width: 1200px;
 	letter-spacing: 0.9px;
 }
-
 
 .teamImages {
 	display: inline-flex;
@@ -569,7 +550,7 @@
 		height: 40px;
 	}
 
-	.teamImages img{
+	.teamImages img {
 		width: 40px;
 		height: 40px;
 	}
@@ -581,7 +562,6 @@
 }
 
 @media (max-width: 968px) {
-
 	.teamContainer {
 		padding: 50px 40px;
 	}
@@ -600,7 +580,7 @@
 		margin-left: 10px;
 	}
 
-	.teamImages img{
+	.teamImages img {
 		width: 30px;
 		height: 30px;
 	}
@@ -632,7 +612,7 @@
 		margin-left: 8px;
 	}
 
-	.teamImages img{
+	.teamImages img {
 		width: 24px;
 		height: 24px;
 	}
@@ -642,4 +622,3 @@
 		height: 18px;
 	}
 }
-

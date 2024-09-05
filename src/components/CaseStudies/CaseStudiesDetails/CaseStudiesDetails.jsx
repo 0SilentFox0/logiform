@@ -98,7 +98,7 @@ function CaseStudiesDetails() {
                     </div>
 
                     <div className={styles.aboutProject}>
-                        <div className={styles.aboutProjectImage}><img src={Phone} /></div>
+                        <img className={styles.aboutProjectImage} src={Phone} />
 
                         <div className={styles.textContent}>
                             <div className={styles.titleAndText}>

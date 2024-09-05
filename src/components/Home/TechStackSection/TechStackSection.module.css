@@ -51,27 +51,35 @@
 
 .tab {
 	display: flex;
-	width: 115px;
+	width: 120px;
 	height: 48px;
 	padding: 1px 24px;
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
 	flex-shrink: 0;
 	text-wrap: nowrap;
 	font-size: 16px;
 	font-weight: 500;
 	color: black;
+	cursor: pointer;
 
 	border-radius: 80px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 	background: var(--Neutral-Neutral-05, #fff);
 }
 
+.tab:hover {
+	background: rgb(235, 235, 235);
+}
+
 .activeTab {
 	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
 	color: white;
 	border: none;
+}
+
+.activeTab:hover {
+	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
 }
 
 .containerGrid {

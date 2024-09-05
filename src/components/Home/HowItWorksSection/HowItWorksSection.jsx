@@ -68,7 +68,7 @@ function HowItWorksSection() {
                     </label>
                 </div>
             </div>
-            <AnchorLink href='#contact' className={styles.anchor}><button className={styles.contactButton}>Contact us</button></AnchorLink>
+            <button className={styles.contactButton}><AnchorLink href='#contact' className={styles.anchor}>Contact us</AnchorLink></button>
         </section>
     )
 }
