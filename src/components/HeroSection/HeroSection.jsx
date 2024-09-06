@@ -27,7 +27,7 @@ function HeroSection({ title, description, imageSrc, videoSrc, mobileVideoSrc })
     return (
         <section className={styles.hero}>
             {currentVideo && (
-                <video key={currentVideo} autoPlay loop muted className={styles.backgroundVideo}>
+                <video key={currentVideo} autoPlay loop muted playsInline controls className={styles.backgroundVideo}>
                     <source src={currentVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
