@@ -9,7 +9,7 @@ import Nest from '../../../assets/caseStudiesDetailsImg/Nest js.svg'
 
 import Phone from '../../../assets/caseStudiesDetailsImg/phoneImg.png'
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function CaseStudiesDetails() {
     const { id } = useParams();
@@ -68,7 +68,7 @@ function CaseStudiesDetails() {
             <div className={styles.hero}>
                 <div className={styles.content}>
                     <div className={styles.navigationButtons}>
-                        <button className={styles.prevPageButton}><img src={PrevButtonImg} /></button>
+                        <Link to={'/case-studies'} className={styles.prevPageButton}><img src={PrevButtonImg} /></Link>
                         <div className={styles.tabsWrapper}>
                             <button className={styles.tabButton}>Blockchain</button>
                             <button className={styles.tabButton}>Blockchain</button>

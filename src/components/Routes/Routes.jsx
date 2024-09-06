@@ -12,6 +12,7 @@ import CaseStudiesDetails from "../CaseStudies/CaseStudiesDetails/CaseStudiesDet
 
 import desktopVideo from '../../assets/fullVersion.MOV'
 import mobileVideo from '../../assets/mobile.MOV'
+import Blog from "../Blog/Blog";
 
 function AppRoutes() {
   return (
@@ -42,7 +43,7 @@ function AppRoutes() {
       <Route path={`${ROUTES.CASE_STUDIES}/:id`} element={<CaseStudiesDetails />} />
 
       <Route path={ROUTES.ABOUT_US} element='' />
-      <Route path={ROUTES.BLOG} element='' />
+      <Route path={ROUTES.BLOG} element={<Blog />} />
       <Route path={ROUTES.RESOURCES} element='' />
       <Route path={ROUTES.PARTNER_WITH_US} element='' />
     </Routes>

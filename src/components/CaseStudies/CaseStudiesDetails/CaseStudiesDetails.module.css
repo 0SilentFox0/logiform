@@ -34,11 +34,9 @@
 	display: flex;
 	width: 64px;
 	height: 64px;
-	padding: 11.429px;
 	justify-content: center;
 	align-items: center;
 	border-radius: 91.429px;
-	border: 1.143px solid var(--Neutral-Neutral-05, #fff);
 	background: var(--Neutral-Neutral-05, #fff);
 }
 

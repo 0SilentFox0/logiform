@@ -86,9 +86,9 @@ function Header() {
                         <li><Dropdown title="Services" options={['Smart Contracts', 'Web3&BlockChain', 'Web Development', 'UI/UX design']} /></li>
                         <li><Link to={'/case-studies'} onClick={closeNavbar}>Case studies</Link></li>
                         <li><Link to={'/about-us'} onClick={closeNavbar}>About us</Link></li>
-                        <li>Blog</li>
+                        <li><Link to={'/blog'} >Blog</Link></li>
                         <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
-                        <li>Partner with us</li>
+                        <li><AnchorLink href='#contact'>Partner with us</AnchorLink></li>
                     </ul>
 
                     <div className={styles.contactButtonMenu}>
