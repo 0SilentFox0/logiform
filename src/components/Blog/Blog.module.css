@@ -238,7 +238,7 @@
 .cardGrid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr); /* 3 columns */
-	gap: 20px; /* Spacing between cards */
+	gap: 16px; /* Spacing between cards */
 }
 
 @media (max-width: 1200px) {

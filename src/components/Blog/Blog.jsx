@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
 import styles from './Blog.module.css'
 
-import ARROW from '../../assets/blogImages/arrow.png'
 import AUTHOR from '../../assets/blogImages/author.png'
 import DOT from '../../assets/blogImages/dot.svg'
 import ContactSection from '../ContactSection/ContactSection'
@@ -13,6 +11,7 @@ function Blog() {
 
     const cards = [
         {
+            id: 1,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -23,6 +22,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 2,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -33,6 +33,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 3,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -43,6 +44,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 4,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -53,6 +55,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 5,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -63,6 +66,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 6,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -73,6 +77,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 7,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -83,6 +88,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 8,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -93,6 +99,7 @@ function Blog() {
             category: 'Machine learning',
         },
         {
+            id: 9,
             image: cardImg,
             date: '12, August 2024',
             title: 'How to Calculate the Cost of Smart Contract?',
@@ -113,7 +120,6 @@ function Blog() {
                     <div className={styles.blogTextContainer}>
                         <div className={styles.blogText}>
                             <h1 className={styles.blogTitle}>Node.js Architecture From A to Z:  What Makes It a Top Choice</h1>
-                            <Link><img src={ARROW} /></Link>
                         </div>
                         <p className={styles.blogDescription}>Smart contracts are an integral part of the Ethereum blockchain. This  technology provides users with the possibility to create unique digital  agreements. These contracts can execute their terms</p>
                     </div>
