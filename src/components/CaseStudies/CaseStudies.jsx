@@ -4,7 +4,7 @@ import Card from './Card/Card';
 import caseStudiesImg from '../../assets/caseStudiesImg/cardImg.png';
 import { IoFilterOutline } from 'react-icons/io5';
 import { VscSettings } from 'react-icons/vsc';
-import ContactSection from '../ContactSection/ContactSection';
+import ContactSection from '../layout/ContactSection/ContactSection';
 
 function CaseStudies() {
 

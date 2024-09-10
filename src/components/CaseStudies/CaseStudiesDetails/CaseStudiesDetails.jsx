@@ -1,5 +1,6 @@
-import ContactSection from '../../ContactSection/ContactSection';
 import styles from './CaseStudiesDetails.module.css'
+
+import ContactSection from '../../layout/ContactSection/ContactSection';
 
 import PrevButtonImg from '../../../assets/caseStudiesDetailsImg/arrow.svg'
 import Binance from '../../../assets/caseStudiesDetailsImg/binance.svg'

@@ -9,8 +9,12 @@ import cardImg from '../../../assets/blogImages/phone.png'
 
 import Phone from '../../../assets/caseStudiesDetailsImg/phoneImg.png'
 
-import ContactSection from '../../ContactSection/ContactSection'
+import ContactSection from '../../layout/ContactSection/ContactSection'
 import PostCard from '../PostCard/PostCard';
+
+import LINKEDIN from '../../../assets/blogImages/linkedin.svg'
+import TWITTER from '../../../assets/blogImages/twitter.svg'
+import INSTAGRAM from '../../../assets/blogImages/instagram.svg'
 
 function BlogPost() {
 
@@ -129,9 +133,9 @@ function BlogPost() {
                         <div className={styles.postShare}>
                             <h3>Share</h3>
                             <div className={styles.shareLinks}>
-                                <Link><img /></Link>
-                                <Link><img /></Link>
-                                <Link><img /></Link>
+                                <Link><img src={LINKEDIN} /></Link>
+                                <Link><img src={TWITTER} /></Link>
+                                <Link><img src={INSTAGRAM} /></Link>
                             </div>
                         </div>
                     </div>

@@ -1,19 +1,20 @@
 import { Route, Routes } from "react-router-dom"
 import { ROUTES } from "../../utils/routes"
 
-import HeroSection from "../HeroSection/HeroSection";
 import Home from "../Home/Home"
 import CaseStudies from "../CaseStudies/CaseStudies"
+import CaseStudiesDetails from "../CaseStudies/CaseStudiesDetails/CaseStudiesDetails";
 
-import GlitchEffect from '../HeroSection/GlitchEffect/GlitchEffect';
+import HeroSection from '../layout/HeroSection/HeroSection';
 
 import PhoneImage from '../../assets/caseStudiesImg/Phone.png'
-import CaseStudiesDetails from "../CaseStudies/CaseStudiesDetails/CaseStudiesDetails";
 
 import desktopVideo from '../../assets/fullVersion.MOV'
 import mobileVideo from '../../assets/mobile.MOV'
 import Blog from "../Blog/Blog";
 import BlogPost from "../Blog/BlogPost/BlogPost";
+import GlitchEffect from '../layout//HeroSection/GlitchEffect/GlitchEffect';
+import AboutUs from "../AboutUs/AboutUs";
 
 function AppRoutes() {
   return (
@@ -43,13 +44,12 @@ function AppRoutes() {
       />
       <Route path={`${ROUTES.CASE_STUDIES}/:id`} element={<CaseStudiesDetails />} />
 
-      <Route path={ROUTES.ABOUT_US} element='' />
+      <Route path={ROUTES.ABOUT_US} element={<AboutUs />} />
 
       <Route path={ROUTES.BLOG} element={<Blog />} />
       <Route path={`${ROUTES.BLOG}/:id`} element={<BlogPost />} />
 
       <Route path={ROUTES.RESOURCES} element='' />
-      <Route path={ROUTES.PARTNER_WITH_US} element='' />
     </Routes>
   )
 }

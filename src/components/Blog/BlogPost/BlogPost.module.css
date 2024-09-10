@@ -2,7 +2,8 @@
 	display: flex;
 	align-items: center;
 	color: white;
-	background: var(--background, url(/src/assets/image\ 1369.png) lightgray 50% / cover no-repeat);
+	background: url(/src/assets/blogImages/BlogBackground.png) no-repeat center center;
+	background-size: cover;
 	height: 100%;
 	max-width: 100%;
 	padding: 156px 120px 177px 120px;
@@ -166,7 +167,7 @@
 }
 
 .postSection {
-	background: linear-gradient(90deg, #03020c 0%, #a68df3 100%);
+	background: url(/src/assets/blogImages/BlogBackground.png)no-repeat -320px -790px / 130%;
 }
 
 .postContainer {

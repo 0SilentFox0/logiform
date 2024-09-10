@@ -1,9 +1,9 @@
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
-//import HomeSection from '../HomeSection/HomeSection'
 import AppRoutes from '../Routes/Routes'
 
 import styles from './App.module.css'
+
+import Header from '../layout/Header/Header';
+import Footer from '../layout/Footer/Footer'
 
 
 function App() {

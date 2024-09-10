@@ -1,0 +1,186 @@
+.container {
+	background: var(--Neutral-Neutral-10, #f6f6f6);
+}
+
+.footer {
+	display: flex;
+	padding: 32px 0px;
+	flex-direction: column;
+	align-items: center;
+	gap: 32px;
+	align-self: stretch;
+
+	border-radius: 48px 48px 0px 0px;
+	background: var(--Neutral-Neutral-70, #0d0316);
+}
+
+.infoContainer {
+	display: flex;
+	padding: 0px 120px;
+	justify-content: space-between;
+	align-items: center;
+	align-self: stretch;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	display: flex;
+	width: 56.064px;
+	align-items: center;
+	align-self: stretch;
+}
+
+.logo span {
+	color: white;
+	font-size: 33.106px;
+	font-weight: 600;
+}
+
+.info {
+	display: flex;
+	align-items: flex-start;
+	gap: 32px;
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.actions button {
+	display: flex;
+	height: 32px;
+	padding: 7px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: white;
+
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%; /* 19.2px */
+
+	border: none;
+	background: none;
+}
+
+.line {
+	height: 1px;
+	align-self: stretch;
+	background: rgba(255, 255, 255, 0.36);
+}
+
+.socialsContainer {
+	display: flex;
+	width: 288px;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+}
+
+.socials {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.social {
+	display: flex;
+	width: 18px;
+	height: 18px;
+	padding: 10px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+
+	border-radius: 80px;
+	border: 1px solid var(--Neutral-Neutral-05, #fff);
+}
+
+.social img {
+	height: 20px;
+	width: 20px;
+}
+
+.rights {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 120%; /* 16.8px */
+
+	color: var(--Neutral-Neutral-05, #fff);
+}
+
+@media (max-width: 1200px) {
+	.infoContainer {
+		padding: 0 20px;
+		gap: 32px
+	}
+
+
+	
+
+	.logo span {
+		font-size: 28px;
+	}
+}
+
+@media (max-width: 968px) {
+	.infoContainer {
+		flex-direction: column;
+		text-align: center;
+	}
+
+
+
+	.info {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.actions {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	
+
+	.actions button {
+		font-size: 18px;
+		padding: 5px 12px;
+	}
+
+	.socialsContainer {
+		width: auto;
+	}
+
+	.social {
+		width: 26px;
+		height: 26px;
+	}
+}
+
+@media (max-width: 500px) {
+	.container {
+		margin-top: -21px;
+		position: absolute;
+		background: none;
+		width: 100%;
+	}
+
+	.footer {
+		border-radius: 24px 24px 0 0;
+	}
+
+	.info {
+		gap: 16px;
+	}
+
+	
+}

@@ -2,7 +2,7 @@ import styles from './Blog.module.css'
 
 import AUTHOR from '../../assets/blogImages/author.png'
 import DOT from '../../assets/blogImages/dot.svg'
-import ContactSection from '../ContactSection/ContactSection'
+import ContactSection from '../layout/ContactSection/ContactSection'
 import PostCard from './PostCard/PostCard'
 
 import cardImg from '../../assets/blogImages/phone.png'

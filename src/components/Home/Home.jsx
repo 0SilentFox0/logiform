@@ -5,7 +5,7 @@ import PodcastSection from "./PodcastSection/PodcastSection"
 import TechStackSection from "./TechStackSection/TechStackSection"
 import TestimonialsSection from "./TestimonialsSection/TestimonialsSection"
 import VisionSection from "./VisionSection/VisionSection"
-import ContactSection from '../ContactSection/ContactSection';
+import ContactSection from '../layout/ContactSection/ContactSection';
 
 function Home() {
     return (

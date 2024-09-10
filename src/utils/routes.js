@@ -5,5 +5,4 @@ export const ROUTES = {
     ABOUT_US: '/about-us',
     BLOG: '/blog',
     RESOURCES: '/resources',
-    PARTNER_WITH_US: '/partner-with-us',
 }
