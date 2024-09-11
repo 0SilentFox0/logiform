@@ -235,10 +235,25 @@
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 }
 
+.tab:hover {
+	background: rgb(234, 233, 233);
+}
+
+.activeTab {
+	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
+	color: white;
+	box-sizing: border-box;
+}
+
+.activeTab:hover {
+	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
+}
+
 .cardGrid {
-	display: grid;
 	grid-template-columns: repeat(3, 1fr); /* 3 columns */
 	gap: 16px; /* Spacing between cards */
+	display: grid;
+	width: 100%;
 }
 
 @media (max-width: 1200px) {

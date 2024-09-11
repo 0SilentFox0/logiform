@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 
 // eslint-disable-next-line react/prop-types
-function Card({ id, title, description, image, imageHeight }) {
+function Card({ id, title, description, image, category, imageHeight }) {
 
     const handleClick = () => {
         window.scrollTo(0, 0);  // Прокрутка к началу страницы
@@ -17,10 +17,10 @@ function Card({ id, title, description, image, imageHeight }) {
                     className={styles.image} 
                 />
                 <div className={styles.overlayTabs}>
-                    <button>Front-end</button>
-                    <button>Front-end</button>
-                    <button>Front-end</button>
-                    <button>Front-end</button>
+                    <button>{category}</button>
+                    <button>{category}</button>
+                    <button>{category}</button>
+                    <button>{category}</button>
                 </div>
             </div>
             

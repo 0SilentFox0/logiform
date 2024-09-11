@@ -5,9 +5,10 @@ import styles from './PostCard.module.css';
 function PostCard({ id, image, date, title, description, authorImg, author, category }) {
 
     const handleClick = () => {
-        window.scrollTo(0, 0);  // Прокрутка к началу страницы
-    };
+        window.scrollTo(0, 0); 
+    }
 
+   
     return (
 
         <Link to={`/blog/${id}`} className={styles.cardWrapperLink} onClick={handleClick}>
@@ -16,8 +17,8 @@ function PostCard({ id, image, date, title, description, authorImg, author, cate
                     <img src={image} alt={title} />
                     <span className={styles.cardCategory}>{category}</span>
                 </div>
-                <div className={styles.cardContent}>
                     <p className={styles.cardDate}>{date}</p>
+                <div className={styles.cardContent}>
                     <div className={styles.cardText}>
                         <h3 className={styles.cardTitle}>{title}</h3>
                         <p className={styles.cardDescription}>{description}</p>
