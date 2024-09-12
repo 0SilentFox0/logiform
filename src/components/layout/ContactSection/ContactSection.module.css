@@ -17,6 +17,85 @@
 	border-radius: 32px;
 	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
 	backdrop-filter: blur(20px);
+	transition: background-color 0.3s ease,  transform 1s ease;
+}
+
+.contactCardSuccess {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--blue-gradient, linear-gradient(102deg, #1be164 12.08%, #035718 126.06%));
+	height: 628px;
+	box-sizing: border-box;
+	animation: successAnimation 0.5s ease forwards;
+}
+
+@keyframes successAnimation {
+	0% {
+		transform: scale(0.8);
+		opacity: 0.8;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.checkmark {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	display: block;
+	stroke-width: 4;
+	stroke: #ffffff;
+	stroke-miterlimit: 10;
+	box-shadow: inset 0px 0px 0px #ffffff;
+	animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+	position: relative;
+	top: 5px;
+	right: 5px;
+	margin: 0 auto;
+}
+
+.checkmarkCircle {
+	stroke-dasharray: 166;
+	stroke-dashoffset: 166;
+	stroke-width: 4;
+	stroke-miterlimit: 1;
+	stroke: #ffffff;
+	fill: linear-gradient(102deg, #1be164 12.08%, #035718 126.06%);
+	animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmarkCheck {
+	transform-origin: 50% 50%;
+	stroke-dasharray: 48;
+	stroke-dashoffset: 48;
+	stroke-width: 3;
+	animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+.successAnimation {
+	opacity: 1;
+	transition: opacity 1s ease-out; /* Duration of the fade-out animation */
+  }
+  
+
+@keyframes stroke {
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes scale {
+	0%,
+	100% {
+		transform: none;
+	}
+
+	50% {
+		transform: scale3d(1.1, 1.1, 1);
+	}
 }
 
 .content {
@@ -128,7 +207,6 @@
 	color: white;
 	outline: none;
 
-
 	border-bottom: 1px solid var(--Neutral-Neutral-05, #fff);
 }
 
@@ -154,7 +232,6 @@
 	background: none;
 	resize: none;
 	outline: none;
-
 
 	border-bottom: 1px solid var(--Neutral-Neutral-05, #fff);
 }

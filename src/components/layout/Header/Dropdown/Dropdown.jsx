@@ -1,19 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import styles from './Dropdown.module.css';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-import styles from './Dropdown.module.css'
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-
-function Dropdown({ title, options }) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
-
+function Dropdown({ title, options, isOpen, onToggle }) {
     return (
         <div className={styles.dropdown}>
-            <div onClick={toggleDropdown} className={styles.dropdownButton}>
+            <div onClick={onToggle} className={styles.dropdownButton}>
                 <div>{title}</div>
                 <span className={styles.arrow}>
                     {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -21,6 +13,10 @@ function Dropdown({ title, options }) {
             </div>
             {isOpen && (
                 <ul className={styles.dropdownMenu}>
+                    <div className={styles.soonBadge}>
+                        Soon
+                        <span></span>
+                    </div>
                     {options.map((option, index) => (
                         <li key={index}>{option}</li>
                     ))}
@@ -30,4 +26,4 @@ function Dropdown({ title, options }) {
     );
 }
 
-export default Dropdown
+export default Dropdown;

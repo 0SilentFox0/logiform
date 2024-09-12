@@ -15,6 +15,7 @@ import Dropdown from '../../layout/Header/Dropdown/Dropdown';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false)
+    const [openDropdown, setOpenDropdown] = useState(null)
 
     const toggleNavbar = () => {
         setIsOpen(prevState => !prevState);
@@ -22,6 +23,10 @@ function Header() {
 
     const closeNavbar = () => {
         setIsOpen(false);
+    }
+
+    const handleDropdownToggle = (dropdownName) => {
+        setOpenDropdown(prev => (prev === dropdownName ? null : dropdownName));
     }
 
     const handleClick = () => {
@@ -71,11 +76,25 @@ function Header() {
                 </Link>
                 <nav className={styles.nav}>
                     <ul>
-                        <li><Dropdown title="Services" options={['Smart Contracts', 'Web3&BlockChain', 'Web Development', 'UI/UX design']} /></li>
+                        <li>
+                            <Dropdown
+                                title="Services"
+                                options={['Smart Contracts', 'Web3&BlockChain', 'Web Development', 'UI/UX design']}
+                                isOpen={openDropdown === 'services'}
+                                onToggle={() => handleDropdownToggle('services')}
+                            />
+                        </li>
                         <li><Link to={'/case-studies'} onClick={handleClick}>Case studies</Link></li>
                         <li><Link to={'/about-us'} onClick={handleClick}>About us</Link></li>
                         <li><Link to={'/blog'} onClick={handleClick}>Blog</Link></li>
-                        <li><Dropdown title="Resources" options={['Option 1', 'Option 2', 'Option 3']} /></li>
+                        <li>
+                            <Dropdown
+                                title="Resources"
+                                options={['Option 1', 'Option 2', 'Option 3']}
+                                isOpen={openDropdown === 'resources'}
+                                onToggle={() => handleDropdownToggle('resources')}
+                            />
+                        </li>
                         <li><AnchorLink href='#contact'>Partner with us</AnchorLink></li>
                     </ul>
                 </nav>

@@ -24,6 +24,7 @@
 	position: absolute;
 	top: -20px;
     width: 906px;
+	min-height: 720px;
     object-fit: cover; /* Сохранить пропорции изображения */
 }
 
