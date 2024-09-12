@@ -42,7 +42,7 @@ function ContactSection() {
                 reset();
 
                 setTimeout(() => {
-                    setIsSubmitted(false); // Вернуться к исходному состоянию
+                    setIsSubmitted(false); 
                 }, 5000);
             } else {
                 console.error('Error submitting form:', response.statusText);
