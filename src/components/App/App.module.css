@@ -1,20 +1,15 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-
 .headerWrapper {
 	display: flex;
 	justify-content: center;
 	position: fixed;
-    top: 30px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 120px;
-    box-sizing: border-box;
-    z-index: 1000;
+	top: 30px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	max-width: 100%;
+	padding: 0 120px;
+	box-sizing: border-box;
+	z-index: 1000;
 }
 
 @media (max-width: 1200px) {
@@ -26,7 +21,7 @@
 @media (max-width: 968px) {
 	.headerWrapper {
 		padding: 0 60px;
-        position: absolute;
+		position: absolute;
 	}
 }
 

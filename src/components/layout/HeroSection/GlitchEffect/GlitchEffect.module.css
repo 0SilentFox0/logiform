@@ -3,7 +3,7 @@
 	display: inline-block;
 	z-index: 2;
 
-    font-size: 64px;
+	font-size: 64px;
 }
 
 .layers {
@@ -446,23 +446,25 @@
 }
 
 .glitch::before {
-	animation: paths 4s step-end infinite, opacity 6s step-end infinite, font 5s step-end infinite,
-		movement 4s step-end infinite;
+	animation: paths 4s step-end infinite, opacity 6s step-end infinite,
+		font 5s step-end infinite, movement 4s step-end infinite;
 }
 
 .glitch::after {
-	animation: paths 8s step-end infinite, opacity 7s step-end infinite, font 7s step-end infinite,
-		movement 2s step-end infinite;
+	animation: paths 8s step-end infinite, opacity 7s step-end infinite,
+		font 7s step-end infinite, movement 2s step-end infinite;
 }
 
 @media (max-width: 1200px) {
-	span, .glitch {
+	.glitch span,
+	.glitch {
 		font-size: 48px;
 	}
 }
 
 @media (max-width: 500px) {
-	span, .glitch {
+	.glitch span,
+	.glitch {
 		font-size: 40px;
 	}
 }

@@ -1,73 +1,28 @@
-import { Link, useParams } from "react-router-dom";
-import styles from "./BlogPost.module.css";
+"use client";
+
+import styles from "@/components/Blog/BlogPost/BlogPost.module.css";
+import Link from "next/link";
+import Image from "next/image";
 
 import ARROW from "@/assets/blogImages/arrow.png";
 import AUTHOR from "@/assets/blogImages/author.png";
 import DOT from "@/assets/blogImages/dot.svg";
-
-import cardImage from "@/assets/blogImages/phone.png";
-
-import Phone from "@/assets/caseStudiesDetailsImage/phoneImage.png";
-
-import ContactSection from "@/layout/ContactSection/ContactSection";
-import PostCard from "../PostCard/PostCard";
-
+import Phone from "@/assets/caseStudiesDetailsImg/phoneImg.png";
 import LINKEDIN from "@/assets/blogImages/linkedin.svg";
 import TWITTER from "@/assets/blogImages/twitter.svg";
 import INSTAGRAM from "@/assets/blogImages/instagram.svg";
-import Image from "next/image";
 
-function BlogPost() {
-	const { id } = useParams();
+import ContactSection from "@/components/layout/ContactSection/ContactSection";
+import PostCard from "@/components/Blog/PostCard/PostCard";
 
-	const cards = [
-		{
-			id: 1,
-			image: cardImage,
-			date: "12, August 2024",
-			title: "How to Calculate the Cost of Smart Contract?",
-			description:
-				"Smart contracts are an integral part of the Ethereum blockchain...",
-			authorImage: AUTHOR,
-			author: "Ronald Richards",
-			category: "Machine learning",
-		},
-		{
-			id: 2,
-			image: cardImage,
-			date: "12, August 2024",
-			title: "How to Calculate the Cost of Smart Contract?",
-			description:
-				"Smart contracts are an integral part of the Ethereum blockchain...",
-			authorImage: AUTHOR,
-			author: "Ronald Richards",
-			category: "Machine learning",
-		},
-		{
-			id: 3,
-			image: cardImage,
-			date: "12, August 2024",
-			title: "How to Calculate the Cost of Smart Contract?",
-			description:
-				"Smart contracts are an integral part of the Ethereum blockchain...",
-			authorImage: AUTHOR,
-			author: "Ronald Richards",
-			category: "Machine learning",
-		},
-	];
-
-	const blogPost = [id];
-
-	if (!blogPost) {
-		return <div>Blog post not found.</div>;
-	}
-
+export default function BlogPostContent({ content }) {
 	return (
-		<>
+		<div className={styles.blogTextContainer}>
+			<pre>{content}</pre>
 			<div className={styles.hero}>
 				<div className={styles.content}>
-					<Link to={"/blog"} className={styles.arrow}>
-						<Image src={ARROW} />
+					<Link href="/blog" className={styles.arrow}>
+						<Image src={ARROW} alt="Back to blog" />
 					</Link>
 
 					<button className={styles.tabButton}>Blockchain</button>
@@ -86,13 +41,15 @@ function BlogPost() {
 					</div>
 
 					<div className={styles.authorContainer}>
-						<Image className={styles.authorAvatar} src={AUTHOR} />
+						<Image className={styles.authorAvatar} src={AUTHOR} alt="Author" />
 						<div className={styles.name}>Ronald Richards</div>
-						<Image className={styles.dot} src={DOT} />
+						<Image className={styles.dot} src={DOT} alt="Dot" />
 						<div className={styles.date}>12, August 2024</div>
 					</div>
 				</div>
 			</div>
+
+			{/* Rest of the component remains the same */}
 
 			<section className={styles.postSection}>
 				<div className={styles.postContainer}>
@@ -180,15 +137,9 @@ function BlogPost() {
 						<div className={styles.postShare}>
 							<h3>Share</h3>
 							<div className={styles.shareLinks}>
-								<Link>
-									<Image src={LINKEDIN} />
-								</Link>
-								<Link>
-									<Image src={TWITTER} />
-								</Link>
-								<Link>
-									<Image src={INSTAGRAM} />
-								</Link>
+								<Image src={LINKEDIN} />
+								<Image src={TWITTER} />
+								<Image src={INSTAGRAM} />
 							</div>
 						</div>
 					</div>
@@ -198,16 +149,14 @@ function BlogPost() {
 							<h1>Latest articles</h1>
 						</div>
 						<div className={styles.articles}>
-							{cards.map((card) => (
-								<PostCard key={card.id} {...card} />
+							{[content, content, content].map((card, index) => (
+								<PostCard key={index} {...card} />
 							))}
 						</div>
 					</div>
 				</div>
 				<ContactSection />
 			</section>
-		</>
+		</div>
 	);
 }
-
-export default BlogPost;

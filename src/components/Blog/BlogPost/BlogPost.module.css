@@ -2,7 +2,8 @@
 	display: flex;
 	align-items: center;
 	color: white;
-	background: url(/src/assets/blogImages/BlogBackground.png) no-repeat center center;
+	background: url("~/src/assets/blogImages/BlogBackground.png") no-repeat center
+		center;
 	background-size: cover;
 	height: 100%;
 	max-width: 100%;
@@ -167,7 +168,8 @@
 }
 
 .postSection {
-	background: url(/src/assets/blogImages/BlogBackground.png)no-repeat -320px -790px / 130%;
+	background: url("~/src/assets/blogImages/BlogBackground.png") no-repeat -320px -790px /
+		130%;
 }
 
 .postContainer {
@@ -185,7 +187,6 @@
 }
 
 .postTableContainer {
-
 	display: flex;
 	padding-left: 40px;
 	flex-direction: column;
@@ -193,7 +194,6 @@
 }
 
 .postTable {
-
 	display: flex;
 	padding: 20px;
 	flex-direction: column;
@@ -247,7 +247,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-    width: 100%;
+	width: 100%;
 }
 
 .casesTitle {
@@ -257,8 +257,7 @@
 	align-items: flex-start;
 	gap: 24px;
 	align-self: stretch;
-    width: 100%;
-
+	width: 100%;
 }
 
 .time {
@@ -273,7 +272,6 @@
 
 	font-size: 14px;
 	font-weight: 400;
-
 }
 
 .casesTitle h1 {
@@ -282,8 +280,7 @@
 	font-weight: 700;
 	line-height: 100%; /* 64px */
 	letter-spacing: -2.56px;
-    width: 100%;
-
+	width: 100%;
 }
 
 .casesValueSection {
@@ -294,8 +291,7 @@
 	gap: 16px;
 	align-self: stretch;
 	gap: 24px;
-    width: 100%;
-
+	width: 100%;
 }
 
 .casesSubtitle {
@@ -304,8 +300,7 @@
 	font-weight: 500;
 	line-height: 120%; /* 57.6px */
 	letter-spacing: -1.92px;
-    width: 100%;
-
+	width: 100%;
 }
 
 .casesText {
@@ -313,13 +308,12 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 120%; /* 24px */
-    width: 100%;
-
+	width: 100%;
 }
 
 .casesImage {
-    width: 100%;
-    border-radius: 32px;;
+	width: 100%;
+	border-radius: 32px;
 }
 
 .postShare {
@@ -328,7 +322,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 32px;
-
 }
 
 .postShare h3 {
@@ -337,7 +330,6 @@
 	font-weight: 400;
 	line-height: 120%; /* 48px */
 	letter-spacing: -0.8px;
-
 }
 
 .shareLinks {
@@ -345,7 +337,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 16px;
-
 }
 
 .shareLinks a {
@@ -356,7 +347,6 @@
 	align-items: center;
 	gap: 11.429px;
 	align-self: stretch;
-
 
 	border-radius: 91.429px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
@@ -386,10 +376,9 @@
 }
 
 @media (max-width: 1200px) {
-
-    .postContent {
-        gap: 30px;
-    }
+	.postContent {
+		gap: 30px;
+	}
 
 	.tableName {
 		font-size: 36px;
@@ -398,12 +387,11 @@
 	.tableTitle,
 	.tableInfo p {
 		font-size: 20px;
-        width: 100%;
+		width: 100%;
 	}
 
 	.casesTitle h1 {
 		font-size: 54px;
-        
 	}
 
 	.casesSubtitle {
@@ -421,88 +409,84 @@
 	.postShare h3 {
 		font-size: 32px;
 	}
-
 }
 
 @media (max-width: 968px) {
+	.casesTitle {
+		display: none;
+	}
 
-    .casesTitle {
-        display: none;
-    } 
+	.postContainer {
+		padding: 40px 60px 0 60px;
+	}
 
-    .postContainer{
-        padding: 40px 60px 0 60px;
-    }
+	.postTableContainer {
+		padding: 0;
+		box-sizing: border-box; /* Include padding and border in element width */
+		width: 100%;
+	}
 
-    .postTableContainer {
-        padding: 0;
-        box-sizing: border-box; /* Include padding and border in element width */
-        width: 100%;
-    }
+	.postTable {
+		width: 100%;
+		box-sizing: border-box; /* Prevent padding from affecting total width */
+	}
 
-    .postTable {
-        width: 100%;
-        box-sizing: border-box; /* Prevent padding from affecting total width */
-    }
+	.postContent {
+		flex-direction: column;
+		align-items: center;
+	}
 
-    .postContent {
-        flex-direction: column;
-        align-items: center;
-    }
+	.postShare {
+		padding: 40px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .postShare {
-        padding: 40px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+	.shareLinks {
+		flex-direction: row;
+	}
 
-    .shareLinks {
-        flex-direction: row;
-    }
+	.latestArticle {
+		padding: 40px 0;
+	}
 
-    .latestArticle {
-        padding: 40px 0;
-    }
+	.articles {
+		grid-template-columns: 1fr;
+	}
 
-    .articles {
-        grid-template-columns: 1fr;
-    }
-
-    .articlesTitle h1 {
-        font-size: 36px;
-    }
+	.articlesTitle h1 {
+		font-size: 36px;
+	}
 }
 
 @media (max-width: 500px) {
-
-    .postContainer{
-        padding: 40px 20px 0 20px;
-    }
+	.postContainer {
+		padding: 40px 20px 0 20px;
+	}
 
 	.postContent {
 		gap: 0;
 	}
 
-    .tableName {
-        font-size: 32px;
-    }
+	.tableName {
+		font-size: 32px;
+	}
 
-    .tableTitle, .tableInfo p {
-        font-size: 18px;
-    }
+	.tableTitle,
+	.tableInfo p {
+		font-size: 18px;
+	}
 
-    .casesSubtitle {
-        font-size: 32px;
-    }
+	.casesSubtitle {
+		font-size: 32px;
+	}
 
-    .casesText {
-        font-size: 16px;
-    }
+	.casesText {
+		font-size: 16px;
+	}
 
-    .articlesTitle h1 {
-        font-size: 32px;
-    }
+	.articlesTitle h1 {
+		font-size: 32px;
+	}
 }
-
-

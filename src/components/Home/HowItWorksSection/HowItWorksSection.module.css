@@ -50,7 +50,6 @@
 	flex-wrap: nowrap;
 	gap: 16px;
 	max-width: 1200px;
-	
 }
 
 .card {
@@ -66,7 +65,7 @@
 	overflow: hidden;
 	justify-content: center;
 	align-items: flex-start;
-	transition: 0.7s cubic-bezier(.08, -0.03, 0, .85);
+	transition: 0.7s cubic-bezier(0.08, -0.03, 0, 0.85);
 }
 
 .card > .row {
@@ -109,20 +108,23 @@
 	color: white;
 }
 
-input {
+.container input {
 	display: none;
 }
 
-input:checked + label {
+.container input:checked + label {
 	width: 602px;
-	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
+	background: var(
+		--blue-gradient,
+		linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%)
+	);
 }
 
-input[type='radio']:checked + label .row {
+.container input[type="radio"]:checked + label .row {
 	justify-content: flex-start;
 }
 
-input[type='radio']:checked + label .row .icon {
+.container input[type="radio"]:checked + label .row .icon {
 	font-size: 80px;
 	font-weight: 400;
 	color: white;
@@ -130,12 +132,12 @@ input[type='radio']:checked + label .row .icon {
 	justify-content: flex-start;
 }
 
-input:checked + label .description p,
-input:checked + label .description h4 {
+.container input:checked + label .description p,
+.container input:checked + label .description h4 {
 	color: white;
 }
 
-input:checked + label .description {
+.container input:checked + label .description {
 	opacity: 1 !important;
 	transform: translate(0) !important;
 }
@@ -160,7 +162,7 @@ input:checked + label .description {
 	color: white;
 	border: 1px solid var(--Neutral-Neutral-70, #0d0316);
 	background: var(--Neutral-Neutral-70, #0d0316);
-	transition: background .5s ease, box-shadow .5s ease, color .5s ease;
+	transition: background 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
 }
 
 .contactButton {
@@ -170,7 +172,6 @@ input:checked + label .description {
 }
 
 .anchor:hover {
-	
 	background: var(--Neutral-Neutral-05, #fff);
 	box-shadow: 0px 0px 8px 0px #1b9ce1;
 	color: black;
@@ -185,7 +186,7 @@ input:checked + label .description {
 		width: 64px;
 	}
 
-	input:checked + label {
+	.container input:checked + label {
 		width: 500px;
 	}
 
@@ -223,10 +224,9 @@ input:checked + label .description {
 		width: 100%;
 		padding: 12px 24px 24px 24px;
 		height: 50px;
-
 	}
 
-	input:checked + label {
+	.container input:checked + label {
 		width: 100%;
 		height: 200px;
 	}
@@ -235,7 +235,7 @@ input:checked + label .description {
 		font-size: 48px;
 	}
 
-	input[type='radio']:checked + label .row .icon {
+	.container input[type="radio"]:checked + label .row .icon {
 		font-size: 64px;
 	}
 
@@ -260,9 +260,7 @@ input:checked + label .description {
 	}
 }
 
-
 @media (max-width: 500px) {
-
 	.container {
 		padding: 40px 20px;
 		gap: 24px;
@@ -272,10 +270,9 @@ input:checked + label .description {
 		padding: 6px 16px 16px 16px;
 	}
 
-	input[type='radio']:checked + label .row .icon {
+	.container input[type="radio"]:checked + label .row .icon {
 		font-size: 48px;
 	}
-	
 
 	.description p {
 		font-size: 12px;
