@@ -59,12 +59,11 @@
 	flex-wrap: wrap;
 }
 
-
 .approachCard {
 	display: flex;
 	padding: 32px;
 	flex-direction: column;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 24px;
 	flex: 1 0 0;
@@ -75,7 +74,7 @@
 	position: relative;
 	max-height: 303px;
 	min-height: 274px;
-	
+
 	min-width: 335px;
 	box-sizing: border-box;
 }
@@ -91,7 +90,8 @@
 	gap: 24px;
 	align-self: stretch;
 	border-radius: 32px;
-	background: url(/src/assets/aboutUsImages/approachBackground.png) no-repeat center center;
+	background: url("~/src/assets/aboutUsImages/approachBackground.png") no-repeat
+		center center;
 	background-size: cover;
 	backdrop-filter: blur(20px);
 	color: white;
@@ -113,7 +113,8 @@
 	flex: 1 0 0;
 	align-self: stretch;
 	color: white;
-	background: url(/src/assets/aboutUsImages/approachBackground2.png) no-repeat center center;
+	background: url("~/src/assets/aboutUsImages/approachBackground2.png")
+		no-repeat center center;
 	background-size: cover;
 	border-radius: 32px;
 	backdrop-filter: blur(20px);
@@ -192,7 +193,6 @@
 }
 
 @media (max-width: 968px) {
-
 	.approachSection {
 		padding: 60px;
 		gap: 30px;

@@ -14,6 +14,14 @@
 	background: var(--Neutral-Neutral-70, #0d0316);
 }
 
+.footer a {
+	color: white;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	color: #1b9ce1;
+}
 .infoContainer {
 	display: flex;
 	padding: 0px 120px;
@@ -52,7 +60,7 @@
 	align-items: flex-start;
 }
 
-.actions button {
+.actions a {
 	display: flex;
 	height: 32px;
 	padding: 7px 16px;
@@ -120,11 +128,8 @@
 @media (max-width: 1200px) {
 	.infoContainer {
 		padding: 0 20px;
-		gap: 32px
+		gap: 32px;
 	}
-
-
-	
 
 	.logo span {
 		font-size: 28px;
@@ -137,8 +142,6 @@
 		text-align: center;
 	}
 
-
-
 	.info {
 		flex-direction: column;
 		align-items: center;
@@ -148,8 +151,6 @@
 		flex-direction: row;
 		justify-content: center;
 	}
-
-	
 
 	.actions button {
 		font-size: 18px;
@@ -181,6 +182,4 @@
 	.info {
 		gap: 16px;
 	}
-
-	
 }

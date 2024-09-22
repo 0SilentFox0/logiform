@@ -2,7 +2,8 @@
 	display: flex;
 	align-items: center;
 	color: white;
-	background: url(/src/assets/blogImages/BlogBackground.png) no-repeat center center;
+	background: url("~/src/assets/blogImages/BlogBackground.png") no-repeat center
+		center;
 	background-size: cover;
 	height: 100%;
 	max-width: 100%;
@@ -165,7 +166,8 @@
 	}
 }
 .postsSection {
-	background: url(/src/assets/blogImages/BlogBackground.png)no-repeat -434px -790px / 130%;
+	background: url("~/src/assets/blogImages/BlogBackground.png") no-repeat -434px -790px /
+		130%;
 }
 
 .postsContainer {
@@ -229,7 +231,7 @@
 	align-items: center;
 	font-size: 18px;
 	text-wrap: nowrap;
-    flex-shrink: 0;
+	flex-shrink: 0;
 	color: black;
 
 	border-radius: 80px;
@@ -241,13 +243,19 @@
 }
 
 .activeTab {
-	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
+	background: var(
+		--blue-gradient,
+		linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%)
+	);
 	color: white;
 	box-sizing: border-box;
 }
 
 .activeTab:hover {
-	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
+	background: var(
+		--blue-gradient,
+		linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%)
+	);
 }
 
 .cardGrid {
@@ -288,14 +296,16 @@
 	.tabs {
 		display: flex;
 		height: 48px;
-		justify-content: start;
+		justify-content: flex-start;
 		align-items: center;
 		gap: 8px;
 		overflow: hidden;
 		overflow-x: auto; /* Включаем горизонтальную прокрутку */
 		margin-right: -60px; /* Смещаем tabs вправо, чтобы правая часть выходила за пределы container */
 		padding-right: 60px; /* Добавляем отступ, чтобы содержимое tabs не обрезалось */
-		width: calc(100%); /* Увеличиваем ширину tabs, чтобы правая часть вышла за пределы контейнера */
+		width: calc(
+			100%
+		); /* Увеличиваем ширину tabs, чтобы правая часть вышла за пределы контейнера */
 	}
 
 	.tabs::-webkit-scrollbar {
@@ -308,11 +318,10 @@
 		text-wrap: nowrap;
 	}
 
-    .cardGrid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-
-    }
+	.cardGrid {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
 
 	.cardGrid > div:nth-child(n + 4) {
 		display: none; /* Hide the 4th card and beyond */
@@ -325,9 +334,9 @@
 		gap: 24px;
 	}
 
-    .postTitleContainer {
-        gap: 24px;
-    }
+	.postTitleContainer {
+		gap: 24px;
+	}
 
 	.postTitle {
 		font-size: 40px;
@@ -338,9 +347,8 @@
 		width: 100%;
 	}
 
-    .tabs {
+	.tabs {
 		margin-right: -20px; /* Смещаем tabs вправо, чтобы правая часть выходила за пределы container */
-        padding-right: 20px; /* Добавляем отступ, чтобы содержимое tabs не обрезалось */
+		padding-right: 20px; /* Добавляем отступ, чтобы содержимое tabs не обрезалось */
 	}
-
 }

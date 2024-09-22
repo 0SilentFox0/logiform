@@ -2,13 +2,15 @@
 	display: flex;
 	align-items: center;
 	color: white;
-	background: var(--background, url(/src/assets/image\ 1369.png) lightgray 50% / cover no-repeat);
+	background: var(
+		#2a5377,
+		url(/src/assets/image\ 1369.png) lightgray 50% / cover no-repeat
+	);
 	height: 100%;
 	max-width: 100%;
 	padding: 156px 120px 190px 120px;
 	position: relative;
 	gap: 48px;
-
 }
 
 .content {
@@ -118,7 +120,6 @@
 
 	.projectDescription p {
 		width: 800px;
-
 	}
 }
 
@@ -140,7 +141,6 @@
 		width: 50px;
 		height: 50px;
 	}
-	
 }
 
 @media (max-width: 645px) {
@@ -159,11 +159,9 @@
 		width: 100%;
 		max-width: 400px;
 	}
-	
 }
 
 @media (max-width: 500px) {
-
 	.hero {
 		padding: 120px 0px 100px 0px;
 	}
@@ -171,11 +169,10 @@
 	.content {
 		padding: 0 20px;
 	}
-	
 }
 
 .detailsSection {
-	background: linear-gradient(90deg, #03020C 0%, #A68DF3 100%);
+	background: linear-gradient(90deg, #03020c 0%, #a68df3 100%);
 }
 
 .detailsContainer {
@@ -199,7 +196,7 @@
 	color: var(--Black, #12120f);
 
 	/* H4 */
-	font-family: 'DM Sans';
+	font-family: "DM Sans";
 	font-size: 40px;
 	font-style: normal;
 	font-weight: 400;
@@ -255,7 +252,7 @@
 .largeImg img {
 	width: 100%;
 	height: 601px;
-    border-radius: 32px;
+	border-radius: 32px;
 }
 
 .images {
@@ -267,14 +264,14 @@
 }
 
 .smallImg {
-    height: 588px;
-    width: 100%;
+	height: 588px;
+	width: 100%;
 }
 
 .smallImg img {
-    width: 100%;
-    height: 100%;
-    border-radius: 32px;
+	width: 100%;
+	height: 100%;
+	border-radius: 32px;
 }
 
 @media (max-width: 1200px) {
@@ -335,7 +332,6 @@
 }
 
 @media (max-width: 500px) {
-
 	.mainText {
 		padding: 33px 20px 20px 20px;
 	}
@@ -372,7 +368,7 @@
 		padding: 0px 20px 40px 20px;
 		gap: 16px;
 	}
-	
+
 	.smallImg {
 		height: 248px;
 	}
