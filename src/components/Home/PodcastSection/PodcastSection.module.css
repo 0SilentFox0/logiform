@@ -28,13 +28,14 @@
 	max-height: 378px;
 	align-items: flex-start;
 	gap: 32px;
+	padding-right: 32px;
 	align-self: stretch;
 	overflow-y: scroll;
 	min-width: 410px;
 }
 
 .episodeList::-webkit-scrollbar {
-	width: 8px;
+	width: 3px;
 }
 
 .episodeList::-webkit-scrollbar-thumb {
@@ -51,7 +52,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	gap: 24px;
+	gap: 15px;
 	width: 484px;
 	min-width: 370px;
 	position: relative;
@@ -89,6 +90,7 @@
 	align-items: flex-start;
 	gap: 16px;
 	border-radius: 8px;
+	padding: 15px;
 }
 
 .line {
@@ -300,6 +302,7 @@
 
 	.episodeList {
 		justify-content: center;
+		padding-right: 0;
 	}
 
 	.episodeList::-webkit-scrollbar {

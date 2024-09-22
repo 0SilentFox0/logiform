@@ -37,257 +37,93 @@ import Kubernetes from "@/assets/TechImages/devops/Kubernetes.svg";
 import Image from "next/image";
 
 import { useState } from "react";
+const techCategories = {
+	blockchain: [
+		{ name: "Avalanche", image: Avalanche, style: "avalanche" },
+		{ name: "TON", image: TON, style: "ton" },
+		{ name: "Binance", image: Binance, style: "binance" },
+		{ name: "Ethereum", image: Ethereum, style: "ethereum" },
+		{ name: "Near", image: Near, style: "near" },
+		{ name: "Solana", image: Solana, style: "solana" },
+		{ name: "Polygon", image: Polygon, style: "polygon" },
+	],
+	backend: [
+		{ name: "Express", image: EX, style: "express" },
+		{ name: "GO", image: GO, style: "go" },
+		{ name: "Microservices", image: Microservice, style: "microservices" },
+		{ name: "Nest", image: Nest, style: "nest" },
+		{ name: "Node", image: Node, style: "node" },
+		{ name: "Python", image: Python, style: "python" },
+	],
+	frontend: [
+		{ name: "Javascript", image: Javascript, style: "javaScript" },
+		{ name: "Next", image: Next, style: "next" },
+		{ name: "React", image: React, style: "react" },
+		{ name: "React Native", image: ReactNative, style: "reactNative" },
+		{ name: "SaaS", image: Saas, style: "sass" },
+		{ name: "SCSS", image: SCSS, style: "scss" },
+		{ name: "Tailwind CSS", image: Tailwind, style: "tailwind" },
+	],
+	databases: [
+		{ name: "MongoDB", image: MongoDB, style: "mongoDB" },
+		{ name: "MySQL", image: MySQL, style: "mySQL" },
+		{ name: "PostgreSQL", image: PostgreSQL, style: "postgreSQL" },
+	],
+	cloudServices: [
+		{ name: "AWS", image: AWS, style: "aws" },
+		{ name: "Azure", image: Azure, style: "azure" },
+		{ name: "Google Cloud", image: Cloud, style: "cloud" },
+	],
+	devops: [
+		{ name: "Docker", image: Docker, style: "docker" },
+		{ name: "Kubernetes", image: Kubernetes, style: "kubernetes" },
+	],
+};
 
 function TechStackSection() {
-	const [toggleState, setToggleState] = useState(1);
-
-	const toggleTab = (index) => {
-		setToggleState(index);
-	};
+	const [activeTab, setActiveTab] = useState("blockchain");
 
 	return (
 		<section className={styles.container}>
-			<div className={styles.titleContainer}>
-				<h2 className={styles.title}>Our tech stack</h2>
-				<p className={styles.subtitle}>
-					We Master Web3 Technologies with Expertise in Blockchain, Back-End,
-					Front-End, Databases, Cloud Services, and DevOps
-				</p>
-			</div>
+			<h2 className={styles.title}>Our tech stack</h2>
+			<p className={styles.subtitle}>
+				We Master Web3 Technologies with Expertise in Blockchain, Back-End,
+				Front-End, Databases, Cloud Services, and DevOps
+			</p>
 
 			<div className={styles.tabsContainer}>
 				<div className={styles.tabs}>
-					<button
-						className={
-							toggleState === 1
-								? `${styles.tab} ${styles.activeTab}`
-								: `${styles.tab}`
-						}
-						onClick={() => toggleTab(1)}
-					>
-						Blockchain
-					</button>
-					<button
-						className={
-							toggleState === 2
-								? `${styles.tab} ${styles.activeTab}`
-								: `${styles.tab}`
-						}
-						onClick={() => toggleTab(2)}
-					>
-						Back-end
-					</button>
-					<button
-						className={
-							toggleState === 3
-								? `${styles.tab} ${styles.activeTab}`
-								: `${styles.tab}`
-						}
-						onClick={() => toggleTab(3)}
-					>
-						Front-end
-					</button>
-					<button
-						className={
-							toggleState === 4
-								? `${styles.tab} ${styles.activeTab}`
-								: `${styles.tab}`
-						}
-						onClick={() => toggleTab(4)}
-					>
-						Databases
-					</button>
-					<button
-						className={
-							toggleState === 5
-								? `${styles.tab} ${styles.activeTab}`
-								: `${styles.tab}`
-						}
-						onClick={() => toggleTab(5)}
-					>
-						Cloud Services
-					</button>
-					<button
-						className={
-							toggleState === 6
-								? `${styles.tab} ${styles.activeTab}`
-								: `${styles.tab}`
-						}
-						onClick={() => toggleTab(6)}
-					>
-						DevOps
-					</button>
+					{Object.keys(techCategories).map((category) => (
+						<button
+							key={category}
+							className={`${styles.tab} ${
+								activeTab === category ? styles.activeTab : ""
+							}`}
+							onClick={() => setActiveTab(category)}
+						>
+							{category.charAt(0).toUpperCase() + category.slice(1)}
+						</button>
+					))}
 				</div>
 
 				<div className={styles.content}>
 					<div
-						className={
-							toggleState === 1
-								? `${styles.containerGrid} ${styles.activeContainerGrid}`
-								: `${styles.containerGrid}`
-						}
+						className={`${styles.containerGrid} ${styles.activeContainerGrid}`}
 					>
-						<div className={`${styles.item} ${styles.avalanche}`}>
-							<Image src={Avalanche} />
-							<p>Avalanche</p>
-						</div>
-						<div className={`${styles.item} ${styles.ton}`}>
-							<Image src={TON} />
-							<p>TON</p>
-						</div>
-						<div className={`${styles.item} ${styles.solana}`}>
-							<Image src={Solana} />
-							<p>Solana</p>
-						</div>
-						<div className={`${styles.item} ${styles.ethereum}`}>
-							<Image src={Ethereum} />
-							<p>Ethereum</p>
-						</div>
-						<div className={`${styles.item} ${styles.near}`}>
-							<Image src={Near} />
-							<p>Near</p>
-						</div>
-						<div className={`${styles.item} ${styles.binance}`}>
-							<Image src={Binance} />
-							<p>Binance Smart Chain</p>
-						</div>
-						<div className={`${styles.item} ${styles.polygon}`}>
-							<Image src={Polygon} />
-							<p>Polygon</p>
-						</div>
-					</div>
-
-					<div
-						className={
-							toggleState === 2
-								? `${styles.containerGrid} ${styles.activeContainerGrid}`
-								: `${styles.containerGrid}`
-						}
-					>
-						<div className={`${styles.item} ${styles.nest}`}>
-							<Image src={Nest} />
-							<p>Nest.js</p>
-						</div>
-						<div className={`${styles.item} ${styles.node}`}>
-							<Image src={Node} />
-							<p>Node.js</p>
-						</div>
-						<div className={`${styles.item} ${styles.microservices}`}>
-							<Image src={Microservice} />
-							<p>Microservices</p>
-						</div>
-						<div className={`${styles.item} ${styles.python}`}>
-							<Image src={Python} />
-							<p>Python</p>
-						</div>
-						<div className={`${styles.item} ${styles.go}`}>
-							<Image src={GO} />
-							<p>Go</p>
-						</div>
-						<div className={`${styles.item} ${styles.express}`}>
-							<Image src={EX} />
-							<p>Express</p>
-						</div>
-						<div className={`${styles.item} ${styles.avalancheFake}`}>
-							<Image src={Avalanche} />
-							<p>Avalanche</p>
-						</div>
-					</div>
-
-					<div
-						className={
-							toggleState === 3
-								? `${styles.containerGrid} ${styles.activeContainerGrid}`
-								: `${styles.containerGrid}`
-						}
-					>
-						<div className={`${styles.item} ${styles.react}`}>
-							<Image src={React} />
-							<p>React.js</p>
-						</div>
-						<div className={`${styles.item} ${styles.reactNative}`}>
-							<Image src={ReactNative} />
-							<p>React Native</p>
-						</div>
-						<div className={`${styles.item} ${styles.javaScript}`}>
-							<Image src={Javascript} />
-							<p>JavaScript</p>
-						</div>
-						<div className={`${styles.item} ${styles.scss}`}>
-							<Image src={SCSS} />
-							<p>SCSS</p>
-						</div>
-						<div className={`${styles.item} ${styles.sass}`}>
-							<Image src={Saas} />
-							<p>Sass</p>
-						</div>
-						<div className={`${styles.item} ${styles.next}`}>
-							<Image src={Next} />
-							<p>Next.js</p>
-						</div>
-						<div className={`${styles.item} ${styles.tailwind}`}>
-							<Image src={Tailwind} />
-							<p>Tailwind CSS</p>
-						</div>
-					</div>
-
-					<div
-						className={
-							toggleState === 4
-								? `${styles.containerGrid} ${styles.activeContainerGrid}`
-								: `${styles.containerGrid}`
-						}
-					>
-						<div className={`${styles.item} ${styles.mySQL}`}>
-							<Image src={MySQL} />
-							<p>MySQL</p>
-						</div>
-						<div className={`${styles.item} ${styles.postgreSQL}`}>
-							<Image src={PostgreSQL} />
-							<p>PostgreSQL</p>
-						</div>
-						<div className={`${styles.item} ${styles.mongoDB}`}>
-							<Image src={MongoDB} />
-							<p>MongoDB</p>
-						</div>
-					</div>
-
-					<div
-						className={
-							toggleState === 5
-								? `${styles.containerGrid} ${styles.activeContainerGrid}`
-								: `${styles.containerGrid}`
-						}
-					>
-						<div className={`${styles.item} ${styles.aws}`}>
-							<Image src={AWS} />
-							<p>AWS</p>
-						</div>
-						<div className={`${styles.item} ${styles.cloud}`}>
-							<Image src={Cloud} />
-							<p>Google Cloud</p>
-						</div>
-						<div className={`${styles.item} ${styles.azure}`}>
-							<Image src={Azure} />
-							<p>Azure</p>
-						</div>
-					</div>
-
-					<div
-						className={
-							toggleState === 6
-								? `${styles.containerGrid} ${styles.activeContainerGrid}`
-								: `${styles.containerGrid}`
-						}
-					>
-						<div className={`${styles.item} ${styles.docker}`}>
-							<Image src={Docker} />
-							<p>Docker</p>
-						</div>
-						<div className={`${styles.item} ${styles.kubernetes}`}>
-							<Image src={Kubernetes} />
-							<p>Kubernetes</p>
-						</div>
+						{techCategories[activeTab].map((tech) => (
+							<div
+								key={tech.name}
+								className={`${styles.item} ${styles[tech.style] || ""}`}
+							>
+								<Image
+									src={tech.image}
+									alt={tech.name}
+									width={50}
+									height={50}
+								/>
+								<p>{tech.name}</p>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

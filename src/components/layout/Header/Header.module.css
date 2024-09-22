@@ -252,7 +252,7 @@
 	}
 
 	.burgerMenu {
-		display: block;
+		display: flex;
 		position: relative;
 		background: none;
 		border: 1px solid white;

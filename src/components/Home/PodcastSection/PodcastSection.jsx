@@ -9,81 +9,57 @@ import MUSIC from "@/assets/episodeImages/music.png";
 import GIRL from "@/assets/episodeImages/girl.png";
 
 import PLAY from "@/assets/episodeImages/play.svg";
-import { Fragment } from "react";
 
 import Image from "next/image";
+import Link from "next/link";
+
+const episodes = [
+	{
+		id: 1,
+		title: "No bureaucracy",
+		description: "Lorem ipsum",
+		duration: "28:01",
+		img: DUCK,
+		link: "/episode/1",
+	},
+	{
+		id: 2,
+		title: "No bureaucracy",
+		description: "Lorem ipsum",
+		duration: "28:01",
+		img: HUMAN,
+		link: "/episode/1",
+	},
+	{
+		id: 3,
+		title: "No bureaucracy",
+		description: "Lorem ipsum",
+		duration: "28:01",
+		img: GOD,
+		link: "/episode/1",
+	},
+	// ... other episodes
+];
 
 function PodcastSection() {
-	const episodes = [
-		{
-			id: 1,
-			title: "No bureaucracy",
-			description: "Lorem ipsum",
-			duration: "28:01",
-			img: HUMAN,
-			link: "/episode/1",
-		},
-		{
-			id: 2,
-			title: "No bureaucracy",
-			description: "Lorem ipsum",
-			duration: "28:01",
-			img: DUCK,
-			link: "/episode/1",
-		},
-		{
-			id: 3,
-			title: "No bureaucracy",
-			description: "Lorem ipsum",
-			duration: "28:01",
-			img: GOD,
-			link: "/episode/1",
-		},
-		{
-			id: 4,
-			title: "No bureaucracy",
-			description: "Lorem ipsum",
-			duration: "28:01",
-			img: DUCK,
-			link: "/episode/1",
-		},
-		{
-			id: 5,
-			title: "No bureaucracy",
-			description: "Lorem ipsum",
-			duration: "28:01",
-			img: GOD,
-			link: "/episode/1",
-		},
-		{
-			id: 6,
-			title: "No bureaucracy",
-			description: "Lorem ipsum",
-			duration: "28:01",
-			img: GOD,
-			link: "/episode/1",
-		},
-		// Add more episodes as needed
-	];
-
 	return (
 		<section className={styles.container}>
-			<div className={styles.title}>
-				<h2>Get more insights with Logiform podcast</h2>
-			</div>
+			<h2 className={styles.title}>Get more insights with Logiform podcast</h2>
 			<div className={styles.content}>
 				<div className={styles.episodeList}>
 					<div className={styles.episodeContainer}>
 						{episodes.map((episode, index) => (
-							<Fragment key={episode.id}>
-								<a href={episode.link} className={styles.episodeLink}>
-									<div key={episode.index} className={styles.episode}>
+							<div className={styles.episodeLink} key={episode.id}>
+								<Link href={episode.link} className={styles.episodeLink}>
+									<div className={styles.episode}>
 										<div className={styles.episodeLeft}>
 											<div className={styles.index}>0{index + 1}/</div>
 											<Image
 												src={episode.img}
 												alt={episode.title}
 												className={styles.episodeImage}
+												width={100}
+												height={100}
 											/>
 										</div>
 										<div className={styles.episodeRight}>
@@ -92,26 +68,30 @@ function PodcastSection() {
 												<p>{episode.description}</p>
 											</div>
 											<div className={styles.episodeInfo}>
-												<h4>Episode 12</h4>
+												<h4>Episode {index + 1}</h4>
 												<div className={styles.durationContainer}>
-													<Image src={MUSIC} alt="music" />
+													<Image
+														src={MUSIC}
+														alt="music"
+														width={20}
+														height={20}
+													/>
 													<p className={styles.duration}>{episode.duration}</p>
 												</div>
 											</div>
 										</div>
 									</div>
-								</a>
+								</Link>
 								<div className={styles.line} />
-							</Fragment>
+							</div>
 						))}
 					</div>
-					<div className={styles.scrollContainer} />
 				</div>
 				<div className={styles.podcastImageContainer}>
 					<div className={styles.playContainer}>
 						<div className={styles.playButton}>
 							<button className={styles.playIcon}>
-								<Image src={PLAY} />
+								<Image src={PLAY} alt="Play" width={30} height={30} />
 							</button>
 						</div>
 						<svg className={styles.circle} viewBox="0 0 100 100">
@@ -124,8 +104,13 @@ function PodcastSection() {
 							</text>
 						</svg>
 					</div>
-
-					<Image src={GIRL} alt="Podcast" className={styles.podcastImage} />
+					<Image
+						src={GIRL}
+						alt="Podcast"
+						className={styles.podcastImage}
+						width={300}
+						height={300}
+					/>
 				</div>
 			</div>
 		</section>

@@ -3,7 +3,7 @@ import styles from "./Card.module.css";
 import Image from "next/image";
 
 // eslint-disable-next-line react/prop-types
-function Card({ id, title, description, image, category, imageHeight }) {
+function Card({ slug, title, description, image, category, imageHeight }) {
 	const handleClick = () => {
 		window.scrollTo(0, 0); // Scroll to the top of the page
 	};
@@ -34,7 +34,7 @@ function Card({ id, title, description, image, category, imageHeight }) {
 					<p className={styles.description}>{description}</p>
 				</div>
 				{/* Use Next.js Link instead of react-router-dom */}
-				<Link href={`/case-studies/${id}`} passHref onClick={handleClick}>
+				<Link href={`/case-studies/${slug}`} passHref onClick={handleClick}>
 					<span className={styles.viewButton}>View</span>
 				</Link>
 			</div>

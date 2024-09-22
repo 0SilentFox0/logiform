@@ -1,13 +1,13 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { IoMdClose } from "react-icons/io";
 import { IoMenuOutline } from "react-icons/io5";
 import styles from "./Header.module.css";
 import HeaderUnion from "@/components/layout/Header/HeaderUnion/HeaderUnion";
 import Dropdown from "@/components/layout/Header/Dropdown/Dropdown";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import logoImage from "@/assets/logo.svg";
 
@@ -15,33 +15,26 @@ function Header() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [openDropdown, setOpenDropdown] = useState(null);
 
-	const toggleNavbar = () => {
+	const toggleNavbar = useCallback(() => {
 		setIsOpen((prevState) => !prevState);
-	};
+	}, []);
 
-	const closeNavbar = () => {
+	const closeNavbar = useCallback(() => {
 		setIsOpen(false);
-	};
+	}, []);
 
-	const handleDropdownToggle = (dropdownName) => {
+	const handleDropdownToggle = useCallback((dropdownName) => {
 		setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
-	};
+	}, []);
 
-	const handleClick = () => {
-		window.scrollTo(0, 0); // Scroll to the top of the page
-	};
+	const handleClick = useCallback(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	useEffect(() => {
-		if (isOpen) {
-			// Disable body scroll when the overlay is open
-			document.body.style.overflow = "hidden";
-		} else {
-			// Enable body scroll when the overlay is closed
-			document.body.style.overflow = "auto";
-		}
-
+		document.body.style.overflow = isOpen ? "hidden" : "auto";
 		return () => {
-			document.body.style.overflow = "auto"; // Cleanup
+			document.body.style.overflow = "auto";
 		};
 	}, [isOpen]);
 
@@ -53,9 +46,6 @@ function Header() {
 		};
 
 		window.addEventListener("resize", handleResize);
-
-		handleResize(); // Initial check for wide screens
-
 		return () => window.removeEventListener("resize", handleResize);
 	}, [isOpen]);
 
@@ -65,7 +55,7 @@ function Header() {
 
 			<div className={styles.headerContainer}>
 				<Link href="/" className={styles.logo} onClick={handleClick}>
-					<Image src={logoImage} alt="Logiform Logo" />
+					<Image src={logoImage} alt="Logiform Logo" width={40} height={40} />
 					<span>Logiform</span>
 				</Link>
 				<nav className={styles.nav}>
@@ -107,22 +97,28 @@ function Header() {
 							/>
 						</li>
 						<li>
-							<AnchorLink href="#contact">Partner with us</AnchorLink>
+							<Link href="#contact" className={styles.anchor}>
+								Partner with us
+							</Link>
 						</li>
 					</ul>
 				</nav>
 				<div className={styles.contactButton}>
-					<AnchorLink href="#contact" className={styles.anchorContactButton}>
+					<Link href="#contact" className={styles.anchorContactButton}>
 						Contact us
-					</AnchorLink>
+					</Link>
 				</div>
-				<div
+				<button
 					className={`${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}
+					onClick={toggleNavbar}
+					aria-label={isOpen ? "Close menu" : "Open menu"}
 				>
-					<button onClick={toggleNavbar}>
-						{isOpen ? <IoMdClose /> : <IoMenuOutline />}
-					</button>
-				</div>
+					{isOpen ? (
+						<IoMdClose aria-hidden="true" />
+					) : (
+						<IoMenuOutline aria-hidden="true" />
+					)}
+				</button>
 			</div>
 
 			{isOpen && (
@@ -161,17 +157,15 @@ function Header() {
 							/>
 						</li>
 						<li>
-							<AnchorLink href="#contact" onClick={closeNavbar}>
+							<Link
+								href="#contact"
+								className={styles.anchor}
+								onClick={closeNavbar}
+							>
 								Partner with us
-							</AnchorLink>
+							</Link>
 						</li>
 					</ul>
-
-					<div className={styles.contactButtonMenu}>
-						<AnchorLink href="#contact" className={styles.anchor}>
-							<button onClick={closeNavbar}>Contact us</button>
-						</AnchorLink>
-					</div>
 				</div>
 			)}
 		</header>

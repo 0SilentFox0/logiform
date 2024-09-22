@@ -6,7 +6,7 @@ import DOT from "@/assets/blogImages/dot.svg";
 import ContactSection from "@/components/layout/ContactSection/ContactSection";
 import PostCard from "@/components/Blog/PostCard/PostCard"; // Ensure this is the correct import
 import Image from "next/image"; // Ensure this is the correct import
-import { directus } from "@/plugins/axios";
+import { BlogGateway } from "@/api/blog/blog-gateway";
 
 function Blog() {
 	const [posts, setPosts] = useState([]);
@@ -28,14 +28,11 @@ function Blog() {
 		[categories]
 	);
 
-	const postPreviewFields =
-		"post_title,post_image_small,post_description,date_created,author_name,author_image,category_name";
-
 	// Fetch posts
 	useEffect(() => {
 		const getPosts = async () => {
 			try {
-				const data = await getPostsPreview();
+				const data = await BlogGateway.getPostsPreview("");
 				setPosts(data); // Update the state with fetched posts
 			} catch (error) {
 				console.error("Error fetching posts:", error);
@@ -44,40 +41,6 @@ function Blog() {
 		getPosts();
 	}, []);
 
-	// Fetch function to get post data
-	async function getPostsPreview() {
-		try {
-			const params = { fields: postPreviewFields };
-			const response = await directus.get("blog_post", { params });
-
-			const posts = response.data.data;
-
-			// Map the posts for rendering
-			return posts.map((post) => ({
-				id: post.id,
-				image: post.post_image_small
-					? `${process.env.NEXT_PUBLIC_DIRECTUS_URL}${post.post_image_small}`
-					: "",
-				date: new Date(post.date_created).toLocaleDateString("en-US", {
-					day: "numeric",
-					month: "long",
-					year: "numeric",
-				}),
-				title: post.post_title,
-				description: post.post_description,
-				authorImage: post.author_image
-					? `${process.env.NEXT_PUBLIC_DIRECTUS_URL}${post.author_image}`
-					: AUTHOR,
-				author: post.author_name || "Unknown Author",
-				category: post.category_name || "Uncategorized",
-			}));
-		} catch (error) {
-			console.error("Error in getPostsPreview:", error);
-			return [];
-		}
-	}
-
-	// Memoize filtered posts to avoid re-computation
 	const filteredPosts = useMemo(() => {
 		return category === "All"
 			? posts
@@ -157,7 +120,7 @@ function Blog() {
 						}
 					>
 						{filteredPosts.map((post, index) => (
-							<PostCard key={index} {...post} /> // Ensure correct key usage
+							<PostCard key={index} {...post} />
 						))}
 					</div>
 				</div>

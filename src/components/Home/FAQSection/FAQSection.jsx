@@ -1,22 +1,10 @@
-"use client";
-
 import styles from "./FAQSection.module.css";
-
-import ARROW_UP from "@/assets/FAQimages/arrowUp.svg";
-import ARROW_DOWN from "@/assets/FAQimages/arrowDown.svg";
+import FAQClientComponent from "./FAQClientComponent";
 
 import PICTURE from "@/assets/FAQimages/picture.png";
-
-import { useState } from "react";
 import Image from "next/image";
 
 function FAQSection() {
-	const [openFaqs, setOpenFaqs] = useState(0); // Track open/close state for each FAQ item
-
-	const toggleFaq = (index) => {
-		setOpenFaqs(openFaqs === index ? null : index); // Toggle the clicked FAQ
-	};
-
 	const faqs = [
 		{
 			question:
@@ -52,52 +40,21 @@ function FAQSection() {
 	];
 
 	return (
-		<section className={styles.container}>
-			<div className={styles.title}>
-				<h2>FAQ</h2>
-			</div>
+		<section className={styles.container} aria-labelledby="faq-title">
+			<h2 id="faq-title" className={styles.title}>
+				FAQ
+			</h2>
 			<div className={styles.content}>
-				<div className={styles.cards}>
-					{faqs.map((faq, index) => (
-						<div
-							key={index}
-							className={`${styles.card} ${
-								openFaqs === index ? styles.open : ""
-							}`}
-							onClick={() => toggleFaq(index)}
-						>
-							<div
-								className={`${styles.cardContent} ${
-									openFaqs === index ? styles.open : ""
-								}`}
-							>
-								<div className={styles.cardQuestion}>
-									<span className={styles.question}>{faq.question}</span>
-								</div>
-								{openFaqs === index && (
-									<div className={styles.cardAnswer}>
-										<p>{faq.answer}</p>
-									</div>
-								)}
-							</div>
-							<span
-								className={`${styles.cardImage} ${
-									openFaqs === index ? styles.arrowUp : styles.arrowDown
-								} `}
-							>
-								<Image
-									src={openFaqs === index ? ARROW_UP : ARROW_DOWN}
-									alt="Arrow Icon"
-									className={
-										openFaqs === index ? styles.arrowUpImg : styles.arrowDownImg
-									}
-								/>
-							</span>
-						</div>
-					))}
-				</div>
+				<FAQClientComponent faqs={faqs} />
 				<div className={styles.pictureContainer}>
-					<Image className={styles.picture} src={PICTURE} alt="FAQ picture" />
+					<Image
+						className={styles.picture}
+						src={PICTURE}
+						alt="FAQ illustration"
+						width={400}
+						height={300}
+						loading="lazy"
+					/>
 				</div>
 			</div>
 		</section>
