@@ -4,15 +4,16 @@ import Card from "@/components/CaseStudies/Card/Card";
 import { VscSettings } from "react-icons/vsc";
 import ContactSection from "@/components/layout/ContactSection/ContactSection";
 import { useEffect, useState } from "react";
-import { directus } from "@/plugins/axios";
 import HeroSection from "@/components/layout/HeroSection/HeroSection";
 import PhoneImage from "@/assets/caseStudiesImg/Phone.png";
 import GlitchEffect from "@/components/layout/HeroSection/GlitchEffect/GlitchEffect";
+import { CasesGateway } from "@/api/cases/cases-gateway";
 
 function CaseStudies() {
-	const [cards, setCards] = useState([]);
+	const [cases, setCases] = useState([]);
 	const [isFilterVisible, setIsFilterVisible] = useState(false);
 	const [selectedCategories, setSelectedCategories] = useState([]);
+	const [categories, setCategories] = useState([]);
 
 	// Toggle filter visibility
 	const toggleFilterVisibility = () => {
@@ -28,52 +29,36 @@ function CaseStudies() {
 		);
 	};
 
-	// Filter cards based on selected categories
-	const filteredCards =
+	// Filter cases based on selected categories
+	const filteredCases =
 		selectedCategories.length === 0
-			? cards
-			: cards.filter((card) => selectedCategories.includes(card.category));
+			? cases
+			: cases.filter((case_) =>
+					case_.categories.some((cat) => selectedCategories.includes(cat))
+			  );
 
 	// Determine image height class for layout
 	const getImageHeightClass = (index) =>
 		index % 2 === 0 ? styles.largeImage : styles.smallImage;
 
-	// Fetch cards data from API
+	// Fetch cases and categories data
 	useEffect(() => {
-		const fetchCards = async () => {
+		const getCases = async () => {
 			try {
-				const params = {
-					fields: "card_image,category_name,card_title,card_description,slug",
-				};
-				const response = await directus.get("case_studies_card", { params });
-				const data = response.data.data;
+				const data = await CasesGateway.getCasesPreview();
+				setCases(data);
 
-				const formattedCards = data.map((card) => ({
-					id: card.id,
-					image: card.card_image
-						? `${process.env.NEXT_PUBLIC_DIRECTUS_URL}${card.card_image}`
-						: "",
-					category: card.category_name || "Uncategorized",
-					title: card.card_title,
-					description: card.card_description,
-				}));
-				setCards(formattedCards);
+				// Extract unique categories from cases and update the state
+				const uniqueCategories = new Set(
+					data.flatMap((item) => item.categories)
+				);
+				setCategories([...uniqueCategories]);
 			} catch (error) {
-				console.error("Error fetching cards:", error);
+				console.error("Error fetching cases:", error);
 			}
 		};
-		fetchCards();
+		getCases();
 	}, []);
-
-	// Categories for filter options
-	const categories = [
-		"Blockchain",
-		"Back-end",
-		"Front-end",
-		"Databases",
-		"Cloud Services",
-		"DevOps",
-	];
 
 	return (
 		<div>
@@ -114,14 +99,10 @@ function CaseStudies() {
 
 					<div className={styles.content}>
 						<div className={styles.grid}>
-							{filteredCards.map((card, index) => (
+							{filteredCases.map((case_, index) => (
 								<Card
-									key={index} // Ensure a unique key for each card
-									id={card.id}
-									title={card.title}
-									description={card.description}
-									image={card.image}
-									category={card.category}
+									key={case_.id}
+									{...case_}
 									imageHeight={getImageHeightClass(index)}
 								/>
 							))}

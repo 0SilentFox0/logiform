@@ -9,14 +9,7 @@ import ARROW from "@/assets/blogImages/arrow.png";
 import DOT from "@/assets/blogImages/dot.svg";
 
 export default function BlogPostContent({ post }) {
-	const {
-		date_updated,
-		post_title,
-		post_description,
-		author_image,
-		author_name,
-		category_name,
-	} = post;
+	const { date_created, title, description, author, categories } = post;
 
 	return (
 		<div className={styles.hero}>
@@ -25,28 +18,34 @@ export default function BlogPostContent({ post }) {
 					<Image src={ARROW} alt="Back to blog" />
 				</Link>
 
-				<button className={styles.tabButton}>{category_name}</button>
+				<div className={styles.tabButtons}>
+					{categories.map((category, index) => (
+						<button className={styles.tabButton} key={index}>
+							{category + " "}
+						</button>
+					))}
+				</div>
 
 				<div className={styles.blogTextContainer}>
 					<div className={styles.blogText}>
-						<h1 className={styles.blogTitle}>{post_title}</h1>
+						<h1 className={styles.blogTitle}>{title}</h1>
 					</div>
-					<p className={styles.blogDescription}>{post_description}</p>
+					<p className={styles.blogDescription}>{description}</p>
 				</div>
 
 				<div className={styles.authorContainer}>
 					<OptimizedImage
-						src={author_image.id}
-						alt={author_name}
+						src={author.image.id}
+						alt={author.name}
 						width={40}
 						height={40}
 						className={styles.authorAvatar}
 					/>
-					<div className={styles.name}>{author_name}</div>
+					<div className={styles.name}>{author.name}</div>
 					<Image className={styles.dot} src={DOT} alt="Dot" />
 					<div className={styles.date}>
 						{" "}
-						{new Date(date_updated).toLocaleDateString("en-US", {
+						{new Date(date_created).toLocaleDateString("en-US", {
 							day: "numeric",
 							month: "long",
 							year: "numeric",

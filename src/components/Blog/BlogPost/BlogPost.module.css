@@ -19,6 +19,13 @@
 	align-items: flex-start;
 	gap: 32px;
 	width: 100%;
+	padding-right: 50px;
+}
+
+.tabButtons {
+	display: flex;
+	background: transparent;
+	gap: 10px;
 }
 
 .tabButton {
@@ -57,6 +64,7 @@
 	font-weight: 700;
 	line-height: 120%; /* 57.6px */
 	letter-spacing: -1.92px;
+	text-wrap: balance;
 }
 
 .arrow {
@@ -73,11 +81,13 @@
 
 .blogDescription {
 	width: 704px;
+	margin-top: 10px;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 120%; /* 19.2px */
+	line-height: 150%; /* 19.2px */
 	letter-spacing: -0.32px;
+	text-wrap: balance;
 }
 
 .authorContainer {

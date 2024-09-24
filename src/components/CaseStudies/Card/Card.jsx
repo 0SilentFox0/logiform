@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styles from "./Card.module.css";
-import Image from "next/image";
+import OptimizedImage from "@/components/layout/OptimazedImage";
 
 // eslint-disable-next-line react/prop-types
-function Card({ slug, title, description, image, category, imageHeight }) {
+function Card({ slug, title, description, image, categories, imageHeight }) {
 	const handleClick = () => {
 		window.scrollTo(0, 0); // Scroll to the top of the page
 	};
@@ -11,20 +11,19 @@ function Card({ slug, title, description, image, category, imageHeight }) {
 	return (
 		<div className={styles.card}>
 			<div className={`${styles.imageWrapper} ${imageHeight}`}>
-				<Image
-					src={image}
-					width={200}
-					height={200} // Provide height to prevent layout shifts
+				<OptimizedImage
+					src={image.id || image}
+					width={580}
+					height={680} // Provide height to prevent layout shifts
 					alt={title}
 					className={styles.image}
-					priority // Optional, loads the image faster (for key components)
 				/>
 				<div className={styles.overlayTabs}>
-					{/* Assuming these buttons will be used for filtering or navigation */}
-					<button>{category}</button>
-					<button>{category}</button>
-					<button>{category}</button>
-					<button>{category}</button>
+					{categories.map((category, index) => (
+						<button className={styles.cardCategory} key={index}>
+							{category + " "}
+						</button>
+					))}
 				</div>
 			</div>
 

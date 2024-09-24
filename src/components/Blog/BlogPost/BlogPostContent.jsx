@@ -13,16 +13,13 @@ import INSTAGRAM from "@/assets/blogImages/instagram.svg";
 export default function BlogPostContent({ post }) {
 	const {
 		slug,
-		post_image_small,
-		date_updated,
-		post_title,
-		post_description,
-		author_image,
-		author_name,
-		category_name,
+		image,
+		date_created,
+		title,
+		description,
 		content,
-		relatedPosts,
-		readingTime,
+		related_posts,
+		reading_time,
 	} = post;
 
 	return (
@@ -35,8 +32,8 @@ export default function BlogPostContent({ post }) {
 						<div className={styles.postTableContainer}></div>
 						<div className={styles.postCases}>
 							<div className={styles.casesTitle}>
-								<div className={styles.time}>{readingTime}</div>
-								<h1>{post_title}</h1>
+								<div className={styles.time}>{reading_time}</div>
+								<h1>{title}</h1>
 							</div>
 
 							<div
@@ -54,14 +51,14 @@ export default function BlogPostContent({ post }) {
 						</div>
 					</div>
 
-					{relatedPosts && relatedPosts.length ? (
+					{related_posts && related_posts.length ? (
 						<div className={styles.latestArticle}>
 							<div className={styles.articlesTitle}>
 								<h1>Latest articles</h1>
 							</div>
 							<div className={styles.articles}>
-								{relatedPosts.map((relatedPost, index) => (
-									<PostCard key={index} {...relatedPost} />
+								{related_posts.map((relatedPost, index) => (
+									<PostCard key={index} {...relatedPost.related_blogs_id} />
 								))}
 							</div>
 						</div>

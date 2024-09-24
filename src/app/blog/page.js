@@ -7,33 +7,39 @@ import ContactSection from "@/components/layout/ContactSection/ContactSection";
 import PostCard from "@/components/Blog/PostCard/PostCard"; // Ensure this is the correct import
 import Image from "next/image"; // Ensure this is the correct import
 import { BlogGateway } from "@/api/blog/blog-gateway";
+import OptimizedImage from "@/components/layout/OptimazedImage";
 
 function Blog() {
 	const [posts, setPosts] = useState([]);
 	const [toggleState, setToggleState] = useState(1);
 	const [category, setCategory] = useState("All");
-
-	// Memoized categories to avoid unnecessary re-creation on re-renders
-	const categories = useMemo(
-		() => ["All", "Blockchain", "Web 3", "Web 2", "About us", "Trends"],
-		[]
-	);
+	const [categories, setCategories] = useState(["All"]);
 
 	// Memoize the toggle function to avoid re-creating the function on every render
 	const toggleTab = useCallback(
 		(index) => {
 			setToggleState(index);
-			setCategory(categories[index - 1]); // Set category based on selected tab
+			setCategory(categories[index]); // Set category based on selected tab
 		},
 		[categories]
 	);
 
-	// Fetch posts
+	// Fetch posts and categories
 	useEffect(() => {
 		const getPosts = async () => {
 			try {
 				const data = await BlogGateway.getPostsPreview("");
-				setPosts(data); // Update the state with fetched posts
+
+				// Extract unique categories from posts and update the state
+				const uniqueCategories = new Set(["All"]); // Initialize with "All"
+				data.forEach((item) => {
+					item.categories.forEach((cat) => {
+						uniqueCategories.add(cat); // Add each category to the Set
+					});
+				});
+
+				setPosts(data); // Update posts state
+				setCategories([...uniqueCategories]); // Convert Set to an array and update categories
 			} catch (error) {
 				console.error("Error fetching posts:", error);
 			}
@@ -44,7 +50,7 @@ function Blog() {
 	const filteredPosts = useMemo(() => {
 		return category === "All"
 			? posts
-			: posts.filter((post) => post.category === category);
+			: posts.filter((post) => post.categories.includes(category));
 	}, [category, posts]);
 
 	return (
@@ -53,26 +59,20 @@ function Blog() {
 				<div className={styles.content}>
 					<div className={styles.blogTextContainer}>
 						<div className={styles.blogText}>
-							<h1 className={styles.blogTitle}>
-								Node.js Architecture From A to Z: What Makes It a Top Choice
-							</h1>
+							<h1 className={styles.blogTitle}>{posts[0]?.title}</h1>
 						</div>
-						<p className={styles.blogDescription}>
-							Smart contracts are an integral part of the Ethereum blockchain.
-							This technology provides users with the possibility to create
-							unique digital agreements. These contracts can execute their terms
-						</p>
+						<p className={styles.blogDescription}>{posts[0]?.description}</p>
 					</div>
 
 					<div className={styles.authorContainer}>
-						<Image
+						<OptimizedImage
 							className={styles.authorAvatar}
-							src={AUTHOR} // Use the imported image directly
+							src={posts[0]?.author.image} // Use the imported image directly
 							alt="Author Avatar"
 							width={50} // Specify width and height for optimization
 							height={50}
 						/>
-						<div className={styles.name}>Ronald Richards</div>
+						<div className={styles.name}> {posts[0]?.author.name}</div>
 						<Image
 							className={styles.dot}
 							src={DOT} // Use the imported image directly
@@ -80,7 +80,14 @@ function Blog() {
 							width={10} // Specify width and height for optimization
 							height={10}
 						/>
-						<div className={styles.date}>12, August 2024</div>
+						<div className={styles.date}>
+							{" "}
+							{new Date(posts[0]?.date_created).toLocaleDateString("en-US", {
+								day: "numeric",
+								month: "long",
+								year: "numeric",
+							})}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -100,11 +107,11 @@ function Blog() {
 								<button
 									key={index}
 									className={
-										toggleState === index + 1
+										toggleState === index
 											? `${styles.tab} ${styles.activeTab}`
 											: styles.tab
 									}
-									onClick={() => toggleTab(index + 1)}
+									onClick={() => toggleTab(index)}
 								>
 									{tab}
 								</button>
