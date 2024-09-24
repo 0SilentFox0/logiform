@@ -177,7 +177,7 @@ function VisionSection() {
 
 							<Link
 								href="#contact"
-								className={(styles.contactButton, styles.anchor)}
+								className={styles.contactButton}
 							>
 								Contact us
 							</Link>
