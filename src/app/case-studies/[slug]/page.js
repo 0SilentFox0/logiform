@@ -9,25 +9,13 @@ import Python from "@/assets/caseStudiesDetailsImg/python.svg";
 import Nest from "@/assets/caseStudiesDetailsImg/Nest js.svg";
 import Phone from "@/assets/caseStudiesDetailsImg/phoneImg.png";
 import Link from "next/link";
+import { CasesGateway } from "@/api/cases/cases-gateway";
 
-const caseStudies = {
-	1: {
-		title: "TeXifyMath",
-		description: "Computer vision virtual basketball assistant...",
-		details: "Detailed information about TeXifyMath...",
-	},
-	2: {
-		title: "Blockify",
-		description: "This is the description for Blockify.",
-		details: "Detailed information about Blockify...",
-	},
-	// Add other case studies...
-};
+export default async function CaseStudiesDetails({ params }) {
+	const { slug } = params;
+	const case_ = await CasesGateway.getCase(slug);
 
-export default function CaseStudiesDetails({ params }) {
-	const caseStudy = caseStudies[params.id];
-
-	if (!caseStudy) {
+	if (!case_) {
 		notFound(); // Use Next.js built-in 404 if the case study doesn't exist
 	}
 
@@ -40,17 +28,20 @@ export default function CaseStudiesDetails({ params }) {
 							<Image src={PrevButtonImage} alt="Go back" />
 						</Link>
 						<div className={styles.tabsWrapper}>
-							<button className={styles.tabButton}>Blockchain</button>
-							<button className={styles.tabButton}>Blockchain</button>
+							{case_.categories.map((category) => (
+								<button key={category} className={styles.tabButton}>
+									{category}
+								</button>
+							))}
 						</div>
 					</div>
 
 					<div className={styles.projectTitle}>
-						<h1>{caseStudy.title}</h1>
+						<h1>{case_.title}</h1>
 					</div>
 
 					<div className={styles.projectDescription}>
-						<p>{caseStudy.description}</p>
+						<p>{case_.description}</p>
 						<div className={styles.actionButtons}>
 							<button className={styles.actionButton}>
 								<Image src={Binance} alt="Binance" />
@@ -71,21 +62,10 @@ export default function CaseStudiesDetails({ params }) {
 
 			<section className={styles.detailsSection}>
 				<div className={styles.detailsContainer}>
-					<div className={styles.mainText}>
-						<p>
-							Hiroo, an innovative recruiting app, aimed to revolutionize job
-							discovery and HR communication...
-						</p>
-					</div>
-
-					<div className={styles.aboutProject}>
-						<Image
-							className={styles.aboutProjectImage}
-							src={Phone}
-							alt="Phone"
-						/>
-						{/* Add content */}
-					</div>
+					<div
+						className={styles.detailsContent}
+						dangerouslySetInnerHTML={{ __html: case_.content }}
+					/>
 
 					<ContactSection />
 				</div>
@@ -96,9 +76,9 @@ export default function CaseStudiesDetails({ params }) {
 
 // Use this to statically generate the pages
 export async function generateStaticParams() {
-	const caseStudyIds = Object.keys(caseStudies);
+	// Fetch all blog post slugs
+	const slugs = await CasesGateway.getAllSlugs();
 
-	return caseStudyIds.map((id) => ({
-		id,
-	}));
+	// Return an array of params to pre-render
+	return slugs;
 }
