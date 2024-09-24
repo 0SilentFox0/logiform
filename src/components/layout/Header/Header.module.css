@@ -27,7 +27,8 @@
 }
 
 .logo img {
-	width: 40px;
+	width: auto;
+	height: auto;
 }
 
 .logo span {
@@ -160,10 +161,6 @@
 		padding: 8px 4px 8px 24px;
 	}
 
-	.logo img {
-		width: 30px;
-	}
-
 	.logo span {
 		font-size: 20px;
 	}
@@ -191,10 +188,6 @@
 
 	.logo {
 		padding: 8px 16px;
-	}
-
-	.logo img {
-		width: 25px;
 	}
 
 	.logo span {
@@ -244,11 +237,6 @@
 
 	.logo span {
 		font-size: 30px;
-	}
-
-	.logo img {
-		width: 45px;
-		height: 45px;
 	}
 
 	.burgerMenu {
@@ -367,11 +355,6 @@
 
 	.overlayMenu {
 		width: 100%;
-	}
-
-	.logo img {
-		width: 37px;
-		height: 37px;
 	}
 
 	.logo span {

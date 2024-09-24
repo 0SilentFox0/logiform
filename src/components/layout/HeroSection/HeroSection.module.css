@@ -105,7 +105,9 @@
 }
 
 .image img {
+	width: 100%;
 	max-width: 663px;
+	object-fit: contain;
 }
 
 @media (max-width: 1200px) {
