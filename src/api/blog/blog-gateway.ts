@@ -6,7 +6,7 @@ import { POST_STATUS } from "@/utils/constants";
 import { directus } from "@/plugins/axios";
 
 const postPreviewFields =
-	"post_title,post_image_small,post_description,date_created,author_name,author_image,category_name,id,slug";
+	"title,image,description,date_created,author.*,slug,categories";
 
 async function getPostsPreview({
 	categorySlug,
@@ -29,7 +29,7 @@ async function getPostsPreview({
 			},
 		};
 
-	const { data: posts } = await directus.get<IBlog.PostPreview[]>("blog_post", {
+	const { data: posts } = await directus.get<IBlog.PostPreview[]>("blogs", {
 		params,
 	});
 
@@ -61,27 +61,13 @@ async function getPost({
 			},
 		};
 
-	const { data: posts } = await directus.get<IBlog.Post[]>("blog_post", {
+	const { data: posts } = await directus.get<IBlog.Post[]>("blogs", {
 		params,
 	});
 
 	const [post] = posts.data;
 
 	return post;
-}
-
-async function getCategories(): Promise<ICategory[]> {
-	const params: IParamsDirectus = {
-		sort: "name",
-		fields: "*.*",
-	};
-
-	const { data: categories } = await directus.get<ICategory[]>(
-		"blog_categories",
-		{ params }
-	);
-
-	return categories.data;
 }
 
 async function getAllSlugs(): Promise<string[]> {
@@ -92,7 +78,7 @@ async function getAllSlugs(): Promise<string[]> {
 		},
 	};
 
-	const { data: slugs } = await directus.get<string[]>("blog_post", { params });
+	const { data: slugs } = await directus.get<string[]>("blogs", { params });
 
 	return slugs.data;
 }
@@ -100,6 +86,5 @@ async function getAllSlugs(): Promise<string[]> {
 export const BlogGateway = {
 	getPost,
 	getPostsPreview,
-	getCategories,
 	getAllSlugs,
 };

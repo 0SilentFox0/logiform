@@ -43,9 +43,9 @@ function CaseStudies() {
 		const fetchCards = async () => {
 			try {
 				const params = {
-					fields: "card_image,category_name,card_title,card_description,slug",
+					fields: "image,category,title,description,slug",
 				};
-				const response = await directus.get("case_studies_card", { params });
+				const response = await directus.get("cases", { params });
 				const data = response.data.data;
 
 				const formattedCards = data.map((card) => ({
