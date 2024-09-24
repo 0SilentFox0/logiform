@@ -69,7 +69,7 @@ function ApproachSection() {
 							</p>
 						</div>
 						<div className={styles.approachCardImage}>
-							<Image className={styles.factoryImage} height={150} src={FACTORY} />
+							<Image className={styles.factoryImg} height={212} width={200}  src={FACTORY} />
 						</div>
 					</div>
 
