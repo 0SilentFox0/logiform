@@ -67,17 +67,18 @@ function TestimonialsSection() {
 					effect={"coverflow"}
 					grabCursor={true}
 					centeredSlides={true}
+					spaceBetween={60}
+					initialSlide={3}
 					loop={true}
-					slidesPerView={"auto"}
+					slidesPerView={'auto'} 
 					coverflowEffect={{
 						rotate: 0,
 						stretch: 0,
-						depth: 100,
+						depth: 130,
 						modifier: 0.5,
 						slideShadows: false,
 					}}
 					modules={[EffectCoverflow, Pagination]}
-					className={styles.swiper}
 				>
 					{testimonials.map((testimonial, index) => (
 						<SwiperSlide key={index} className={styles.swiperSlide}>

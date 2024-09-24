@@ -37,6 +37,7 @@ function FAQClientComponent({ faqs }) {
 						}`}
 					>
 						<Image
+							className={styles.arrowImg}
 							src={openFaqs === index ? ARROW_UP : ARROW_DOWN}
 							alt={openFaqs === index ? "Collapse answer" : "Expand answer"}
 							width={20}

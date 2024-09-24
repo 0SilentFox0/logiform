@@ -22,6 +22,7 @@
 .footer a:hover {
 	color: #1b9ce1;
 }
+
 .infoContainer {
 	display: flex;
 	padding: 0px 120px;
@@ -79,7 +80,6 @@
 }
 
 .line {
-	height: 1px;
 	align-self: stretch;
 	background: rgba(255, 255, 255, 0.36);
 }
