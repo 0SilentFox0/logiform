@@ -1,0 +1,206 @@
+.background {
+	background: #0d0316;
+}
+
+.container {
+	background: var(--Neutral-Neutral-10, #f6f6f6);
+	border-radius: 48px 48px 0 0;
+}
+
+.header {
+	display: flex;
+	padding: 20px 120px;
+	align-items: center;
+	gap: 48px;
+	align-self: stretch;
+	z-index: 1001;
+}
+
+.actions {
+	display: flex;
+	width: 190px;
+	align-items: center;
+	gap: 16px;
+	position: relative;
+}
+
+.action {
+	display: flex;
+	width: 48px;
+	height: 48px;
+	padding: 14px;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 120px;
+	border: 1px solid var(--Neutral-Neutral-60, #363f45);
+	background: #f6f6f6;
+}
+
+.action img {
+	color: black;
+}
+
+.filterWindow {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 60px;
+	right: 0;
+	background: white;
+	border-radius: 16px;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 16px 24px 16px 16px;
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+	z-index: 10;
+	gap: 16px;
+}
+
+.filterLabel {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 500;
+}
+
+.filterLabel input[type="checkbox"] {
+	appearance: none;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	border-radius: 8px;
+	border: 1px solid var(--Neutral-Neutral-70, #0d0316);
+	position: relative;
+	outline: none;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+.filterLabel input[type="checkbox"]:checked {
+	background-color: #000000;
+}
+
+.filterLabel input[type="checkbox"]::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 7px;
+	height: 14px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: translate(-50%, -50%) rotate(45deg) scale(0);
+	transition: transform 0.2s ease-in-out;
+}
+
+.filterLabel input[type="checkbox"]:checked::after {
+	transform: translate(-50%, -60%) rotate(45deg) scale(1); /* Галочка появляется при checked */
+}
+
+.largeImage {
+	height: 682px; /* Задайте нужную высоту */
+}
+
+.smallImage {
+	height: 492px; /* Задайте нужную высоту */
+}
+
+.actionImg {
+	font-size: 24px;
+	color: black;
+}
+
+.content {
+	display: flex;
+	padding: 0px 120px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 32px;
+	align-self: stretch;
+}
+
+.block {
+	display: flex;
+	align-items: flex-start;
+	gap: 32px;
+	align-self: stretch;
+}
+
+.columnLeft {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 32px;
+	flex: 1 0 0;
+	align-self: stretch;
+}
+
+.columnRight {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-start;
+	gap: 32px;
+	flex: 1 0 0;
+	align-self: stretch;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 40px;
+}
+
+@media (max-width: 1200px) {
+	.header {
+		padding: 20px 100px;
+	}
+
+	.content {
+		padding: 0 100px;
+	}
+}
+
+@media (max-width: 968px) {
+	.header {
+		padding: 20px 50px;
+	}
+
+	.content {
+		padding: 0 50px;
+	}
+
+	.columnLeft {
+		display: none;
+	}
+
+	.largeImage {
+		height: 582px; /* Задайте нужную высоту */
+	}
+
+	.smallImage {
+		height: 392px; /* Задайте нужную высоту */
+	}
+}
+
+@media (max-width: 500px) {
+	.container {
+		border-radius: 24px 24px 0px 0px;
+	}
+
+	.header {
+		padding: 8px 24px;
+	}
+
+	.content {
+		padding: 20px 24px 40px 24px;
+	}
+
+	.largeImage {
+		height: 381px; /* Задайте нужную высоту */
+	}
+
+	.smallImage {
+		height: 273px; /* Задайте нужную высоту */
+	}
+}

@@ -1,0 +1,11 @@
+.union {
+    display: flex;
+    position: absolute;
+    width: 100%;
+}
+
+@media (max-width: 1410px) {
+    .union {
+        display: none;
+    }
+}

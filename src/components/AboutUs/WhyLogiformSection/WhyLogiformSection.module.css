@@ -1,0 +1,123 @@
+/* Why Logiform Section */
+
+.whyLogiformSection {
+	display: flex;
+	padding: 80px 120px;
+	flex-direction: column;
+	align-items: center;
+
+	gap: 30px;
+}
+
+.whyLogiformTitle {
+	max-width: 592px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+}
+
+.whyLogiformTitle h1 {
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 120%; /* 57.6px */
+	letter-spacing: -1.92px;
+}
+
+.whyLogiformTitle p {
+	text-align: center;
+	width: 180px;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 120%; /* 24px */
+	letter-spacing: -0.8px;
+}
+
+.whyLogiformCards {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	align-self: stretch;
+	flex-wrap: wrap;
+}
+
+.whyLogiformCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cardIconContainer {
+	position: relative;
+	top: 30px;
+	display: flex;
+	width: 80px;
+	height: 80px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20.426px;
+	border: 6.809px solid var(--Cyan-Cyan-05, rgba(244, 248, 253, 0.318));
+	background: var(--Cyan-Cyan-10, #5caddc3a);
+}
+
+.cardContent {
+	display: flex;
+	box-sizing: border-box;
+	min-width: 355px;
+	max-width: 390px;
+	padding: 40px 24px 24px 24px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	align-self: stretch;
+	border-radius: 32px;
+	background: var(--Neutral-Neutral-10, #f6f6f6);
+}
+
+.cardTitle {
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 120%; /* 24px */
+	letter-spacing: -0.8px;
+}
+
+.cardText {
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 120%; /* 19.2px */
+	letter-spacing: -0.32px;
+	color: var(--Neutral-Neutral-60, #363f45);
+}
+
+@media (max-width: 1200px) {
+	.whyLogiformSection {
+		padding: 80px 100px;
+	}
+}
+
+@media (max-width: 968px) {
+	.whyLogiformSection {
+		padding: 60px;
+	}
+
+	.whyLogiformTitle h1 {
+		font-size: 40px;
+	}
+
+	.whyLogiformTitle p {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 500px) {
+	.whyLogiformSection {
+		padding: 40px 20px;
+	}
+}
