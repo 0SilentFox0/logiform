@@ -7,7 +7,6 @@ import Binance from "@/assets/caseStudiesDetailsImg/binance.svg";
 import Ethereum from "@/assets/caseStudiesDetailsImg/Ethereum.svg";
 import Python from "@/assets/caseStudiesDetailsImg/python.svg";
 import Nest from "@/assets/caseStudiesDetailsImg/Nest js.svg";
-import Phone from "@/assets/caseStudiesDetailsImg/phoneImg.png";
 import Link from "next/link";
 import { CasesGateway } from "@/api/cases/cases-gateway";
 

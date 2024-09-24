@@ -1,36 +1,36 @@
-"use client";
+// "use client";
 import styles from "./AboutUsHeroSection.module.css";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-import desktopVideo from "@/assets/fullVersion.MOV";
-import mobileVideo from "@/assets/mobile.MOV";
+// import desktopVideo from "@/assets/fullVersion.MOV";
+// import mobileVideo from "@/assets/mobile.MOV";
 
 function AboutUsHeroSection() {
-	const [currentVideo, setCurrentVideo] = useState(desktopVideo);
+	// const [currentVideo, setCurrentVideo] = useState(desktopVideo);
 
-	useEffect(() => {
-		const updateVideoSource = () => {
-			const screenWidth = window.innerWidth;
-			if (screenWidth <= 968) {
-				setCurrentVideo(mobileVideo);
-			} else {
-				setCurrentVideo(desktopVideo);
-			}
-		};
+	// useEffect(() => {
+	// 	const updateVideoSource = () => {
+	// 		const screenWidth = window.innerWidth;
+	// 		if (screenWidth <= 968) {
+	// 			setCurrentVideo(mobileVideo);
+	// 		} else {
+	// 			setCurrentVideo(desktopVideo);
+	// 		}
+	// 	};
 
-		updateVideoSource(); // Run on component mount
-		window.addEventListener("resize", updateVideoSource);
+	// 	updateVideoSource(); // Run on component mount
+	// 	window.addEventListener("resize", updateVideoSource);
 
-		return () => {
-			window.removeEventListener("resize", updateVideoSource);
-		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [desktopVideo, mobileVideo]);
+	// 	return () => {
+	// 		window.removeEventListener("resize", updateVideoSource);
+	// 	};
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [desktopVideo, mobileVideo]);
 
 	return (
 		<section className={styles.hero}>
-			{currentVideo && (
+			{/* {currentVideo && (
 				<video
 					key={currentVideo}
 					autoPlay
@@ -42,7 +42,7 @@ function AboutUsHeroSection() {
 					<source src={currentVideo} type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
-			)}
+			)} */}
 			<div className={styles.content}>
 				<div className={styles.text}>
 					<h1>About Us</h1>

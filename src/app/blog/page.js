@@ -1,13 +1,10 @@
 "use client";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import styles from "@/components/Blog/Blog.module.css";
-import AUTHOR from "@/assets/blogImages/author.png";
-import DOT from "@/assets/blogImages/dot.svg";
 import ContactSection from "@/components/layout/ContactSection/ContactSection";
-import PostCard from "@/components/Blog/PostCard/PostCard"; // Ensure this is the correct import
-import Image from "next/image"; // Ensure this is the correct import
+import PostCard from "@/components/Blog/PostCard/PostCard";
+import BlogHero from "@/components/Blog/BlogHero";
 import { BlogGateway } from "@/api/blog/blog-gateway";
-import OptimizedImage from "@/components/layout/OptimazedImage";
 
 function Blog() {
 	const [posts, setPosts] = useState([]);
@@ -55,42 +52,7 @@ function Blog() {
 
 	return (
 		<>
-			<div className={styles.hero}>
-				<div className={styles.content}>
-					<div className={styles.blogTextContainer}>
-						<div className={styles.blogText}>
-							<h1 className={styles.blogTitle}>{posts[0]?.title}</h1>
-						</div>
-						<p className={styles.blogDescription}>{posts[0]?.description}</p>
-					</div>
-
-					<div className={styles.authorContainer}>
-						<OptimizedImage
-							className={styles.authorAvatar}
-							src={posts[0]?.author.image} // Use the imported image directly
-							alt="Author Avatar"
-							width={50} // Specify width and height for optimization
-							height={50}
-						/>
-						<div className={styles.name}> {posts[0]?.author.name}</div>
-						<Image
-							className={styles.dot}
-							src={DOT} // Use the imported image directly
-							alt="Dot separator"
-							width={10} // Specify width and height for optimization
-							height={10}
-						/>
-						<div className={styles.date}>
-							{" "}
-							{new Date(posts[0]?.date_created).toLocaleDateString("en-US", {
-								day: "numeric",
-								month: "long",
-								year: "numeric",
-							})}
-						</div>
-					</div>
-				</div>
-			</div>
+			<BlogHero {...posts[0]} />
 
 			<section className={styles.postsSection}>
 				<div className={styles.postsContainer}>
