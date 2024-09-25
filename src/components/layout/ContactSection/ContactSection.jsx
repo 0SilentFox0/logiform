@@ -58,9 +58,8 @@ function ContactSection() {
 	return (
 		<section className={styles.container} id="contact">
 			<div
-				className={`${styles.contactCard} ${
-					isSubmitted ? styles.contactCardSuccess : ""
-				}`}
+				className={`${styles.contactCard} ${isSubmitted ? styles.contactCardSuccess : ""
+					}`}
 			>
 				{isSubmitted ? (
 					<div className={styles.successAnimation}>
@@ -110,40 +109,37 @@ function ContactSection() {
 							onSubmit={handleSubmit(onSubmit)}
 						>
 							<div className={styles.form}>
-								{nameError && <p className={styles.errorText}>{nameError}</p>}
 								<input
-									className={styles.name}
+									className={`${styles.name} ${nameError ? styles.error : ""}`}
 									type="text"
 									placeholder="Your name *"
 									{...register("name", {
-										required: "This field is required",
+										required: 'This field is required',
 									})}
 								/>
-								{emailError && <p className={styles.errorText}>{emailError}</p>}
+
 								<input
-									className={styles.email}
+									className={`${styles.email} ${emailError ? styles.error : ""}`}
 									type="text"
 									placeholder="Your email address *"
 									{...register("email", {
-										required: "This field is required",
+										required: true,
 										pattern: {
 											value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
 											message: "Invalid email address",
 										},
 									})}
 								/>
-								{messageError && (
-									<p className={styles.errorText}>{messageError}</p>
-								)}
+
 								<textarea
-									className={styles.tellUs}
-									type="textarea"
+									className={`${styles.tellUs} ${messageError ? styles.error : ""}`}
 									placeholder="Tell us about your project"
 									{...register("message", {
-										required: "This field is required",
+										required: 'This field is required',
 									})}
 								/>
 							</div>
+
 							<UploadFiles setValue={setValue} trigger={trigger} />
 							<div className={styles.contactButton}>
 								<button type="submit">Contact us</button>

@@ -113,6 +113,7 @@
 	border-radius: 80px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 	background: #fff;
+	box-sizing: border-box;
 
 	color: black;
 }

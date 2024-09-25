@@ -133,6 +133,8 @@ function Header() {
 									"Web Development",
 									"UI/UX Design",
 								]}
+								isOpen={openDropdown === "services"}
+								onToggle={() => handleDropdownToggle("services")}
 							/>
 						</li>
 						<li>
@@ -154,6 +156,9 @@ function Header() {
 							<Dropdown
 								title="Resources"
 								options={["Option 1", "Option 2", "Option 3"]}
+								isOpen={openDropdown === "resources"}
+								onToggle={() => handleDropdownToggle("resources")}
+
 							/>
 						</li>
 						<li>
