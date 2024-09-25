@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { notFound } from 'next/navigation'; // To handle 404 case
 import Image from 'next/image';
 import styles from '@/components/CaseStudies/CaseStudiesDetails/CaseStudiesDetails.module.css';
@@ -9,6 +10,19 @@ import PYTHON from '@/assets/caseStudiesDetailsImg/python.svg';
 import NEST from '@/assets/caseStudiesDetailsImg/Nest js.svg';
 import Link from 'next/link';
 import { CasesGateway } from '@/api/cases/cases-gateway';
+=======
+import { notFound } from "next/navigation"; // To handle 404 case
+import Image from "next/image";
+import styles from "@/components/CaseStudies/CaseStudiesDetails/CaseStudiesDetails.module.css";
+import ContactSection from "@/components/layout/ContactSection/ContactSection";
+import PrevButtonImage from "@/assets/caseStudiesDetailsImg/arrow.svg";
+import Binance from "@/assets/caseStudiesDetailsImg/binance.svg";
+import Ethereum from "@/assets/caseStudiesDetailsImg/Ethereum.svg";
+import Python from "@/assets/caseStudiesDetailsImg/python.svg";
+import Nest from "@/assets/caseStudiesDetailsImg/Nest js.svg";
+import Link from "next/link";
+import { CasesGateway } from "@/api/cases/cases-gateway";
+>>>>>>> b727e34077c2edb34a34a52d40a8c53c884d1fa3
 
 export default async function CaseStudiesDetails({ params }) {
 	const { slug } = params;
