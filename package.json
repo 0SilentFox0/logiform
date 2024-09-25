@@ -4,6 +4,9 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
+		"pages:build": "npx @cloudflare/next-on-pages",
+		"preview": "npm run pages:build && wrangler pages dev",
+		"deploy": "npm run pages:build && wrangler pages deploy",
 		"dev": "next dev",
 		"build": "next build",
 		"start": "npx serve@latest ./build"
@@ -22,6 +25,7 @@
 		"swiper": "^11.1.10"
 	},
 	"devDependencies": {
+		"@cloudflare/next-on-pages": "^1.13.3",
 		"@eslint/js": "^9.8.0",
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",

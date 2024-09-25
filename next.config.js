@@ -1,3 +1,5 @@
+import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
+
 const nextConfig = {
 	output: "export", // Generates a static site.
 	distDir: "./build", // Custom build directory.
@@ -21,5 +23,9 @@ const nextConfig = {
 		return config;
 	},
 };
+
+if (process.env.NODE_ENV === "development") {
+	await setupDevPlatform();
+}
 
 export default nextConfig;
