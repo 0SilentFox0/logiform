@@ -99,8 +99,8 @@ function VisionSection() {
 									key={index}
 									src={logo.src}
 									alt={logo.alt}
-									width={100}
-									height={50}
+									width={60}
+									height={20}
 								/>
 							))}
 						</div>
@@ -110,8 +110,8 @@ function VisionSection() {
 									key={index + companyLogos.length}
 									src={logo.src}
 									alt={logo.alt}
-									width={100}
-									height={50}
+									width={60}
+									height={20}
 								/>
 							))}
 						</div>
@@ -175,10 +175,7 @@ function VisionSection() {
 								<span>★</span>
 							</div>
 
-							<Link
-								href="#contact"
-								className={styles.contactButton}
-							>
+							<Link href="#contact" className={styles.contactButton}>
 								Contact us
 							</Link>
 						</div>

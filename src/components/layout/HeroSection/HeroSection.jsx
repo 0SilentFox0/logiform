@@ -65,7 +65,7 @@ function HeroSection({
 
 			{imageSrc && (
 				<div className={styles.image}>
-					<Image src={imageSrc} alt="Hero Image" />
+					<Image src={imageSrc} alt="Hero Image" priority />
 				</div>
 			)}
 		</section>

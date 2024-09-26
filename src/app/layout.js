@@ -51,8 +51,31 @@ export default function RootLayout({ children }) {
 				<meta name="msapplication-TileColor" content="#2b5797" />
 				<meta name="theme-color" content="#000000" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+                            (function(w,d,s,l,i){
+                                w[l]=w[l]||[];
+                                w[l].push({'gtm.start':
+                                new Date().getTime(),event:'gtm.js'});
+                                var f=d.getElementsByTagName(s)[0],
+                                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                                j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                                f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-NJ4HL2D9');
+                            `,
+					}}
+				/>
 			</head>
 			<body>
+				<noscript>
+					<iframe
+						src="https://www.googletagmanager.com/ns.html?id=GTM-NJ4HL2D9"
+						height="0"
+						width="0"
+						style={{ display: "none", visibility: "hidden" }}
+					/>
+				</noscript>
 				<div className={styles.headerWrapper}>
 					<Header />
 				</div>
