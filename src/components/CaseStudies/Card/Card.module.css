@@ -4,6 +4,7 @@
 	align-items: flex-start;
 	gap: 32px;
 	align-self: stretch;
+	text-decoration: none;
 
 	border-radius: 32px;
 	background: #fff;
@@ -114,8 +115,14 @@
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 	background: #fff;
 	box-sizing: border-box;
+	transition: background 0.5s ease, color 0.5s ease;
 
 	color: black;
+}
+
+.viewButton:hover {
+	color: white;
+	background: black;
 }
 
 @media (max-width: 1200px) {

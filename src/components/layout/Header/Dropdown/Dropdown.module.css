@@ -29,7 +29,7 @@
 	position: absolute;
 	top: 100%;
 	left: -20px;
-	background: var(--Cyan-Cyan-05, rgba(162, 197, 237, 0.2));
+	background: var(--Cyan-Cyan-05, rgba(53, 106, 168, 0.515));
 	/* Dropdown shadow */
 	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
 	backdrop-filter: blur(20px);

@@ -16,7 +16,7 @@ function Home() {
 	return (
 		<>
 			<HeroSection
-				title="We provide agile secure solutions"
+				title="We provide agile secure solutions "
 				glitchEffect={<GlitchEffect />}
 				description="No bureaucracy, no excuses – raw talent and relentless execution for startups and mid-sized companies."
 				imageSrc={GIF}

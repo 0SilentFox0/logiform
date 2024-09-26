@@ -207,4 +207,8 @@
 	.image img {
 		width: 320px;
 	}
+
+	.anchorContactButton {
+		width: 100%;
+	}
 }

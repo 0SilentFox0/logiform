@@ -53,8 +53,8 @@
 }
 
 .logosSlide img {
-	height: 20px;
-	width: 60px;
+	height: 50px;
+	width: 100px;
 	margin: 0 24px;
 	object-fit: contain;
 }
@@ -165,7 +165,7 @@
 
 @media (max-width: 1200px) {
 	.logosSlide img {
-		height: 18px;
+		height: 30px;
 		margin: 0 24px;
 	}
 
@@ -201,7 +201,7 @@
 	}
 
 	.logosSlide img {
-		height: 16px;
+		height: 25px;
 		margin: 0 22px;
 	}
 
@@ -237,7 +237,7 @@
 	}
 
 	.logosSlide img {
-		height: 14px;
+		height: 20px;
 		margin: 0 20px;
 	}
 
@@ -260,6 +260,7 @@
 	display: flex;
 	gap: 95px;
 	justify-content: center;
+	align-items: center;
 }
 
 .statistics {
@@ -328,6 +329,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 20px;
 }
 
 .stars {
@@ -485,7 +487,6 @@
 		padding: 13px 24px;
 		border-radius: 80px;
 		font-size: 18px;
-		width: 100%;
 	}
 
 	.logos::before,

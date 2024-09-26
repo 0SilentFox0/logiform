@@ -9,29 +9,29 @@ import "swiper/css/pagination";
 
 const testimonials = [
 	{
-		text: "The team delivered an exceptional Web3 educational platform, meeting deadlines and maintaining top industry standards. The process was seamless, with excellent project management, design, code quality, and testing. Highly recommended.",
-		name: "Ben I.",
+		text: "Team did a good job. The graphical and dev work was great!",
+		name: "Anton Thomas",
+		company: "FireFly",
+	},
+	{
+		text: "Team did a good job. The graphical and dev work was great!",
+		name: "Anton Thomas",
+		company: "FireFly",
+	},
+	{
+		text: "I hired LogiForm to assist my core development team with a DEX project on a tight deadline. From the start, we clicked, and thanks to their support, we launched on time and continue collaborating. Big thanks to the team!",
+		name: "Ben Irwin",
 		company: "NDA project",
 	},
 	{
-		text: "The team delivered an exceptional Web3 educational platform, meeting deadlines and maintaining top industry standards. The process was seamless, with excellent project management, design, code quality, and testing. Highly recommended.",
-		name: "Ben I.",
-		company: "NDA project",
+		text: "The team built an exceptional web3 platform for my community, impressing me with their speed and high standards. The process—from management to design and testing—was seamless. Highly recommend them!",
+		name: "Viktor Sanders ",
+		company: "SocialSelf",
 	},
 	{
-		text: "The team delivered an exceptional Web3 educational platform, meeting deadlines and maintaining top industry standards. The process was seamless, with excellent project management, design, code quality, and testing. Highly recommended.",
-		name: "Ben I.",
-		company: "NDA project",
-	},
-	{
-		text: "The team delivered an exceptional Web3 educational platform, meeting deadlines and maintaining top industry standards. The process was seamless, with excellent project management, design, code quality, and testing. Highly recommended.",
-		name: "Ben I.",
-		company: "NDA project",
-	},
-	{
-		text: "The team delivered an exceptional Web3 educational platform, meeting deadlines and maintaining top industry standards. The process was seamless, with excellent project management, design, code quality, and testing. Highly recommended.",
-		name: "Ben I.",
-		company: "NDA project",
+		text: "Team did a good job. The graphical and dev work was great!",
+		name: "Anton Thomas",
+		company: "FireFly",
 	},
 ];
 
@@ -47,8 +47,7 @@ function TestimonialsSection() {
 			<section className={styles.container}>
 				<h2 className={styles.title}>What people say about us</h2>
 				<p className={styles.subtitle}>
-					No bureaucracy, no excuses – raw talent and relentless execution for
-					startups and mid-sized companies.
+					Reviews are one of the most important sections, right?
 				</p>
 			</section>
 		);
@@ -56,11 +55,12 @@ function TestimonialsSection() {
 
 	return (
 		<section className={styles.container}>
-			<h2 className={styles.title}>What people say about us</h2>
-			<p className={styles.subtitle}>
-				No bureaucracy, no excuses – raw talent and relentless execution for
-				startups and mid-sized companies.
-			</p>
+			<div className={styles.titleContainer}>
+				<h2 className={styles.title}>What people say about us</h2>
+				<p className={styles.subtitle}>
+					Reviews are one of the most important sections, right?
+				</p>
+			</div>
 
 			<div className={styles.swiperContainer}>
 				<Swiper
@@ -70,11 +70,11 @@ function TestimonialsSection() {
 					spaceBetween={60}
 					initialSlide={3}
 					loop={true}
-					slidesPerView={'auto'} 
+					slidesPerView={'auto'}
 					coverflowEffect={{
 						rotate: 0,
 						stretch: 0,
-						depth: 130,
+						depth: 140,
 						modifier: 0.5,
 						slideShadows: false,
 					}}

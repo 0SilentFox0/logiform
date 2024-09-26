@@ -4,17 +4,23 @@ import Link from "next/link";
 import styles from "@/components/Home/VisionSection/VisionSection.module.css";
 
 // Import company logos
-import NimiqLogo from "@/assets/companyLogos/nimiq.png";
 import MythicalLogo from "@/assets/companyLogos/mythical.png";
 import NexoLogo from "@/assets/companyLogos/nexo.png";
 import CoinboundLogo from "@/assets/companyLogos/coinbound.png";
 import HalbornLogo from "@/assets/companyLogos/halborn.svg";
+import ZivoeLogo from "@/assets/companyLogos/zivoe.svg";
+import CoinscribbleLogo from "@/assets/companyLogos/coinscribble.svg";
+import YourLogo from "@/assets/companyLogos/yourLogo.png";
+import WewayLogo from "@/assets/companyLogos/weway.png";
 import EdmundoLogo from "@/assets/companyLogos/edmundo.png";
 import DeedyLogo from "@/assets/companyLogos/deedy.png";
-import TronLogo from "@/assets/companyLogos/tron.png";
-import OKXLogo from "@/assets/companyLogos/okx.png";
-import EtoroLogo from "@/assets/companyLogos/etoro.png";
-import KionlyLogo from "@/assets/companyLogos/kionly.png";
+
+
+// import NimiqLogo from "@/assets/companyLogos/nimiq.png";
+// import TronLogo from "@/assets/companyLogos/tron.png";
+// import OKXLogo from "@/assets/companyLogos/okx.png";
+// import EtoroLogo from "@/assets/companyLogos/etoro.png";
+// import KionlyLogo from "@/assets/companyLogos/kionly.png";
 
 // Import feature icons
 import MEDAL from "@/assets/cardsImages/medal.svg";
@@ -30,17 +36,22 @@ import AVA3 from "@/assets/avatars/ava3.png";
 import STARS from "@/assets/avatars/Star.png";
 
 const companyLogos = [
-	{ src: NimiqLogo, alt: "Nimiq logo" },
-	{ src: NexoLogo, alt: "Nexo logo" },
 	{ src: MythicalLogo, alt: "Mythical logo" },
+	{ src: NexoLogo, alt: "Nexo logo" },
 	{ src: CoinboundLogo, alt: "Coinbound logo" },
 	{ src: HalbornLogo, alt: "Halborn logo" },
+	{ src: ZivoeLogo, alt: "Zivoe logo" },
+	{ src: CoinscribbleLogo, alt: "Coinscribble logo" },
+	{ src: YourLogo, alt: "Your logo" },
+	{ src: WewayLogo, alt: "Weway logo" },
 	{ src: EdmundoLogo, alt: "Edmundo logo" },
 	{ src: DeedyLogo, alt: "Deedy logo" },
-	{ src: TronLogo, alt: "Tron logo" },
-	{ src: OKXLogo, alt: "OKX logo" },
-	{ src: EtoroLogo, alt: "Etoro logo" },
-	{ src: KionlyLogo, alt: "Kionly logo" },
+
+	// { src: NimiqLogo, alt: "Nimiq logo" },
+	// { src: TronLogo, alt: "Tron logo" },
+	// { src: OKXLogo, alt: "OKX logo" },
+	// { src: EtoroLogo, alt: "Etoro logo" },
+	// { src: KionlyLogo, alt: "Kionly logo" },
 ];
 
 const features = [

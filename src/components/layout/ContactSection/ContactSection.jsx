@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Image from "next/image";
 import { ContactGateway } from "@/api/contact/contact-gateway";
+import Link from "next/link";
 
 function ContactSection() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -81,15 +82,27 @@ function ContactSection() {
 								</p>
 							</div>
 							<div className={styles.actions}>
-								<div className={styles.action}>
+								<Link
+									href="https://instagram.com/logiform"
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.action}>
 									<Image src={INSTAGRAM} alt="instagram" />
-								</div>
-								<div className={styles.action}>
+								</Link>
+								<Link
+									href="https://x.com/Logiform_io"
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.action}>
 									<Image src={TWITTER} alt="twitter" />
-								</div>
-								<div className={styles.action}>
+								</Link>
+								<Link
+									href="https://www.linkedin.com/company/logiformio"
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.action}>
 									<Image src={LINKEDIN} alt="linkedin" />
-								</div>
+								</Link>
 							</div>
 						</div>
 						<form
@@ -111,7 +124,7 @@ function ContactSection() {
 									type="text"
 									placeholder="Your email address *"
 									{...register("email", {
-										required: true,
+										required: 'This field is required',
 										pattern: {
 											value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
 											message: "Invalid email address",

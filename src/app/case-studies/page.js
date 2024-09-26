@@ -15,12 +15,10 @@ function CaseStudies() {
 	const [selectedCategories, setSelectedCategories] = useState([]);
 	const [categories, setCategories] = useState([]);
 
-	// Toggle filter visibility
 	const toggleFilterVisibility = () => {
-		setIsFilterVisible(!isFilterVisible);
+		setIsFilterVisible((prev) => !prev);
 	};
 
-	// Handle category filter changes
 	const handleCategoryChange = (category) => {
 		setSelectedCategories((prevCategories) =>
 			prevCategories.includes(category)
@@ -29,7 +27,10 @@ function CaseStudies() {
 		);
 	};
 
-	// Filter cases based on selected categories
+	const handleMouseLeave = () => {
+		setIsFilterVisible(false);
+	};
+
 	const filteredCases =
 		selectedCategories.length === 0
 			? cases
@@ -37,18 +38,15 @@ function CaseStudies() {
 					case_.categories.some((cat) => selectedCategories.includes(cat))
 			  );
 
-	// Determine image height class for layout
 	const getImageHeightClass = (index) =>
 		index % 2 === 0 ? styles.largeImage : styles.smallImage;
 
-	// Fetch cases and categories data
 	useEffect(() => {
 		const getCases = async () => {
 			try {
 				const data = await CasesGateway.getCasesPreview();
 				setCases(data);
 
-				// Extract unique categories from cases and update the state
 				const uniqueCategories = new Set(
 					data.flatMap((item) => item.categories)
 				);
@@ -80,7 +78,10 @@ function CaseStudies() {
 							</button>
 
 							{isFilterVisible && (
-								<div className={styles.filterWindow}>
+								<div
+									className={styles.filterWindow}
+									onMouseLeave={handleMouseLeave}
+								>
 									{categories.map((category) => (
 										<label key={category} className={styles.filterLabel}>
 											<input

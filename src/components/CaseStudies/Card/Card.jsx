@@ -9,7 +9,7 @@ function Card({ slug, title, description, image, categories, imageHeight }) {
 	};
 
 	return (
-		<div className={styles.card}>
+		<Link className={styles.card} href={`/case-studies/${slug}`} passHref onClick={handleClick}>
 			<div className={`${styles.imageWrapper} ${imageHeight}`}>
 				<OptimizedImage
 					src={image.id || image}
@@ -37,7 +37,7 @@ function Card({ slug, title, description, image, categories, imageHeight }) {
 					<span className={styles.viewButton}>View</span>
 				</Link>
 			</div>
-		</div>
+		</Link>
 	);
 }
 

@@ -13,11 +13,11 @@ import GIT from "@/assets/aboutUsImages/GIT.svg";
 import Link from "next/link";
 
 const teamMembers = [
-	{ name: "Serhiy Koval", title: "CEO", img: SERHIY, links: [LINKEDIN, TWITTER] },
-	{ name: "Andrii Spizhavka", title: "CTO", img: ANDRII, links: [LINKEDIN] },
-	{ name: "Ty Smith", title: "Advisor & CCO", img: TY, links: [LINKEDIN, TWITTER] },
-	{ name: "Anton Karakulin", title: "Web3 dev lead", img: ANTON, links: [GIT] },
-	{ name: "Maria Osadcha", title: "Design Lead", img: MARIA, links: [LINKEDIN] },
+	{ name: "Serhiy Koval", title: "CEO", img: SERHIY, socialImg: [LINKEDIN, TWITTER], links: ['https://www.linkedin.com/in/koval-serhii/', 'https://x.com/darki_eth'] },
+	{ name: "Andrii Spizhavka", title: "CTO", img: ANDRII, socialImg: [LINKEDIN], links: [''] },
+	{ name: "Ty Smith", title: "Advisor & CCO", img: TY, socialImg: [LINKEDIN, TWITTER],  links: ['https://www.linkedin.com/in/ty-smith', 'https://x.com/TySmithHQ'] },
+	{ name: "Anton Karakulin", title: "Web3 dev lead", img: ANTON, socialImg: [GIT],  links: ['https://github.com/sowell-owen'] },
+	{ name: "Maria Osadcha", title: "Design Lead", img: MARIA, socialImg: [LINKEDIN],  links: ['https://www.linkedin.com/in/mari-osadcha/'] },
 ];
 
 function CoreTeamSection() {
@@ -26,16 +26,22 @@ function CoreTeamSection() {
 			<section className={styles.coreTeamSection}>
 				<h1 className={styles.coreTeamTitle}>Core Team</h1>
 				<div className={styles.coreTeamContent}>
-					{teamMembers.map(({ name, title, img, links }, index) => (
+					{teamMembers.map(({ name, title, img, socialImg, links }, index) => (
 						<div key={index} className={styles.member}>
 							<div className={styles.memberAvatar}>
 								<Image src={img} alt={name} />
 							</div>
 							<div className={styles.memberLinks}>
-								{links.map((link, i) => (
-									<span key={i} className={styles.link}>
-										<Image src={link} alt="social link" />
-									</span>
+								{socialImg.map((social, i) => (
+									<Link
+										href={links?.[i] || "#"} // link check to ensure there's a URL
+										key={i}
+										target="_blank" // open link in a new tab
+										rel="noopener noreferrer"
+										className={styles.link}
+									>
+										<Image src={social} alt="social link" />
+									</Link>
 								))}
 							</div>
 							<div className={styles.memberInfo}>
