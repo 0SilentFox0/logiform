@@ -1,5 +1,5 @@
-// "use client";
-
+/* eslint-disable react/prop-types */
+"use client";
 import styles from "@/components/Blog/BlogPost/BlogPost.module.css";
 import Image from "next/image";
 import ContactSection from "@/components/layout/ContactSection/ContactSection";
@@ -10,17 +10,25 @@ import LINKEDIN from "@/assets/blogImages/linkedin.svg";
 import TWITTER from "@/assets/blogImages/twitter.svg";
 import INSTAGRAM from "@/assets/blogImages/instagram.svg";
 
+import parse from 'html-react-parser';
+import Link from "next/link";
+import React from 'react';
+
 export default function BlogPostContent({ post }) {
-	const {
-		slug,
-		image,
-		date_created,
-		title,
-		description,
-		content,
-		related_posts,
-		reading_time,
-	} = post;
+	const { title, content, related_posts, reading_time } = post;
+
+	const headers = [];
+	const parsedContent = parse(content);
+	const contentArray = Array.isArray(parsedContent) ? parsedContent : [parsedContent]; 
+
+	const modifiedContent = contentArray.map((element, index) => {
+		if (React.isValidElement(element) && (element.type === 'h1' || element.type === 'h3')) {
+			const headerId = `header-${headers.length}`;
+			headers.push({ title: element.props.children, id: headerId });
+			return React.cloneElement(element, { id: headerId, key: index });
+		}
+		return element;
+	});
 
 	return (
 		<div className={styles.blogTextContainer}>
@@ -29,29 +37,41 @@ export default function BlogPostContent({ post }) {
 			<section className={styles.postSection}>
 				<div className={styles.postContainer}>
 					<div className={styles.postContent}>
-						<div className={styles.postTableContainer}></div>
+						<div className={styles.postTableContainer}>
+							<div className={styles.postTable}>
+								<h3 className={styles.tableName}>Table of Content</h3>
+								<div className={styles.line} />
+								<div className={styles.tableInfo}>
+									<h4 className={styles.tableTitle}>{title}</h4>
+									{headers.map((header) => (
+										<Link className={styles.tablePart} key={header.id} href={`#${header.id}`}>
+											<p>{header.title}</p>
+										</Link>
+									))}
+								</div>
+							</div>
+						</div>
 						<div className={styles.postCases}>
 							<div className={styles.casesTitle}>
 								<div className={styles.time}>{reading_time}</div>
 								<h1>{title}</h1>
 							</div>
 
-							<div
-								className={styles.casesValueSection}
-								dangerouslySetInnerHTML={{ __html: content }}
-							/>
+							<div className={styles.casesValueSection}>
+								{modifiedContent} 
+							</div>
 						</div>
 						<div className={styles.postShare}>
 							<h3>Share</h3>
 							<div className={styles.shareLinks}>
-								<Image src={LINKEDIN} alt="LinkedIn" />
-								<Image src={TWITTER} alt="Twitter" />
-								<Image src={INSTAGRAM} alt="Instagram" />
+								<Link href='https://instagram.com/logiform'><Image src={LINKEDIN} alt="LinkedIn" /></Link>
+								<Link href='https://x.com/Logiform_io'><Image src={TWITTER} alt="Twitter" /></Link>
+								<Link href='https://www.linkedin.com/company/logiformio'><Image src={INSTAGRAM} alt="Instagram" /></Link>
 							</div>
 						</div>
 					</div>
 
-					{related_posts && related_posts.length ? (
+					{related_posts?.length > 0 && (
 						<div className={styles.latestArticle}>
 							<div className={styles.articlesTitle}>
 								<h1>Latest articles</h1>
@@ -62,8 +82,6 @@ export default function BlogPostContent({ post }) {
 								))}
 							</div>
 						</div>
-					) : (
-						""
 					)}
 				</div>
 				<ContactSection />

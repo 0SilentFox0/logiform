@@ -4,51 +4,79 @@ import INSTAGRAM from "@/assets/contactImages/instagram.svg";
 import TWITTER from "@/assets/contactImages/twitter.svg";
 import LINKEDIN from "@/assets/contactImages/linkedin.svg";
 import { useForm } from "react-hook-form";
-// import UploadFiles from "./UploadFiles/UploadFiles";
 import { useState } from "react";
 import Image from "next/image";
-import { ContactGateway } from "@/api/contact/contact-gateway";
 import Link from "next/link";
+// import UploadFiles from "./UploadFiles/UploadFiles";
+// import { directus } from "../../../plugins/axios";
+// import axios from "axios";
 
 function ContactSection() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
-	const { register, handleSubmit, formState, setValue, trigger, reset } =
-		useForm({
-			mode: "onChange",
-		});
+	const { register, handleSubmit, formState, setValue, trigger, reset } = useForm({
+		mode: "onChange",
+	});
 
 	const nameError = formState.errors["name"]?.message;
 	const emailError = formState.errors["email"]?.message;
 	const messageError = formState.errors["message"]?.message;
 
 	const onSubmit = async (data) => {
+		const pipedriveAPIKey = 'a936e80c64b821d20b925145b255bb19b6cbf45a';
+		const pipedriveURL = `https://api.pipedrive.com/v1/users?api_token=${pipedriveAPIKey}`;
+
+
+		const newPersonData = {
+			name: data.name,
+			email: data.email,
+			message: data.message,
+		}
 		try {
-			const response = await ContactGateway.sendContact({
-				name: data.name,
-				email: data.email,
-				message: data.message,
-				// file: data.file,
+			fetch(pipedriveURL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(newPersonData)
 			});
 
-			console.log("Form successfully submitted:", response);
+
 			setIsSubmitted(true);
-			reset();
 
 			setTimeout(() => {
 				setIsSubmitted(false);
+				// reset(); 
 			}, 5000);
 		} catch (error) {
-			console.error("Error submitting form:", error);
-			// Here you might want to set some error state and display it to the user
+			console.error('Error sending data to Pipedrive:', error);
 		}
+
 	};
+
+	// const onSubmit = async (data) => {
+	// 	try {
+	// 		const payload = {
+	// 			name: data.name,
+	// 			email: data.email,
+	// 			message: data.message,
+	// 			// file: fileDetails ? fileDetails.id : null 
+	// 		};
+
+	// 		const response = await directus.post('contact_form', payload); 
+	// 		console.log('Form submitted successfully to Directus:', response.data);
+
+
+
+	// 	} catch (error) {
+	// 		console.error('Error submitting form:', error);
+	// 	}
+	// };
 
 	return (
 		<section className={styles.container} id="contact">
 			<div
-				className={`${styles.contactCard} ${isSubmitted ? styles.contactCardSuccess : ""
-					}`}
+				className={`${styles.contactCard} ${isSubmitted ? styles.contactCardSuccess : ""}`}
 			>
 				{isSubmitted ? (
 					<div className={styles.successAnimation}>

@@ -2,14 +2,12 @@
 	display: flex;
 	align-items: center;
 	color: white;
-	background: url("~/src/assets/blogImages/BlogBackground.png") no-repeat center
-		center;
+	background: url('~/src/assets/blogImages/BlogBackground.png') no-repeat center center;
 	background-size: cover;
 	width: 100%;
 	height: 100%;
 	max-width: 100%;
 	padding: 156px 120px 177px 120px;
-	position: relative;
 	gap: 48px;
 }
 
@@ -191,24 +189,21 @@
 
 .postContent {
 	display: flex;
-	align-items: flex-start;
-	justify-content: center;
+	justify-content: space-between;
 	gap: 40px;
-	align-self: stretch;
-	position: relative;
 }
 
 .postTableContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+	height: 100vh;
+	padding-left: 40px;
+    top: 20px; /* Adjust as needed */
+    z-index: 10; /* Ensure it's above other content */
 }
 
 .postTable {
 	display: flex;
 	padding: 20px;
 	flex-direction: column;
-	align-items: flex-start;
 	gap: 32px;
 
 	border-radius: 32px;
@@ -245,20 +240,30 @@
 	letter-spacing: -0.96px;
 }
 
-.tableInfo p {
+.tablePart {
+	text-decoration: none;
+}
+
+.tablePart span:hover {
+	color: black;
+}
+
+.tablePart span {
 	color: var(--Neutral-Neutral-50, #7c7f86);
-	font-size: 24px;
+	font-size: 24px !important;
 	font-style: normal;
 	font-weight: 700;
 	line-height: 120%; /* 28.8px */
 	letter-spacing: -0.96px;
+	transition: .3s ease;
 }
 
 .postCases {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	width: 50%;
+	width: 100%;
+	max-width: 746px;
 }
 
 .casesTitle {
@@ -303,10 +308,11 @@
 	align-self: stretch;
 	gap: 24px;
 	width: 100%;
+	overflow: hidden;
 }
 
-.casesSubtitle {
-	font-size: 48px;
+.casesValueSection span {
+	font-size: 48px !important;
 	font-style: normal;
 	font-weight: 500;
 	line-height: 120%; /* 57.6px */
@@ -314,7 +320,7 @@
 	width: 100%;
 }
 
-.casesText {
+.casesValueSection p {
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
@@ -322,20 +328,22 @@
 	width: 100%;
 }
 
-.casesImage {
+.casesValueSection img {
 	width: 100%;
 	border-radius: 32px;
 }
 
 .postShare {
-	position: sticky;
-	top: 20px;
-	right: 20%;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding-right: 120px;
+    position: sticky;
+    top: 80px; /* Adjust based on header height */
+    z-index: 10; /* Ensure it's above other content */
 }
+
 
 .postShare h3 {
 	font-size: 40px;
@@ -364,6 +372,11 @@
 	border-radius: 91.429px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 	background: var(--Neutral-Neutral-05, #fff);
+}
+
+.shareLinks a:hover {
+    background: rgba(255, 255, 255, 0.35); /* Lighten background on hover */
+    transition: background 0.3s ease; /* Smooth transition */
 }
 
 .latestArticle {
@@ -407,11 +420,11 @@
 		font-size: 54px;
 	}
 
-	.casesSubtitle {
-		font-size: 40px;
+	.casesValueSection span {
+		font-size: 40px !important;
 	}
 
-	.casesText {
+	.casesValueSection p {
 		font-size: 18px;
 	}
 
@@ -491,11 +504,11 @@
 		font-size: 18px;
 	}
 
-	.casesSubtitle {
-		font-size: 32px;
+	.casesValueSection span {
+		font-size: 32px !important;
 	}
 
-	.casesText {
+	.casesValueSection p {
 		font-size: 16px;
 	}
 

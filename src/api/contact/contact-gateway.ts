@@ -1,26 +1,22 @@
-import { directus } from "@/plugins/axios";
+import { directus } from '../../plugins/axios';
 
 async function sendContact(formData) {
-	const payload = {
-		type: "contact_form", // Add this line
-		...formData,
-	};
+    try {
+        const response = await directus.post("contact_form", formData, {
+            // No need to set Content-Type; let the browser handle it
+            // headers: {
+            //     "Content-Type": "multipart/form-data", 
+            // },
+        });
 
-	try {
-		const response = await directus.post("contact_form", payload, {
-			headers: {
-				"Content-Type": "application/json",
-			},
-		});
-
-		console.log("Form submitted successfully:", response.data);
-		return response.data;
-	} catch (error) {
-		console.error("Error submitting form:", error);
-		throw error;
-	}
+        console.log("Form submitted successfully:", response.data);
+        return response.data;
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        throw error;
+    }
 }
 
 export const ContactGateway = {
-	sendContact,
+    sendContact,
 };

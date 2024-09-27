@@ -233,6 +233,7 @@
 	text-wrap: nowrap;
 	flex-shrink: 0;
 	color: black;
+	cursor: pointer;
 
 	border-radius: 80px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
