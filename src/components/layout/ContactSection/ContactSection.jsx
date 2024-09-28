@@ -14,69 +14,94 @@ import Link from "next/link";
 function ContactSection() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
-	const { register, handleSubmit, formState, setValue, trigger, reset } = useForm({
-		mode: "onChange",
-	});
+	const { register, handleSubmit, formState, setValue, trigger, reset } =
+		useForm({
+			mode: "onChange",
+		});
 
 	const nameError = formState.errors["name"]?.message;
 	const emailError = formState.errors["email"]?.message;
 	const messageError = formState.errors["message"]?.message;
+	const API_KEY = process.env.NEXT_PUBLIC_PIPEDRIVE_API;
 
-	const onSubmit = async (data) => {
-		const pipedriveAPIKey = 'a936e80c64b821d20b925145b255bb19b6cbf45a';
-		const pipedriveURL = `https://api.pipedrive.com/v1/users?api_token=${pipedriveAPIKey}`;
+	async function createPerson(data) {
+		const personUrl = `https://api.pipedrive.com/v1/persons?api_token=${API_KEY}`;
 
-
-		const newPersonData = {
+		const personData = {
 			name: data.name,
 			email: data.email,
-			message: data.message,
-		}
+		};
+
 		try {
-			fetch(pipedriveURL, {
-				method: 'POST',
+			const response = await fetch(personUrl, {
+				method: "POST",
 				headers: {
-					'Content-Type': 'application/json'
+					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(newPersonData)
+				body: JSON.stringify(personData),
 			});
 
-
-			setIsSubmitted(true);
-
-			setTimeout(() => {
-				setIsSubmitted(false);
-				// reset(); 
-			}, 5000);
+			const result = await response.json();
+			if (result.success) {
+				return result.data.id; // return person_id
+			} else {
+				console.error("Error creating person:", result.error);
+				return null;
+			}
 		} catch (error) {
-			console.error('Error sending data to Pipedrive:', error);
+			console.error("Network error while creating person:", error);
+			return null;
 		}
+	}
 
+	async function createLead(name, person_id) {
+		const leadUrl = `https://api.pipedrive.com/v1/leads?api_token=${API_KEY}`;
+
+		const leadData = {
+			title: name, // This is the title of the lead
+			person_id: person_id, // Associate the lead with the created person
+		};
+
+		try {
+			const response = await fetch(leadUrl, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(leadData),
+			});
+
+			const result = await response.json();
+			if (result.success) {
+				console.log("Lead created successfully:", result.data);
+			} else {
+				console.error("Error creating lead:", result.error);
+			}
+		} catch (error) {
+			console.error("Network error while creating lead:", error);
+		}
+	}
+
+	const onSubmit = async (data) => {
+		// Prepare the data for Pipedrive Leads
+
+		// Correct URL structure for creating a lead in Pipedrive
+		const person_id = await createPerson(data);
+
+		// Step 2: Create Lead if person creation was successful
+		if (person_id) {
+			await createLead(data.name, person_id);
+		} else {
+			console.error("Failed to create lead because person creation failed.");
+		}
 	};
-
-	// const onSubmit = async (data) => {
-	// 	try {
-	// 		const payload = {
-	// 			name: data.name,
-	// 			email: data.email,
-	// 			message: data.message,
-	// 			// file: fileDetails ? fileDetails.id : null 
-	// 		};
-
-	// 		const response = await directus.post('contact_form', payload); 
-	// 		console.log('Form submitted successfully to Directus:', response.data);
-
-
-
-	// 	} catch (error) {
-	// 		console.error('Error submitting form:', error);
-	// 	}
-	// };
 
 	return (
 		<section className={styles.container} id="contact">
 			<div
-				className={`${styles.contactCard} ${isSubmitted ? styles.contactCardSuccess : ""}`}
+				className={`${styles.contactCard} ${
+					isSubmitted ? styles.contactCardSuccess : ""
+				}`}
 			>
 				{isSubmitted ? (
 					<div className={styles.successAnimation}>
@@ -114,22 +139,30 @@ function ContactSection() {
 									href="https://instagram.com/logiform"
 									target="_blank"
 									rel="noopener noreferrer"
-									className={styles.action}>
-									<Image src={INSTAGRAM} alt="instagram" />
+									className={styles.action}
+								>
+									<Image
+										src={INSTAGRAM}
+										alt="instagram"
+										width={20}
+										height={20}
+									/>
 								</Link>
 								<Link
 									href="https://x.com/Logiform_io"
 									target="_blank"
 									rel="noopener noreferrer"
-									className={styles.action}>
-									<Image src={TWITTER} alt="twitter" />
+									className={styles.action}
+								>
+									<Image src={TWITTER} alt="twitter" width={20} height={20} />
 								</Link>
 								<Link
 									href="https://www.linkedin.com/company/logiformio"
 									target="_blank"
 									rel="noopener noreferrer"
-									className={styles.action}>
-									<Image src={LINKEDIN} alt="linkedin" />
+									className={styles.action}
+								>
+									<Image src={LINKEDIN} alt="linkedin" width={20} height={20} />
 								</Link>
 							</div>
 						</div>
@@ -143,16 +176,18 @@ function ContactSection() {
 									type="text"
 									placeholder="Your name *"
 									{...register("name", {
-										required: 'This field is required',
+										required: "This field is required",
 									})}
 								/>
 
 								<input
-									className={`${styles.email} ${emailError ? styles.error : ""}`}
+									className={`${styles.email} ${
+										emailError ? styles.error : ""
+									}`}
 									type="text"
 									placeholder="Your email address *"
 									{...register("email", {
-										required: 'This field is required',
+										required: "This field is required",
 										pattern: {
 											value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
 											message: "Invalid email address",
@@ -161,10 +196,12 @@ function ContactSection() {
 								/>
 
 								<textarea
-									className={`${styles.tellUs} ${messageError ? styles.error : ""}`}
+									className={`${styles.tellUs} ${
+										messageError ? styles.error : ""
+									}`}
 									placeholder="Tell us about your project"
 									{...register("message", {
-										required: 'This field is required',
+										required: "This field is required",
 									})}
 								/>
 							</div>
