@@ -55,7 +55,12 @@ function ApproachSection() {
 							</h3>
 						</div>
 						<div className={styles.approachCardImage}>
-							<Image className={styles.deploymentImage} height={99} width={295.5} src={DEPLOYMENT} />
+							<Image
+								className={styles.deploymentImage}
+								height={99}
+								width={295}
+								src={DEPLOYMENT}
+							/>
 						</div>
 					</div>
 				</div>
@@ -69,7 +74,12 @@ function ApproachSection() {
 							</p>
 						</div>
 						<div className={styles.approachCardImage}>
-							<Image className={styles.factoryImage} height={212} width={296}  src={FACTORY} />
+							<Image
+								className={styles.factoryImage}
+								height={212}
+								width={296}
+								src={FACTORY}
+							/>
 						</div>
 					</div>
 
@@ -81,7 +91,12 @@ function ApproachSection() {
 							<p>ensuring reliable, decentralized apps.</p>
 						</div>
 						<div className={styles.approachCardImage}>
-							<Image className={styles.securityImage} height={234} width={228} src={SECURITY} />
+							<Image
+								className={styles.securityImage}
+								height={234}
+								width={228}
+								src={SECURITY}
+							/>
 						</div>
 					</div>
 
