@@ -14,7 +14,7 @@ import Link from "next/link";
 
 const teamMembers = [
 	{ name: "Serhiy Koval", title: "CEO", img: SERHIY, socialImg: [LINKEDIN, TWITTER], links: ['https://www.linkedin.com/in/koval-serhii/', 'https://x.com/darki_eth'] },
-	{ name: "Andrii Spizhavka", title: "CTO", img: ANDRII, socialImg: [LINKEDIN], links: [''] },
+	{ name: "Andrii Spizhavka", title: "CTO", img: ANDRII, socialImg: [LINKEDIN], links: ['https://www.linkedin.com/in/andy-spizhavka-363b5a1b6/'] },
 	{ name: "Ty Smith", title: "Advisor & CCO", img: TY, socialImg: [LINKEDIN, TWITTER],  links: ['https://www.linkedin.com/in/ty-smith', 'https://x.com/TySmithHQ'] },
 	{ name: "Anton Karakulin", title: "Web3 dev lead", img: ANTON, socialImg: [GIT],  links: ['https://github.com/sowell-owen'] },
 	{ name: "Maria Osadcha", title: "Design Lead", img: MARIA, socialImg: [LINKEDIN],  links: ['https://www.linkedin.com/in/mari-osadcha/'] },

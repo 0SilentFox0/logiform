@@ -99,14 +99,6 @@
 	transform: translate(-50%, -60%) rotate(45deg) scale(1); /* Галочка появляется при checked */
 }
 
-.largeImage {
-	height: 682px; /* Задайте нужную высоту */
-}
-
-.smallImage {
-	height: 492px; /* Задайте нужную высоту */
-}
-
 .actionImg {
 	font-size: 24px;
 	color: black;
@@ -125,24 +117,6 @@
 	display: flex;
 	align-items: flex-start;
 	gap: 32px;
-	align-self: stretch;
-}
-
-.columnLeft {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 32px;
-	flex: 1 0 0;
-	align-self: stretch;
-}
-
-.columnRight {
-	display: flex;
-	flex-direction: column-reverse;
-	align-items: flex-start;
-	gap: 32px;
-	flex: 1 0 0;
 	align-self: stretch;
 }
 
@@ -171,17 +145,10 @@
 		padding: 0 50px;
 	}
 
-	.columnLeft {
-		display: none;
+	.grid {
+		grid-template-columns: repeat(1, 1fr);
 	}
 
-	.largeImage {
-		height: 582px; /* Задайте нужную высоту */
-	}
-
-	.smallImage {
-		height: 392px; /* Задайте нужную высоту */
-	}
 }
 
 @media (max-width: 500px) {
@@ -197,11 +164,5 @@
 		padding: 20px 24px 40px 24px;
 	}
 
-	.largeImage {
-		height: 381px; /* Задайте нужную высоту */
-	}
 
-	.smallImage {
-		height: 273px; /* Задайте нужную высоту */
-	}
 }
