@@ -22,7 +22,7 @@ export default function BlogPostContent({ post }) {
 	const contentArray = Array.isArray(parsedContent) ? parsedContent : [parsedContent]; 
 
 	const modifiedContent = contentArray.map((element, index) => {
-		if (React.isValidElement(element) && (element.type === 'h1' || element.type === 'h3')) {
+		if (React.isValidElement(element) && (element.type === 'h1' || element.type === 'h2' || element.type === 'h3')) {
 			const headerId = `header-${headers.length}`;
 			headers.push({ title: element.props.children, id: headerId });
 			return React.cloneElement(element, { id: headerId, key: index });
@@ -84,6 +84,7 @@ export default function BlogPostContent({ post }) {
 						</div>
 					)}
 				</div>
+				
 				<ContactSection />
 			</section>
 		</div>
