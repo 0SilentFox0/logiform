@@ -38,8 +38,6 @@ function CaseStudies() {
 					case_.categories.some((cat) => selectedCategories.includes(cat))
 			  );
 
-	const getImageHeightClass = (index) =>
-		index % 2 === 0 ? styles.largeImage : styles.smallImage;
 
 	useEffect(() => {
 		const getCases = async () => {
@@ -100,11 +98,10 @@ function CaseStudies() {
 
 					<div className={styles.content}>
 						<div className={styles.grid}>
-							{filteredCases.map((case_, index) => (
+							{filteredCases.map((case_) => (
 								<Card
 									key={case_.id}
 									{...case_}
-									imageHeight={getImageHeightClass(index)}
 								/>
 							))}
 						</div>

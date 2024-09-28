@@ -3,14 +3,14 @@ import styles from "./Card.module.css";
 import OptimizedImage from "@/components/layout/OptimazedImage";
 
 // eslint-disable-next-line react/prop-types
-function Card({ slug, title, description, image, categories, imageHeight }) {
+function Card({ slug, title, description, image, categories,  }) {
 	const handleClick = () => {
 		window.scrollTo(0, 0); // Scroll to the top of the page
 	};
 
 	return (
 		<Link className={styles.card} href={`/case-studies/${slug}`} passHref onClick={handleClick}>
-			<div className={`${styles.imageWrapper} ${imageHeight}`}>
+			<div className={`${styles.imageWrapper}`}>
 				<OptimizedImage
 					src={image.id || image}
 					width={580}
