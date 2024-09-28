@@ -38,7 +38,7 @@ function Footer() {
 
 				<div className={styles.socialsContainer}>
 					<div className={styles.socials}>
-						<a
+						<Link
 							href="https://instagram.com/logiform"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -50,9 +50,9 @@ function Footer() {
 								width={24}
 								height={24}
 							/>
-						</a>
-						<a
-							href="https://twitter.com/logiform"
+						</Link>
+						<Link
+							href="https://x.com/Logiform_io"
 							target="_blank"
 							rel="noopener noreferrer"
 							className={styles.social}
@@ -63,9 +63,9 @@ function Footer() {
 								width={24}
 								height={24}
 							/>
-						</a>
-						<a
-							href="https://linkedin.com/company/logiform"
+						</Link>
+						<Link
+							href="https://www.linkedin.com/company/logiformio"
 							target="_blank"
 							rel="noopener noreferrer"
 							className={styles.social}
@@ -76,7 +76,7 @@ function Footer() {
 								width={24}
 								height={24}
 							/>
-						</a>
+						</Link>
 					</div>
 					<p className={styles.rights}>
 						&copy; {new Date().getFullYear()} Logiform. All rights reserved

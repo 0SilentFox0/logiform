@@ -17,7 +17,7 @@ export default async function CaseStudiesPage() {
 			<HeroSection
 				title="Our Portfolio"
 				glitchEffect={<GlitchEffect />}
-				description="We definitely have what you need, check out the portfolio and contact us to get relevant cases"
+				zription="We definitely have what you need, check out the portfolio and contact us to get relevant cases"
 				imageSrc={PhoneImage}
 			/>
 			<CaseStudiesClient cases={cases} categories={categories} />

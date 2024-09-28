@@ -1,0 +1,65 @@
+.container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Neutral-Neutral-10, #f6f6f6);
+    gap: 30px;
+}
+
+.errorContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text h1 {
+    font-size: 30px;
+}
+
+.text span {
+    background-color: black;
+    width: 1px;
+    height: 50px;
+}
+
+.linkContainer {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 5px;
+    position: relative;
+
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+.linkContainer::after {
+    content: '';
+	position: absolute;
+	background-color: black;
+	height: 3px;
+	width: 0;
+	left: 0;
+	bottom: -6px;
+	transition: all 0.5s ease;
+}
+
+.linkContainer:hover::after {
+	width: 100%;
+}

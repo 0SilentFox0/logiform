@@ -85,11 +85,13 @@ function TechStackSection() {
 
 	return (
 		<section className={styles.container}>
-			<h2 className={styles.title}>Our tech stack</h2>
-			<p className={styles.subtitle}>
-				We Master Web3 Technologies with Expertise in Blockchain, Back-End,
-				Front-End, Databases, Cloud Services, and DevOps
-			</p>
+			<div className={styles.titleContainer}>
+				<h2 className={styles.title}>Our tech stack</h2>
+				<p className={styles.subtitle}>
+					We Master Web3 Technologies with Expertise in Blockchain, Back-End,
+					Front-End, Databases, Cloud Services, and DevOps
+				</p>
+			</div>
 
 			<div className={styles.tabsContainer}>
 				<div className={styles.tabs}>

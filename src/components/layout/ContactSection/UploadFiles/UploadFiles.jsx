@@ -3,80 +3,71 @@ import styles from './UploadFiles.module.css';
 import { TfiUpload } from 'react-icons/tfi';
 import { IoDocumentOutline } from 'react-icons/io5';
 import { IoMdClose } from 'react-icons/io';
-import { MdOutlineDone } from 'react-icons/md';
-import { AiOutlineCloudUpload } from 'react-icons/ai';
 
 // eslint-disable-next-line react/prop-types
 function UploadFiles({ setValue, trigger }) {
     const [uploadText, setUploadText] = useState('Drag & Drop a File');
     const [selectedFile, setSelectedFile] = useState(null);
-    const [progress, setProgress] = useState(0);
-    const [uploadStatus, setUploadStatus] = useState('select');
-    const [isDragging, setIsDragging] = useState(false); // Track drag state
-
+    const [isDragging, setIsDragging] = useState(false);
     const inputRef = useRef();
 
     useEffect(() => {
-        const updateTextBasedOnScreenSize = () => {
-            if (window.innerWidth <= 968) {
-                setUploadText('Upload file');
-            } else {
-                setUploadText('Drag & Drop a File');
-            }
-        };
+        const updateText = () => setUploadText(window.innerWidth <= 968 ? 'Upload file' : 'Drag & Drop a File');
+        updateText();
+        window.addEventListener('resize', updateText);
 
-        updateTextBasedOnScreenSize();
-        window.addEventListener('resize', updateTextBasedOnScreenSize);
-
-        return () => {
-            window.removeEventListener('resize', updateTextBasedOnScreenSize);
-        };
+        return () => window.removeEventListener('resize', updateText);
     }, []);
 
     const handleFileChange = (event) => {
-        if (event.target.files && event.target.files.length > 0) {
-            const file = event.target.files[0];
+        const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+        const file = event.target.files[0];
+    
+        if (file && validTypes.includes(file.type)) {
             setSelectedFile(file);
-            setValue('file', file); // Set the file in react-hook-form
-            trigger('file'); // Trigger validation
-            setIsDragging(false); // Reset drag state after file selection
+            setValue('file', { base64: '', file }); // Store the file object in form state
+            trigger('file');
+    
+            // Convert file to Base64
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64Data = reader.result;
+                // Update form state with Base64 data
+                setValue('file', { base64: base64Data, file }); // Store Base64 along with file object
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('Unsupported file type');
         }
     };
 
-    const onChooseFile = (e) => {
-        e.preventDefault();
-        inputRef.current.click();
-    };
-
-    const clearFileInput = (e) => {
-        e.preventDefault();
+    const clearFileInput = () => {
         inputRef.current.value = '';
         setSelectedFile(null);
-        setProgress(0);
-        setUploadStatus('select');
-        setValue('file', null); // Clear the file in react-hook-form
-        trigger('file'); // Trigger validation
+        setValue('file', null);    // Clear the file in form state
+        trigger('file');            // Optionally trigger validation
     };
 
-    const handleDragOver = (event) => {
-        event.preventDefault();
-        setIsDragging(true); // Set drag state to true when dragging over the area
-    };
-
-    const handleDragLeave = (event) => {
-        event.preventDefault();
-        setIsDragging(false); // Reset drag state when leaving the area
-    };
+    const handleDragOver = (event) => event.preventDefault();
 
     const handleDrop = (event) => {
         event.preventDefault();
-        setIsDragging(false); // Reset drag state on drop
-        const files = event.dataTransfer.files;
-        if (files.length > 0) {
-            const file = files[0];
+        const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+        const file = event.dataTransfer.files[0];
+    
+        if (file && validTypes.includes(file.type)) {
             setSelectedFile(file);
-            setValue('file', file); // Set the file in react-hook-form
-            trigger('file'); // Trigger validation
+            setValue('file', { base64: '', file }); // Store the file object in form state
+            trigger('file');
+    
+            // Convert file to Base64
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64Data = reader.result;
+                // Update form state with Base64 data
+                setValue('file', { base64: base64Data, file }); // Store Base64 along with file object
+            };
+            reader.readAsDataURL(file);
         }
     };
 
@@ -84,47 +75,25 @@ function UploadFiles({ setValue, trigger }) {
         <div
             className={`${styles.upload} ${isDragging ? styles.dragging : ''}`}
             onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
+            onDragLeave={() => setIsDragging(false)}
             onDrop={handleDrop}
+            onDragEnter={() => setIsDragging(true)}
         >
-            <input ref={inputRef} type='file' onChange={handleFileChange} style={{ display: 'none' }} />
+            <input ref={inputRef} type="file" onChange={handleFileChange} style={{ display: 'none' }} />
 
-            {!selectedFile && (
-                <button onClick={onChooseFile} className={styles.uploadFile}>
-                    {isDragging ? (
-                        <AiOutlineCloudUpload className={styles.draggingImg} />
-                    ) : (
-                        <>
-                            <TfiUpload className={styles.uploadImg} />
-                            <p>{uploadText}</p>
-                        </>
-                    )}
+            {!selectedFile ? (
+                <button type="button" onClick={() => inputRef.current.click()} className={styles.uploadFile}>
+                    <TfiUpload className={styles.uploadImg} />
+                    <p>{uploadText}</p>
                 </button>
-            )}
-
-            {selectedFile && (
-                <div>
-                    <div className={styles.fileCard}>
-                        <span><IoDocumentOutline className={styles.icon} /></span>
-
-                        <div className={styles.fileInfo}>
-                            <div style={{ flex: 1 }}>
-                                <h6>{selectedFile.name}</h6>
-                            </div>
-                            {uploadStatus === 'select' ? (
-                                <button onClick={clearFileInput}>
-                                    <IoMdClose className={styles.closeIcon} />
-                                </button>
-                            ) : (
-                                <div className={styles.checkCircle}>
-                                    {uploadStatus === 'uploading' ? (
-                                        `${progress}%`
-                                    ) : uploadStatus === 'done' ? (
-                                        <MdOutlineDone />
-                                    ) : null}
-                                </div>
-                            )}
-                        </div>
+            ) : (
+                <div className={styles.fileCard}>
+                    <IoDocumentOutline className={styles.icon} />
+                    <div className={styles.fileInfo}>
+                        <h6>{selectedFile.name}</h6>
+                        <button onClick={clearFileInput}>
+                            <IoMdClose className={styles.closeIcon} />
+                        </button>
                     </div>
                 </div>
             )}

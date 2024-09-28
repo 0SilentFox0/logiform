@@ -39,7 +39,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 16px;
+	gap: 13px;
 	align-self: stretch;
 	flex-wrap: wrap;
 }

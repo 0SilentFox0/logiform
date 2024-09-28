@@ -15,16 +15,22 @@
 	gap: 56px;
 
 	border-radius: 32px;
-	background: var(--blue-gradient, linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%));
+	background: var(
+		--blue-gradient,
+		linear-gradient(102deg, #1b9ce1 12.08%, #0d15b8 126.06%)
+	);
 	backdrop-filter: blur(20px);
-	transition: background-color 0.3s ease,  transform 1s ease;
+	transition: background-color 0.3s ease, transform 1s ease;
 }
 
 .contactCardSuccess {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--blue-gradient, linear-gradient(102deg, #1be164 12.08%, #035718 126.06%));
+	background: var(
+		--blue-gradient,
+		linear-gradient(102deg, #1be164 12.08%, #035718 126.06%)
+	);
 	height: 628px;
 	box-sizing: border-box;
 	animation: successAnimation 0.5s ease forwards;
@@ -50,7 +56,8 @@
 	stroke: #ffffff;
 	stroke-miterlimit: 10;
 	box-shadow: inset 0px 0px 0px #ffffff;
-	animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+	animation: fill 0.4s ease-in-out 0.4s forwards,
+		scale 0.3s ease-in-out 0.9s both;
 	position: relative;
 	top: 5px;
 	right: 5px;
@@ -78,8 +85,7 @@
 .successAnimation {
 	opacity: 1;
 	transition: opacity 1s ease-out; /* Duration of the fade-out animation */
-  }
-  
+}
 
 @keyframes stroke {
 	100% {
@@ -140,8 +146,6 @@
 
 .action {
 	display: flex;
-	width: 26px;
-	height: 26px;
 	padding: 10px;
 	justify-content: center;
 	align-items: center;
@@ -149,6 +153,13 @@
 
 	border-radius: 80px;
 	border: 1px solid var(--Neutral-Neutral-05, #fff);
+	transition: 0.3s ease;
+	cursor: pointer;
+}
+
+.action:hover {
+	border: 1px solid black;
+	background: black;
 }
 
 .action img {
@@ -206,6 +217,7 @@
 	background: none;
 	color: white;
 	outline: none;
+	margin-bottom: 50px;
 
 	border-bottom: 1px solid var(--Neutral-Neutral-05, #fff);
 }
@@ -222,18 +234,23 @@
 
 .tellUs {
 	display: flex;
-	align-items: center;
-	height: 59px;
+	align-items: end;
 	padding: 10px 8px;
-	gap: 10px;
+	height: 19px;
 	color: white;
+	overflow-y: scroll;
 
 	border: none;
 	background: none;
 	resize: none;
 	outline: none;
+	vertical-align: top;
 
 	border-bottom: 1px solid var(--Neutral-Neutral-05, #fff);
+}
+
+.tellUs::-webkit-scrollbar {
+	display: none;
 }
 
 .tellUs::placeholder {
@@ -242,17 +259,14 @@
 	line-height: 120%; /* 19.2px */
 	letter-spacing: -0.32px;
 
-	position: absolute;
-	bottom: 0;
 	padding-bottom: 10px;
 	line-height: normal;
 
 	color: var(--gray-super-light, rgba(255, 255, 255, 0.6));
 }
 
-.errorText {
-	color: rgba(153, 8, 8, 0.782);
-	font-size: 14px;
+.error {
+	border-bottom: 1px solid rgba(153, 8, 8, 0.782);
 }
 
 .contactButton {

@@ -58,6 +58,7 @@ function ApproachSection() {
 							<Image
 								className={styles.deploymentImage}
 								height={99}
+								width={295}
 								src={DEPLOYMENT}
 							/>
 						</div>
@@ -74,9 +75,9 @@ function ApproachSection() {
 						</div>
 						<div className={styles.approachCardImage}>
 							<Image
-								className={styles.factoryImg}
+								className={styles.factoryImage}
 								height={212}
-								width={200}
+								width={296}
 								src={FACTORY}
 							/>
 						</div>
@@ -92,7 +93,8 @@ function ApproachSection() {
 						<div className={styles.approachCardImage}>
 							<Image
 								className={styles.securityImage}
-								height={180}
+								height={234}
+								width={228}
 								src={SECURITY}
 							/>
 						</div>

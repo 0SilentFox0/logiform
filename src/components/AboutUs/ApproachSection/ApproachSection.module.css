@@ -82,7 +82,7 @@
 .approachFirstCard {
 	min-width: 335px;
 	height: 274px;
-	width: 440px;
+	width: 449px;
 	display: flex;
 	padding: 32px;
 	justify-content: center;
@@ -162,23 +162,14 @@
 	overflow: hidden;
 }
 
-.deploymentImg {
-	height: 99px;
-}
-
-.factoryImg {
+.factoryImage {
 	position: relative;
-	/* top: -40px;
-	right: -163px; */
 	top: -40px;
 }
 
-.securityImg {
-	height: 228px;
+.securityImage {
 	position: relative;
-	/* top: -45px;
-	right: -118px; */
-	top: -45px;
+	top: -35px;
 }
 
 @media (max-width: 1200px) {

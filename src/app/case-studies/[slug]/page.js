@@ -1,14 +1,16 @@
-import { notFound } from "next/navigation"; // To handle 404 case
-import Image from "next/image";
-import styles from "@/components/CaseStudies/CaseStudiesDetails/CaseStudiesDetails.module.css";
-import ContactSection from "@/components/layout/ContactSection/ContactSection";
-import PrevButtonImage from "@/assets/caseStudiesDetailsImg/arrow.svg";
-import Binance from "@/assets/caseStudiesDetailsImg/binance.svg";
-import Ethereum from "@/assets/caseStudiesDetailsImg/Ethereum.svg";
-import Python from "@/assets/caseStudiesDetailsImg/python.svg";
-import Nest from "@/assets/caseStudiesDetailsImg/Nest js.svg";
-import Link from "next/link";
-import { CasesGateway } from "@/api/cases/cases-gateway";
+import { notFound } from 'next/navigation'; // To handle 404 case
+import Image from 'next/image';
+import styles from '@/components/CaseStudies/CaseStudiesDetails/CaseStudiesDetails.module.css';
+import ContactSection from '@/components/layout/ContactSection/ContactSection';
+import PrevButtonImage from '@/assets/caseStudiesDetailsImg/arrow.svg';
+
+import BINANCE from '@/assets/caseStudiesDetailsImg/binance.svg';
+import ETHEREUM from '@/assets/caseStudiesDetailsImg/Ethereum.svg';
+import PYTHON from '@/assets/caseStudiesDetailsImg/python.svg';
+import NEST from '@/assets/caseStudiesDetailsImg/Nest js.svg';
+
+import Link from 'next/link';
+import { CasesGateway } from '@/api/cases/cases-gateway';
 
 export default async function CaseStudiesDetails({ params }) {
 	const { slug } = params;
@@ -17,6 +19,13 @@ export default async function CaseStudiesDetails({ params }) {
 	if (!case_) {
 		notFound(); // Use Next.js built-in 404 if the case study doesn't exist
 	}
+
+	const techImages = {
+		Binance: BINANCE,
+		Ethereum: ETHEREUM,
+		Python: PYTHON,
+		Nest: NEST,
+	};
 
 	return (
 		<>
@@ -42,18 +51,11 @@ export default async function CaseStudiesDetails({ params }) {
 					<div className={styles.projectDescription}>
 						<p>{case_.description}</p>
 						<div className={styles.actionButtons}>
-							<button className={styles.actionButton}>
-								<Image src={Binance} alt="Binance" />
-							</button>
-							<button className={styles.actionButton}>
-								<Image src={Ethereum} alt="Ethereum" />
-							</button>
-							<button className={styles.actionButton}>
-								<Image src={Python} alt="Python" />
-							</button>
-							<button className={styles.actionButton}>
-								<Image src={Nest} alt="Nest" />
-							</button>
+							{case_.technologies.map((tech) => (
+								<button key={tech} className={styles.actionButton}>
+										<Image src={techImages[tech]} alt={tech} />
+								</button>
+							))}
 						</div>
 					</div>
 				</div>
@@ -61,10 +63,7 @@ export default async function CaseStudiesDetails({ params }) {
 
 			<section className={styles.detailsSection}>
 				<div className={styles.detailsContainer}>
-					<div
-						className={styles.detailsContent}
-						dangerouslySetInnerHTML={{ __html: case_.content }}
-					/>
+					<div className={styles.detailsContent} dangerouslySetInnerHTML={{ __html: case_.content }} />
 
 					<ContactSection />
 				</div>

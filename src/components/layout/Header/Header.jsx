@@ -91,7 +91,7 @@ function Header() {
 						<li>
 							<Dropdown
 								title="Resources"
-								options={["Option 1", "Option 2", "Option 3"]}
+								options={["Playbooks"]}
 								isOpen={openDropdown === "resources"}
 								onToggle={() => handleDropdownToggle("resources")}
 							/>
@@ -133,6 +133,8 @@ function Header() {
 									"Web Development",
 									"UI/UX Design",
 								]}
+								isOpen={openDropdown === "services"}
+								onToggle={() => handleDropdownToggle("services")}
 							/>
 						</li>
 						<li>
@@ -153,7 +155,10 @@ function Header() {
 						<li>
 							<Dropdown
 								title="Resources"
-								options={["Option 1", "Option 2", "Option 3"]}
+								options={["Playbooks"]}
+								isOpen={openDropdown === "resources"}
+								onToggle={() => handleDropdownToggle("resources")}
+
 							/>
 						</li>
 						<li>
@@ -166,6 +171,9 @@ function Header() {
 							</Link>
 						</li>
 					</ul>
+					<Link href="#contact" className={styles.contactButtonMenu} onClick={closeNavbar}>
+						Contact us
+					</Link>
 				</div>
 			)}
 		</header>

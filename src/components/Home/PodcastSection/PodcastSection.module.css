@@ -352,6 +352,10 @@
 		justify-content: flex-start;
 	}
 
+	.episodeText h3 {
+		font-size: 18px;
+	}
+
 	.podcastImageContainer {
 		max-height: 228px;
 	}

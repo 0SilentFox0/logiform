@@ -4,10 +4,12 @@ import INSTAGRAM from "@/assets/contactImages/instagram.svg";
 import TWITTER from "@/assets/contactImages/twitter.svg";
 import LINKEDIN from "@/assets/contactImages/linkedin.svg";
 import { useForm } from "react-hook-form";
-// import UploadFiles from "./UploadFiles/UploadFiles";
 import { useState } from "react";
 import Image from "next/image";
-import { ContactGateway } from "@/api/contact/contact-gateway";
+import Link from "next/link";
+// import UploadFiles from "./UploadFiles/UploadFiles";
+// import { directus } from "../../../plugins/axios";
+// import axios from "axios";
 
 function ContactSection() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,26 +22,77 @@ function ContactSection() {
 	const nameError = formState.errors["name"]?.message;
 	const emailError = formState.errors["email"]?.message;
 	const messageError = formState.errors["message"]?.message;
+	const API_KEY = process.env.NEXT_PUBLIC_PIPEDRIVE_API;
 
-	const onSubmit = async (data) => {
+	async function createPerson(data) {
+		const personUrl = `https://api.pipedrive.com/v1/persons?api_token=${API_KEY}`;
+
+		const personData = {
+			name: data.name,
+			email: data.email,
+		};
+
 		try {
-			const response = await ContactGateway.sendContact({
-				name: data.name,
-				email: data.email,
-				message: data.message,
-				// file: data.file,
+			const response = await fetch(personUrl, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(personData),
 			});
 
-			console.log("Form successfully submitted:", response);
-			setIsSubmitted(true);
-			reset();
-
-			setTimeout(() => {
-				setIsSubmitted(false);
-			}, 5000);
+			const result = await response.json();
+			if (result.success) {
+				return result.data.id; // return person_id
+			} else {
+				console.error("Error creating person:", result.error);
+				return null;
+			}
 		} catch (error) {
-			console.error("Error submitting form:", error);
-			// Here you might want to set some error state and display it to the user
+			console.error("Network error while creating person:", error);
+			return null;
+		}
+	}
+
+	async function createLead(name, person_id) {
+		const leadUrl = `https://api.pipedrive.com/v1/leads?api_token=${API_KEY}`;
+
+		const leadData = {
+			title: name, // This is the title of the lead
+			person_id: person_id, // Associate the lead with the created person
+		};
+
+		try {
+			const response = await fetch(leadUrl, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(leadData),
+			});
+
+			const result = await response.json();
+			if (result.success) {
+				console.log("Lead created successfully:", result.data);
+			} else {
+				console.error("Error creating lead:", result.error);
+			}
+		} catch (error) {
+			console.error("Network error while creating lead:", error);
+		}
+	}
+
+	const onSubmit = async (data) => {
+		// Prepare the data for Pipedrive Leads
+
+		// Correct URL structure for creating a lead in Pipedrive
+		const person_id = await createPerson(data);
+
+		// Step 2: Create Lead if person creation was successful
+		if (person_id) {
+			await createLead(data.name, person_id);
+		} else {
+			console.error("Failed to create lead because person creation failed.");
 		}
 	};
 
@@ -77,20 +130,40 @@ function ContactSection() {
 							<div className={styles.text}>
 								<h2>Get Your Product estimation in 48 hours</h2>
 								<p>
-									Share your project details, and we'll deliver an accurate
+									Share your project details, and we’ll deliver an accurate
 									estimate for your project development
 								</p>
 							</div>
 							<div className={styles.actions}>
-								<div className={styles.action}>
-									<Image src={INSTAGRAM} alt="instagram" />
-								</div>
-								<div className={styles.action}>
-									<Image src={TWITTER} alt="twitter" />
-								</div>
-								<div className={styles.action}>
-									<Image src={LINKEDIN} alt="linkedin" />
-								</div>
+								<Link
+									href="https://instagram.com/logiform"
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.action}
+								>
+									<Image
+										src={INSTAGRAM}
+										alt="instagram"
+										width={20}
+										height={20}
+									/>
+								</Link>
+								<Link
+									href="https://x.com/Logiform_io"
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.action}
+								>
+									<Image src={TWITTER} alt="twitter" width={20} height={20} />
+								</Link>
+								<Link
+									href="https://www.linkedin.com/company/logiformio"
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.action}
+								>
+									<Image src={LINKEDIN} alt="linkedin" width={20} height={20} />
+								</Link>
 							</div>
 						</div>
 						<form
@@ -98,18 +171,19 @@ function ContactSection() {
 							onSubmit={handleSubmit(onSubmit)}
 						>
 							<div className={styles.form}>
-								{nameError && <p className={styles.errorText}>{nameError}</p>}
 								<input
-									className={styles.name}
+									className={`${styles.name} ${nameError ? styles.error : ""}`}
 									type="text"
 									placeholder="Your name *"
 									{...register("name", {
 										required: "This field is required",
 									})}
 								/>
-								{emailError && <p className={styles.errorText}>{emailError}</p>}
+
 								<input
-									className={styles.email}
+									className={`${styles.email} ${
+										emailError ? styles.error : ""
+									}`}
 									type="text"
 									placeholder="Your email address *"
 									{...register("email", {
@@ -120,18 +194,18 @@ function ContactSection() {
 										},
 									})}
 								/>
-								{messageError && (
-									<p className={styles.errorText}>{messageError}</p>
-								)}
+
 								<textarea
-									className={styles.tellUs}
-									type="textarea"
+									className={`${styles.tellUs} ${
+										messageError ? styles.error : ""
+									}`}
 									placeholder="Tell us about your project"
 									{...register("message", {
 										required: "This field is required",
 									})}
 								/>
 							</div>
+
 							{/* <UploadFiles setValue={setValue} trigger={trigger} /> */}
 							<div className={styles.contactButton}>
 								<button type="submit">Contact us</button>

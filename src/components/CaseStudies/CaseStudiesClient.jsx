@@ -11,7 +11,7 @@ export default function CaseStudiesClient({ cases, categories }) {
 
 	// Toggle filter visibility
 	const toggleFilterVisibility = () => {
-		setIsFilterVisible(!isFilterVisible);
+		setIsFilterVisible((prev) => !prev);
 	};
 
 	// Handle category filter changes
@@ -31,9 +31,9 @@ export default function CaseStudiesClient({ cases, categories }) {
 					case_.categories.some((cat) => selectedCategories.includes(cat))
 			  );
 
-	// Determine image height class for layout
-	const getImageHeightClass = (index) =>
-		index % 2 === 0 ? styles.largeImage : styles.smallImage;
+	const handleMouseLeave = () => {
+		setIsFilterVisible(false);
+	};
 
 	return (
 		<div>
@@ -49,7 +49,10 @@ export default function CaseStudiesClient({ cases, categories }) {
 							</button>
 
 							{isFilterVisible && (
-								<div className={styles.filterWindow}>
+								<div
+									className={styles.filterWindow}
+									onMouseLeave={handleMouseLeave}
+								>
 									{categories.map((category) => (
 										<label key={category} className={styles.filterLabel}>
 											<input
@@ -68,12 +71,8 @@ export default function CaseStudiesClient({ cases, categories }) {
 
 					<div className={styles.content}>
 						<div className={styles.grid}>
-							{filteredCases.map((case_, index) => (
-								<Card
-									key={case_.id}
-									{...case_}
-									imageHeight={getImageHeightClass(index)}
-								/>
+							{filteredCases.map((case_) => (
+								<Card key={case_.id} {...case_} />
 							))}
 						</div>
 					</div>
