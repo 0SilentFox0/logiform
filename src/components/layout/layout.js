@@ -2,6 +2,7 @@ import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import styles from "../App/App.module.css";
 
+
 export default function Layout({ children }) {
 	return (
 		<>
@@ -10,6 +11,7 @@ export default function Layout({ children }) {
 			</div>
 			<main>{children}</main>
 			<Footer />
+
 		</>
 	);
 }

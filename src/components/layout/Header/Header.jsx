@@ -50,132 +50,134 @@ function Header() {
 	}, [isOpen]);
 
 	return (
-		<header className={styles.header}>
-			<HeaderUnion />
+		<header className={styles.headerWrapper}>
+			<div className={styles.header}>
+				<HeaderUnion />
 
-			<div className={styles.headerContainer}>
-				<Link href="/" className={styles.logo} onClick={handleClick}>
-					<Image src={logoImage} alt="Logiform Logo" width={40} height={40} />
-					<span>Logiform</span>
-				</Link>
-				<nav className={styles.nav}>
-					<ul>
-						<li>
-							<Dropdown
-								title="Services"
-								options={[
-									"Smart Contracts",
-									"Web3 & Blockchain",
-									"Web Development",
-									"UI/UX Design",
-								]}
-								isOpen={openDropdown === "services"}
-								onToggle={() => handleDropdownToggle("services")}
-							/>
-						</li>
-						<li>
-							<Link href="/case-studies" onClick={handleClick}>
-								Case studies
-							</Link>
-						</li>
-						<li>
-							<Link href="/about-us" onClick={handleClick}>
-								About us
-							</Link>
-						</li>
-						<li>
-							<Link href="/blog" onClick={handleClick}>
-								Blog
-							</Link>
-						</li>
-						<li>
-							<Dropdown
-								title="Resources"
-								options={["Playbooks"]}
-								isOpen={openDropdown === "resources"}
-								onToggle={() => handleDropdownToggle("resources")}
-							/>
-						</li>
-						<li>
-							<Link href="#contact" className={styles.anchor}>
-								Partner with us
-							</Link>
-						</li>
-					</ul>
-				</nav>
-				<div className={styles.contactButton}>
-					<Link href="#contact" className={styles.anchorContactButton}>
-						Contact us
+				<div className={styles.headerContainer}>
+					<Link href="/" className={styles.logo} onClick={handleClick}>
+						<Image src={logoImage} alt="Logiform Logo" width={40} height={40} />
+						<span>Logiform</span>
 					</Link>
+					<nav className={styles.nav}>
+						<ul>
+							<li>
+								<Dropdown
+									title="Services"
+									options={[
+										"Smart Contracts",
+										"Web3 & Blockchain",
+										"Web Development",
+										"UI/UX Design",
+									]}
+									isOpen={openDropdown === "services"}
+									onToggle={() => handleDropdownToggle("services")}
+								/>
+							</li>
+							<li>
+								<Link href="/case-studies" onClick={handleClick}>
+									Case studies
+								</Link>
+							</li>
+							<li>
+								<Link href="/about-us" onClick={handleClick}>
+									About us
+								</Link>
+							</li>
+							<li>
+								<Link href="/blog" onClick={handleClick}>
+									Blog
+								</Link>
+							</li>
+							<li>
+								<Dropdown
+									title="Resources"
+									options={["Playbooks"]}
+									isOpen={openDropdown === "resources"}
+									onToggle={() => handleDropdownToggle("resources")}
+								/>
+							</li>
+							<li>
+								<Link href="#contact" className={styles.anchor}>
+									Partner with us
+								</Link>
+							</li>
+						</ul>
+					</nav>
+					<div className={styles.contactButton}>
+						<Link href="#contact" className={styles.anchorContactButton}>
+							Contact us
+						</Link>
+					</div>
+					<button
+						className={`${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}
+						onClick={toggleNavbar}
+						aria-label={isOpen ? "Close menu" : "Open menu"}
+					>
+						{isOpen ? (
+							<IoMdClose aria-hidden="true" />
+						) : (
+							<IoMenuOutline aria-hidden="true" />
+						)}
+					</button>
 				</div>
-				<button
-					className={`${isOpen ? styles.burgerMenuOpen : styles.burgerMenu}`}
-					onClick={toggleNavbar}
-					aria-label={isOpen ? "Close menu" : "Open menu"}
-				>
-					{isOpen ? (
-						<IoMdClose aria-hidden="true" />
-					) : (
-						<IoMenuOutline aria-hidden="true" />
-					)}
-				</button>
+
+				{isOpen && (
+					<div className={styles.overlay}>
+						<ul className={styles.overlayMenu}>
+							<li>
+								<Dropdown
+									title="Services"
+									options={[
+										"Smart Contracts",
+										"Web3 & Blockchain",
+										"Web Development",
+										"UI/UX Design",
+									]}
+									isOpen={openDropdown === "services"}
+									onToggle={() => handleDropdownToggle("services")}
+								/>
+							</li>
+							<li>
+								<Link href="/case-studies" onClick={closeNavbar}>
+									Case studies
+								</Link>
+							</li>
+							<li>
+								<Link href="/about-us" onClick={closeNavbar}>
+									About us
+								</Link>
+							</li>
+							<li>
+								<Link href="/blog" onClick={closeNavbar}>
+									Blog
+								</Link>
+							</li>
+							<li>
+								<Dropdown
+									title="Resources"
+									options={["Playbooks"]}
+									isOpen={openDropdown === "resources"}
+									onToggle={() => handleDropdownToggle("resources")}
+
+								/>
+							</li>
+							<li>
+								<Link
+									href="#contact"
+									className={styles.anchor}
+									onClick={closeNavbar}
+								>
+									Partner with us
+								</Link>
+							</li>
+						</ul>
+						<Link href="#contact" className={styles.contactButtonMenu} onClick={closeNavbar}>
+							Contact us
+						</Link>
+					</div>
+				)}
 			</div>
-
-			{isOpen && (
-				<div className={styles.overlay}>
-					<ul className={styles.overlayMenu}>
-						<li>
-							<Dropdown
-								title="Services"
-								options={[
-									"Smart Contracts",
-									"Web3 & Blockchain",
-									"Web Development",
-									"UI/UX Design",
-								]}
-								isOpen={openDropdown === "services"}
-								onToggle={() => handleDropdownToggle("services")}
-							/>
-						</li>
-						<li>
-							<Link href="/case-studies" onClick={closeNavbar}>
-								Case studies
-							</Link>
-						</li>
-						<li>
-							<Link href="/about-us" onClick={closeNavbar}>
-								About us
-							</Link>
-						</li>
-						<li>
-							<Link href="/blog" onClick={closeNavbar}>
-								Blog
-							</Link>
-						</li>
-						<li>
-							<Dropdown
-								title="Resources"
-								options={["Playbooks"]}
-								isOpen={openDropdown === "resources"}
-								onToggle={() => handleDropdownToggle("resources")}
-
-							/>
-						</li>
-						<li>
-							<Link
-								href="#contact"
-								className={styles.anchor}
-								onClick={closeNavbar}
-							>
-								Partner with us
-							</Link>
-						</li>
-					</ul>
-					<Link href="#contact" className={styles.contactButtonMenu} onClick={closeNavbar}>
-						Contact us
-					</Link>
-				</div>
-			)}
 		</header>
 	);
 }

@@ -1,7 +1,8 @@
 import "../styles/global.css";
-import styles from "@/components/App/App.module.css";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer/Footer";
+import BackToTopButton from '@/components/layout/BackToTopButton/BackToTopButton';
+
 
 export const metadata = {
 	title: "Logiform - Agile Secure Solutions",
@@ -76,11 +77,10 @@ export default function RootLayout({ children }) {
 						style={{ display: "none", visibility: "hidden" }}
 					/>
 				</noscript>
-				<div className={styles.headerWrapper}>
-					<Header />
-				</div>
+				<Header />
 				<div id="root">{children}</div>
 				<Footer />
+				<BackToTopButton />
 			</body>
 		</html>
 	);

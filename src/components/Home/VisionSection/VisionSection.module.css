@@ -285,6 +285,10 @@
 	box-sizing: border-box;
 }
 
+.statistic:nth-child(1) .text {
+	width: 140px;
+}
+
 .text {
 	display: flex;
 	flex-direction: column;
@@ -384,17 +388,22 @@
 	.statistic {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		background: var(
 			--Button-animation-2,
 			linear-gradient(102deg, #1b9ce1 12%, #2a2f90 126%)
 		);
 		border-radius: 24px;
-		min-height: 126px;
+		min-height: 167px;
 		max-width: 100%;
 	}
 
+	.statistic:nth-child(1) {
+		width: 290px;
+	}
+
 	.text {
-		width: 242px;
+		max-width: 242px;
 	}
 
 	.text h2 {
