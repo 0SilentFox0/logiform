@@ -8,8 +8,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import UploadFiles from "./UploadFiles/UploadFiles";
-// import { directus } from "../../../plugins/axios";
-// import axios from "axios";
 
 function ContactSection() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -43,7 +41,7 @@ function ContactSection() {
 
 			const result = await response.json();
 			if (result.success) {
-				return result.data.id; // return person_id
+				return result.data.id;
 			} else {
 				console.error("Error creating person:", result.error);
 				return null;
@@ -54,12 +52,12 @@ function ContactSection() {
 		}
 	}
 
-	async function createLead(name, person_id) {
+	async function createLead(data, person_id) {
 		const leadUrl = `https://api.pipedrive.com/v1/leads?api_token=${API_KEY}`;
 
 		const leadData = {
-			title: name, // This is the title of the lead
-			person_id: person_id, // Associate the lead with the created person
+			title: `New lead from ${data.name}`,
+			person_id: person_id,
 		};
 
 		try {
@@ -74,28 +72,92 @@ function ContactSection() {
 			const result = await response.json();
 			if (result.success) {
 				console.log("Lead created successfully:", result.data);
+				return result.data.id;
 			} else {
 				console.error("Error creating lead:", result.error);
+				return null;
 			}
 		} catch (error) {
 			console.error("Network error while creating lead:", error);
+			return null;
+		}
+	}
+
+	async function addNoteToLead(leadId, message) {
+		const noteUrl = `https://api.pipedrive.com/v1/notes?api_token=${API_KEY}`;
+
+		const noteData = {
+			content: message,
+			lead_id: leadId,
+		};
+
+		try {
+			const response = await fetch(noteUrl, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(noteData),
+			});
+
+			const result = await response.json();
+			if (result.success) {
+				console.log("Note added successfully:", result.data);
+			} else {
+				console.error("Error adding note:", result.error);
+			}
+		} catch (error) {
+			console.error("Network error while adding note:", error);
+		}
+	}
+
+	async function attachFileToLead(leadId, fileData) {
+		const attachmentUrl = `https://api.pipedrive.com/v1/files?api_token=${API_KEY}`;
+
+		const formData = new FormData();
+		formData.append("file", fileData.file);
+		formData.append("lead_id", leadId);
+
+		try {
+			const response = await fetch(attachmentUrl, {
+				method: "POST",
+				body: formData,
+			});
+
+			const result = await response.json();
+			if (result.success) {
+				console.log("File attached successfully:", result.data);
+			} else {
+				console.error("Error attaching file:", result.error);
+			}
+		} catch (error) {
+			console.error("Network error while attaching file:", error);
 		}
 	}
 
 	const onSubmit = async (data) => {
-		// Prepare the data for Pipedrive Leads
-
-		// Correct URL structure for creating a lead in Pipedrive
 		console.log(data);
 
-		// const person_id = await createPerson(data);
+		const person_id = await createPerson(data);
 
-		// // Step 2: Create Lead if person creation was successful
-		// if (person_id) {
-		// 	await createLead(data.name, person_id);
-		// } else {
-		// 	console.error("Failed to create lead because person creation failed.");
-		// }
+		if (person_id) {
+			const lead_id = await createLead(data, person_id);
+
+			if (lead_id) {
+				await addNoteToLead(lead_id, data.message);
+
+				if (data.file) {
+					await attachFileToLead(lead_id, data.file);
+				}
+
+				setIsSubmitted(true);
+				reset();
+			} else {
+				console.error("Failed to create lead.");
+			}
+		} else {
+			console.error("Failed to create person.");
+		}
 	};
 
 	return (
