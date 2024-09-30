@@ -194,7 +194,6 @@
 }
 
 .postTableContainer {
-	height: 100vh;
 	padding-left: 40px;
     top: 20px; /* Adjust as needed */
     z-index: 10; /* Ensure it's above other content */
@@ -232,7 +231,7 @@
 }
 
 .tableTitle {
-	width: 312px;
+	max-width: 312px;
 	font-size: 24px;
 	font-style: normal;
 	font-weight: 700;
@@ -244,11 +243,13 @@
 	text-decoration: none;
 }
 
-.tablePart span:hover {
+.tablePart span:hover,
+.tablePart p {
 	color: black;
 }
 
-.tablePart span {
+.tablePart span,
+.tablePart p {
 	color: var(--Neutral-Neutral-50, #7c7f86);
 	font-size: 24px !important;
 	font-style: normal;
@@ -263,7 +264,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 	width: 100%;
-	max-width: 746px;
 }
 
 .casesTitle {
