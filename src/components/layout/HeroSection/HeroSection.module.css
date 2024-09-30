@@ -6,7 +6,7 @@
 	background: url("~/src/assets/background.png") lightgray 50% / cover no-repeat;
 	height: 100%;
 	max-width: 100%;
-	padding: 145px 120px 78px 120px;
+	padding: 145px 120px 120px 120px;
 	position: relative;
 	gap: 48px;
 	overflow: hidden;
@@ -108,7 +108,8 @@
 	position: absolute;
 	max-width: 663px;
 	left: 50%; /* Центрирует по горизонтали относительно контейнера */
-	transform: translateX(-90%); /* Смещает изображение на половину его ширины */
+	top: -163px;
+	transform: translateX(-120%); /* Смещает изображение на половину его ширины */
   }
 
 @media (max-width: 1200px) {
@@ -122,8 +123,9 @@
 	}
 
 	.image img {
-		width: 460px; /* Scale down image */
-		height: 460px;
+		width: 360px; /* Scale down image */
+		height: 360px;
+		transform: translateX(-100%);
 	}
 }
 
@@ -168,6 +170,8 @@
 	.image img{
 		top: -400px;
 		transform: translateX(-50%);
+		height: 460px;
+		width: 460px;
 	}
 }
 
