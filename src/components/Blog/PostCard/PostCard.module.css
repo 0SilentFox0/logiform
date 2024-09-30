@@ -89,7 +89,7 @@
 
 .cardTitle {
 	font-size: 24px;
-	height: 62px;
+	height: 70px;
 	
 
 	display: -webkit-box;
@@ -100,13 +100,13 @@
 
 .cardDescription {
 	font-size: 16px;
-	height: 86px;
+	height: 65px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: initial;
 
 	display: -webkit-box;
-	-webkit-line-clamp: 4; 
+	-webkit-line-clamp: 3; 
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -130,6 +130,12 @@
 
 	.cardTitle {
 		font-size: 20px;
+		height: 55px;
+	}
+
+	.cardDescription {
+		-webkit-line-clamp: 4;
+		height: 85px; 
 	}
 }
 
@@ -137,10 +143,20 @@
 	.cardImage {
 		min-height: 300px;
 	}
+
+	.cardDescription {
+		-webkit-line-clamp: 2;
+		height: 45px; 
+	}
 }
 
 @media (max-width: 500px) {
 	.cardImage {
 		min-height: 256px;
+	}
+
+	.cardDescription {
+		-webkit-line-clamp: 4;
+		height: 85px; 
 	}
 }

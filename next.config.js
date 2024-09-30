@@ -6,9 +6,9 @@ const nextConfig = {
 	images: {
 		unoptimized: true, // Disables Next.js image optimization for static export.
 	},
-	experimental: {
-		serverActions: true,
-	  },
+	// experimental: {
+	// 	serverActions: true,
+	//   },
 	webpack: (config) => {
 		// Add support for .mov video files
 		config.module.rules.push({

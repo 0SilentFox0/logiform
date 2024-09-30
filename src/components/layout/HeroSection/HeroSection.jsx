@@ -1,52 +1,48 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import Link from "next/link";
 import styles from "./HeroSection.module.css";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 function HeroSection({
 	title,
 	glitchEffect,
 	description,
 	imageSrc,
-	videoSrc,
-	mobileVideoSrc,
+	showVideo,
 }) {
-	const [currentVideo, setCurrentVideo] = useState(videoSrc);
+	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		const updateVideoSource = () => {
-			const screenWidth = window.innerWidth;
-			if (screenWidth <= 968) {
-				setCurrentVideo(mobileVideoSrc);
-			} else {
-				setCurrentVideo(videoSrc);
-			}
+		const checkIsMobile = () => {
+			setIsMobile(window.innerWidth < 968);
 		};
 
-		updateVideoSource(); // Run on component mount
-		window.addEventListener("resize", updateVideoSource);
+		checkIsMobile();
+		window.addEventListener("resize", checkIsMobile);
 
-		return () => {
-			window.removeEventListener("resize", updateVideoSource);
-		};
-	}, [videoSrc, mobileVideoSrc]);
+		return () => window.removeEventListener("resize", checkIsMobile);
+	}, []);
 
 	return (
 		<section className={styles.hero}>
-			{currentVideo && (
-				<video
-					key={currentVideo}
-					autoPlay
-					loop
-					muted
-					playsInline
-					className={styles.backgroundVideo}
-				>
-					<source src={currentVideo} type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+			{showVideo && (
+				<>
+					<video
+						key={isMobile ? "mobile" : "desktop"}
+						autoPlay
+						loop
+						muted
+						playsInline
+						className={styles.backgroundVideo}
+					>
+						<source
+							src={isMobile ? "/videos/mobile.mp4" : "/videos/desktop.mp4"}
+							type="video/mp4"
+						/>
+						Your browser does not support the video tag.
+					</video>
+				</>
 			)}
 			<div className={styles.content}>
 				<div className={styles.text}>
@@ -57,9 +53,9 @@ function HeroSection({
 					<p>{description}</p>
 				</div>
 				<div className={styles.contactButton}>
-					<AnchorLink href="#contact" className={styles.anchorContactButton}>
+					<Link href="#contact" className={styles.anchorContactButton}>
 						Contact us
-					</AnchorLink>
+					</Link>
 				</div>
 			</div>
 

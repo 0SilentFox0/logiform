@@ -98,17 +98,19 @@
 }
 
 .image {
-	justify-content: center;
+	display: flex;
+	justify-content: center; /* Центрирует по горизонтали */
+	align-items: center; /* Центрирует по вертикали */
+	position: relative;
+  }
+  
+  .image img {
 	position: absolute;
-	right: 200px;
-	top: 107px;
-}
-
-.image img {
-	width: 100%;
 	max-width: 663px;
-	object-fit: contain;
-}
+	left: 50%; /* Центрирует по горизонтали относительно контейнера */
+	top: -163px;
+	transform: translateX(-120%); /* Смещает изображение на половину его ширины */
+  }
 
 @media (max-width: 1200px) {
 	.hero {
@@ -120,13 +122,10 @@
 		line-height: 56px;
 	}
 
-	.image {
-		top: 104px;
-		right: 80px;
-	}
-
 	.image img {
 		width: 360px; /* Scale down image */
+		height: 360px;
+		transform: translateX(-100%);
 	}
 }
 
@@ -137,11 +136,7 @@
 		align-items: center;
 		text-align: center; /* Center text for narrow screens */
 		padding: 120px 60px 40px 60px;
-		height: 740px;
-	}
-
-	.backgroundVideo {
-		height: 105%;
+		height: 750px;
 	}
 
 	.content {
@@ -150,6 +145,10 @@
 		justify-content: center;
 		gap: 48px;
 		max-width: 100%; /* Full width for content */
+	}
+
+	.text {
+		max-width: 600px;
 	}
 
 	.text h1,
@@ -168,10 +167,11 @@
 		padding: 17px 24px; /* Adjust padding for smaller screens */ /* Limit max width */
 	}
 
-	.image {
-		position: relative;
-		left: 0;
-		top: 45px;
+	.image img{
+		top: -400px;
+		transform: translateX(-50%);
+		height: 460px;
+		width: 460px;
 	}
 }
 
@@ -179,6 +179,7 @@
 @media (max-width: 500px) {
 	.hero {
 		padding: 120px 24px 0px 24px;
+		height: 650px;
 	}
 
 	.content {
@@ -200,12 +201,12 @@
 		margin-bottom: 0; /* Less margin for smaller screens */
 	}
 
-	.image {
-		top: 5px;
-	}
+	
 
 	.image img {
-		width: 320px;
+		width: 330px;
+		height: 330px;
+		top: -320px;
 	}
 
 	.anchorContactButton {
