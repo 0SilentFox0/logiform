@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import UploadFiles from "./UploadFiles/UploadFiles";
+import UploadFiles from "./UploadFiles/UploadFiles";
 // import { directus } from "../../../plugins/axios";
 // import axios from "axios";
 
@@ -86,14 +86,16 @@ function ContactSection() {
 		// Prepare the data for Pipedrive Leads
 
 		// Correct URL structure for creating a lead in Pipedrive
-		const person_id = await createPerson(data);
+		console.log(data);
 
-		// Step 2: Create Lead if person creation was successful
-		if (person_id) {
-			await createLead(data.name, person_id);
-		} else {
-			console.error("Failed to create lead because person creation failed.");
-		}
+		// const person_id = await createPerson(data);
+
+		// // Step 2: Create Lead if person creation was successful
+		// if (person_id) {
+		// 	await createLead(data.name, person_id);
+		// } else {
+		// 	console.error("Failed to create lead because person creation failed.");
+		// }
 	};
 
 	return (
@@ -206,7 +208,7 @@ function ContactSection() {
 								/>
 							</div>
 
-							{/* <UploadFiles setValue={setValue} trigger={trigger} /> */}
+							<UploadFiles setValue={setValue} trigger={trigger} />
 							<div className={styles.contactButton}>
 								<button type="submit">Contact us</button>
 								<p>

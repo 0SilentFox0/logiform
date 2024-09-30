@@ -234,7 +234,7 @@
 
 .tellUs {
 	display: flex;
-	align-items: end;
+	align-items: flex-end;
 	padding: 10px 8px;
 	height: 19px;
 	color: white;
