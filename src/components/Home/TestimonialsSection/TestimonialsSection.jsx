@@ -9,29 +9,25 @@ import "swiper/css/pagination";
 
 const testimonials = [
 	{
-		text: "Team did a good job. The graphical and dev work was great!",
-		name: "Anton Thomas",
-		company: "FireFly",
-	},
-	{
-		text: "Team did a good job. The graphical and dev work was great!",
-		name: "Anton Thomas",
-		company: "FireFly",
-	},
-	{
 		text: "I hired LogiForm to assist my core development team with a DEX project on a tight deadline. From the start, we clicked, and thanks to their support, we launched on time and continue collaborating. Big thanks to the team!",
 		name: "Ben Irwin",
 		company: "NDA project",
+	},
+	{
+		text: "Team did a good job. The graphical and dev work was great!",
+		name: "Anton Thomas",
+		company: "FireFly",
 	},
 	{
 		text: "The team built an exceptional web3 platform for my community, impressing me with their speed and high standards. The process—from management to design and testing—was seamless. Highly recommend them!",
 		name: "Viktor Sanders ",
 		company: "SocialSelf",
 	},
+
 	{
-		text: "Team did a good job. The graphical and dev work was great!",
-		name: "Anton Thomas",
-		company: "FireFly",
+		text: "Team did a great job from the very beggining of the project. I didn't know exactly what it should be, so that they helped me to find the right direction and created an awesome solution!",
+		name: "Matthew W.",
+		company: "Boom",
 	},
 ];
 
@@ -70,7 +66,7 @@ function TestimonialsSection() {
 					spaceBetween={60}
 					initialSlide={3}
 					loop={true}
-					slidesPerView={'auto'}
+					slidesPerView={"auto"}
 					coverflowEffect={{
 						rotate: 0,
 						stretch: 0,
