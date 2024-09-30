@@ -8,6 +8,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import UploadFiles from "./UploadFiles/UploadFiles";
+import { ContactGateway } from "@/api/contact/contact-gateway";
 
 function ContactSection() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,143 +21,27 @@ function ContactSection() {
 	const nameError = formState.errors["name"]?.message;
 	const emailError = formState.errors["email"]?.message;
 	const messageError = formState.errors["message"]?.message;
-	const API_KEY = process.env.NEXT_PUBLIC_PIPEDRIVE_API;
-
-	async function createPerson(data) {
-		const personUrl = `https://api.pipedrive.com/v1/persons?api_token=${API_KEY}`;
-
-		const personData = {
-			name: data.name,
-			email: data.email,
-		};
-
-		try {
-			const response = await fetch(personUrl, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(personData),
-			});
-
-			const result = await response.json();
-			if (result.success) {
-				return result.data.id;
-			} else {
-				console.error("Error creating person:", result.error);
-				return null;
-			}
-		} catch (error) {
-			console.error("Network error while creating person:", error);
-			return null;
-		}
-	}
-
-	async function createLead(data, person_id) {
-		const leadUrl = `https://api.pipedrive.com/v1/leads?api_token=${API_KEY}`;
-
-		const leadData = {
-			title: `New lead from ${data.name}`,
-			person_id: person_id,
-		};
-
-		try {
-			const response = await fetch(leadUrl, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(leadData),
-			});
-
-			const result = await response.json();
-			if (result.success) {
-				console.log("Lead created successfully:", result.data);
-				return result.data.id;
-			} else {
-				console.error("Error creating lead:", result.error);
-				return null;
-			}
-		} catch (error) {
-			console.error("Network error while creating lead:", error);
-			return null;
-		}
-	}
-
-	async function addNoteToLead(leadId, message) {
-		const noteUrl = `https://api.pipedrive.com/v1/notes?api_token=${API_KEY}`;
-
-		const noteData = {
-			content: message,
-			lead_id: leadId,
-		};
-
-		try {
-			const response = await fetch(noteUrl, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(noteData),
-			});
-
-			const result = await response.json();
-			if (result.success) {
-				console.log("Note added successfully:", result.data);
-			} else {
-				console.error("Error adding note:", result.error);
-			}
-		} catch (error) {
-			console.error("Network error while adding note:", error);
-		}
-	}
-
-	async function attachFileToLead(leadId, fileData) {
-		const attachmentUrl = `https://api.pipedrive.com/v1/files?api_token=${API_KEY}`;
-
-		const formData = new FormData();
-		formData.append("file", fileData.file);
-		formData.append("lead_id", leadId);
-
-		try {
-			const response = await fetch(attachmentUrl, {
-				method: "POST",
-				body: formData,
-			});
-
-			const result = await response.json();
-			if (result.success) {
-				console.log("File attached successfully:", result.data);
-			} else {
-				console.error("Error attaching file:", result.error);
-			}
-		} catch (error) {
-			console.error("Network error while attaching file:", error);
-		}
-	}
-
 	const onSubmit = async (data) => {
-		console.log(data);
-
-		const person_id = await createPerson(data);
-
-		if (person_id) {
-			const lead_id = await createLead(data, person_id);
-
-			if (lead_id) {
-				await addNoteToLead(lead_id, data.message);
-
-				if (data.file) {
-					await attachFileToLead(lead_id, data.file);
-				}
-
-				setIsSubmitted(true);
-				reset();
-			} else {
-				console.error("Failed to create lead.");
+		try {
+			const formData = new FormData();
+			formData.append("name", data.name);
+			formData.append("email", data.email);
+			formData.append("message", data.message);
+			if (data.file) {
+				formData.append("file", data.file[0]); // Assuming file is an array of File objects
 			}
-		} else {
-			console.error("Failed to create person.");
+
+			console.log("FormData entries:");
+			for (let [key, value] of formData.entries()) {
+				console.log(key, value);
+			}
+
+			const response = await ContactGateway.sendContact(data); // Pass 'data' instead of 'formData'
+			console.log("Form submitted successfully:", response);
+			setIsSubmitted(true);
+			reset();
+		} catch (error) {
+			console.error("Error submitting form:", error);
 		}
 	};
 
