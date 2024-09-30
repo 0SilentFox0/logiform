@@ -63,3 +63,23 @@
 .linkContainer:hover::after {
 	width: 100%;
 }
+
+@media (max-width: 968px) {
+    .errorContainer {
+        flex-direction: column;
+    }
+
+    .hero {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 108px;
+        background: url(/_next/static/media/background.7fe3db0d.png) lightgray 50% / cover no-repeat;
+    }
+}
+
+@media (max-width: 500px) {
+    .text {
+        gap: 10px;
+    }
+}

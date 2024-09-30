@@ -136,7 +136,7 @@
 		align-items: center;
 		text-align: center; /* Center text for narrow screens */
 		padding: 120px 60px 40px 60px;
-		height: 750px;
+		height: 730px;
 	}
 
 	.content {
@@ -179,7 +179,7 @@
 @media (max-width: 500px) {
 	.hero {
 		padding: 120px 24px 0px 24px;
-		height: 650px;
+		height: 780px;
 	}
 
 	.content {

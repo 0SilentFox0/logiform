@@ -1,3 +1,4 @@
+import ContactSection from "@/components/layout/ContactSection/ContactSection";
 import styles from "@/components/PrivacyPolicy/PrivacyPolicy.module.css";
 
 function PrivacyPolicy() {
@@ -365,6 +366,8 @@ function PrivacyPolicy() {
 					Email: legal@logiform.io
 				</p>
 			</div>
+
+			<ContactSection />
 		</div>
 	);
 }

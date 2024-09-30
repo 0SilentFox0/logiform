@@ -310,6 +310,12 @@
 	overflow: hidden;
 }
 
+.casesValueSection pre,
+.casesValueSection code {
+	display: flex;
+	width: 300px;
+}
+
 .casesValueSection span {
 	font-size: 48px !important;
 	font-style: normal;

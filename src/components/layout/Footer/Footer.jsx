@@ -20,7 +20,7 @@ function Footer() {
 						<div className={styles.actions}>
 							<Link href="/blog">Blog</Link>
 							<Link href="/resources">Resources</Link>
-							<Link href="/partner">Partner with us</Link>
+							<Link href="#contact">Partner with us</Link>
 						</div>
 						<div className={styles.actions}>
 							<Link href="/services">Services</Link>

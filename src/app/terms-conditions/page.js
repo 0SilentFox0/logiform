@@ -1,4 +1,5 @@
 import styles from "@/components/TermsAndConditions/TermsAndConditions.module.css";
+import ContactSection from '../../components/layout/ContactSection/ContactSection';
 
 const TermsAndConditions = () => {
 	return (
@@ -371,6 +372,8 @@ const TermsAndConditions = () => {
 					</p>
 				</div>
 			</div>
+
+			<ContactSection />
 		</div>
 	);
 };
