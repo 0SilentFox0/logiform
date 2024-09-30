@@ -13,11 +13,44 @@ import GIT from "@/assets/aboutUsImages/GIT.svg";
 import Link from "next/link";
 
 const teamMembers = [
-	{ name: "Serhiy Koval", title: "CEO", img: SERHIY, socialImg: [LINKEDIN, TWITTER], links: ['https://www.linkedin.com/in/koval-serhii/', 'https://x.com/darki_eth'] },
-	{ name: "Andrii Spizhavka", title: "CTO", img: ANDRII, socialImg: [LINKEDIN], links: ['https://www.linkedin.com/in/andy-spizhavka-363b5a1b6/'] },
-	{ name: "Ty Smith", title: "Advisor & CCO", img: TY, socialImg: [LINKEDIN, TWITTER],  links: ['https://www.linkedin.com/in/ty-smith', 'https://x.com/TySmithHQ'] },
-	{ name: "Anton Karakulin", title: "Web3 dev lead", img: ANTON, socialImg: [GIT],  links: ['https://github.com/sowell-owen'] },
-	{ name: "Maria Osadcha", title: "Design Lead", img: MARIA, socialImg: [LINKEDIN],  links: ['https://www.linkedin.com/in/mari-osadcha/'] },
+	{
+		name: "Serhiy Koval",
+		title: "CEO",
+		img: SERHIY,
+		socialImg: [LINKEDIN, TWITTER],
+		links: [
+			"https://www.linkedin.com/in/koval-serhii/",
+			"https://x.com/darki_eth",
+		],
+	},
+	{
+		name: "Andrii Spizhavka",
+		title: "CTO",
+		img: ANDRII,
+		socialImg: [LINKEDIN],
+		links: ["https://www.linkedin.com/in/andy-spizhavka-363b5a1b6/"],
+	},
+	{
+		name: "Ty Smith",
+		title: "Advisor",
+		img: TY,
+		socialImg: [LINKEDIN, TWITTER],
+		links: ["https://www.linkedin.com/in/ty-smith", "https://x.com/TySmithHQ"],
+	},
+	{
+		name: "Anton Karakulin",
+		title: "Web3 dev lead",
+		img: ANTON,
+		socialImg: [GIT],
+		links: ["https://github.com/sowell-owen"],
+	},
+	{
+		name: "Maria Osadcha",
+		title: "Design Lead",
+		img: MARIA,
+		socialImg: [LINKEDIN],
+		links: ["https://www.linkedin.com/in/mari-osadcha/"],
+	},
 ];
 
 function CoreTeamSection() {
@@ -59,13 +92,13 @@ function CoreTeamSection() {
 			<section className={styles.valueSection}>
 				<div className={styles.valueTitle}>
 					<p>
-						Deep expertise in both Web2 and Web3. Transparency, realistic timelines, and trust are at the core of our process.
+						Deep expertise in both Web2 and Web3. Transparency, realistic
+						timelines, and trust are at the core of our process.
 					</p>
 				</div>
-
 			</section>
 		</>
-	)
+	);
 }
 
 export default CoreTeamSection;
