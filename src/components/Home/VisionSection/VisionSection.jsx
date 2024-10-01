@@ -15,7 +15,6 @@ import WewayLogo from "@/assets/companyLogos/weway.png";
 import EdmundoLogo from "@/assets/companyLogos/edmundo.png";
 import DeedyLogo from "@/assets/companyLogos/deedy.png";
 
-
 // import NimiqLogo from "@/assets/companyLogos/nimiq.png";
 // import TronLogo from "@/assets/companyLogos/tron.png";
 // import OKXLogo from "@/assets/companyLogos/okx.png";
@@ -110,8 +109,8 @@ function VisionSection() {
 									key={index}
 									src={logo.src}
 									alt={logo.alt}
-									width={60}
-									height={20}
+									width={80}
+									height={30}
 								/>
 							))}
 						</div>

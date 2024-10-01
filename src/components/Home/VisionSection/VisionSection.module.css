@@ -260,13 +260,13 @@
 
 .statistics {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	height: 100%;
 	max-width: 700px;
 	width: 100%;
 
-	border-radius: 48px 48px 0px 0px;
+	border-radius: 48px;
 	background: var(
 		--Button-animation-2,
 		linear-gradient(102deg, #1b9ce1 12%, #2a2f90 126%)

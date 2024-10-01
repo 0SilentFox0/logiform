@@ -16,27 +16,27 @@ import Link from "next/link";
 const episodes = [
 	{
 		id: 1,
-		title: "No bureaucracy",
-		description: "Lorem ipsum",
+		title: "Crypto",
+		description: "Podcast 1",
 		duration: "28:01",
 		img: DUCK,
 		link: "/episode/1",
 	},
 	{
 		id: 2,
-		title: "No bureaucracy",
-		description: "Lorem ipsum",
-		duration: "28:01",
+		title: "DEX",
+		description: "Podcast 2",
+		duration: "15:00",
 		img: HUMAN,
-		link: "/episode/1",
+		link: "/episode/2",
 	},
 	{
 		id: 3,
-		title: "No bureaucracy",
-		description: "Lorem ipsum",
-		duration: "28:01",
+		title: "NFT",
+		description: "Podcast 3",
+		duration: "23:15",
 		img: GOD,
-		link: "/episode/1",
+		link: "/episode/3",
 	},
 	// ... other episodes
 ];
@@ -50,7 +50,8 @@ function PodcastSection() {
 					<div className={styles.episodeContainer}>
 						{episodes.map((episode, index) => (
 							<div className={styles.episodeLink} key={episode.id}>
-								<Link href={episode.link} className={styles.episodeLink}>
+								{/* <Link href={episode.link} className={styles.episodeLink}> */}
+								<div className={styles.episodeLink}>
 									<div className={styles.episode}>
 										<div className={styles.episodeLeft}>
 											<div className={styles.index}>0{index + 1}/</div>
@@ -81,7 +82,8 @@ function PodcastSection() {
 											</div>
 										</div>
 									</div>
-								</Link>
+								</div>
+								{/* </Link> */}
 								<div className={styles.line} />
 							</div>
 						))}

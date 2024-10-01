@@ -53,17 +53,19 @@ export default function CaseStudiesClient({ cases, categories }) {
 									className={styles.filterWindow}
 									onMouseLeave={handleMouseLeave}
 								>
-									{categories.map((category) => (
-										<label key={category} className={styles.filterLabel}>
-											<input
-												type="checkbox"
-												value={category}
-												checked={selectedCategories.includes(category)}
-												onChange={() => handleCategoryChange(category)}
-											/>
-											{category}
-										</label>
-									))}
+									{categories.length
+										? categories.map((category) => (
+												<label key={category} className={styles.filterLabel}>
+													<input
+														type="checkbox"
+														value={category}
+														checked={selectedCategories.includes(category)}
+														onChange={() => handleCategoryChange(category)}
+													/>
+													{category}
+												</label>
+										  ))
+										: ""}
 								</div>
 							)}
 						</div>

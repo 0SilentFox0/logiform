@@ -3,13 +3,18 @@ import styles from "./Card.module.css";
 import OptimizedImage from "@/components/layout/OptimazedImage";
 
 // eslint-disable-next-line react/prop-types
-function Card({ slug, title, description, image, categories,  }) {
+function Card({ slug, title, description, image, categories }) {
 	const handleClick = () => {
 		window.scrollTo(0, 0); // Scroll to the top of the page
 	};
 
 	return (
-		<Link className={styles.card} href={`/case-studies/${slug}`} passHref onClick={handleClick}>
+		<Link
+			className={styles.card}
+			href={`/case-studies/${slug}`}
+			passHref
+			onClick={handleClick}
+		>
 			<div className={`${styles.imageWrapper}`}>
 				<OptimizedImage
 					src={image.id || image}
@@ -19,11 +24,13 @@ function Card({ slug, title, description, image, categories,  }) {
 					className={styles.image}
 				/>
 				<div className={styles.overlayTabs}>
-					{categories.map((category, index) => (
-						<button className={styles.cardCategory} key={index}>
-							{category + " "}
-						</button>
-					))}
+					{categories && categories.length
+						? categories.map((category, index) => (
+								<button className={styles.cardCategory} key={index}>
+									{category + " "}
+								</button>
+						  ))
+						: ""}
 				</div>
 			</div>
 
