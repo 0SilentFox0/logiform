@@ -15,15 +15,17 @@ export default function BlogPostContent({ post }) {
 		<div className={styles.hero}>
 			<div className={styles.content}>
 				<Link href="/blog" className={styles.arrow}>
-					<Image src={ARROW} alt="Back to blog" />
+					<Image src={ARROW} alt="Back to blog" width={28} height={28} />
 				</Link>
 
 				<div className={styles.tabButtons}>
-					{categories.map((category, index) => (
-						<button className={styles.tabButton} key={index}>
-							{category + " "}
-						</button>
-					))}
+					{categories && categories.length
+						? categories.map((category, index) => (
+								<button className={styles.tabButton} key={index}>
+									{category + " "}
+								</button>
+						  ))
+						: ""}
 				</div>
 
 				<div className={styles.blogTextContainer}>
@@ -42,7 +44,13 @@ export default function BlogPostContent({ post }) {
 						className={styles.authorAvatar}
 					/>
 					<div className={styles.name}>{author.name}</div>
-					<Image className={styles.dot} src={DOT} alt="Dot" />
+					<Image
+						className={styles.dot}
+						src={DOT}
+						alt="Dot"
+						width={8}
+						height={8}
+					/>
 					<div className={styles.date}>
 						{" "}
 						{new Date(date_created).toLocaleDateString("en-US", {

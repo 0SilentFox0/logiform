@@ -6,7 +6,7 @@ import { POST_STATUS } from "@/utils/constants";
 import { directus } from "@/plugins/axios";
 
 const postPreviewFields =
-	"title,image,description,date_created,author.*,slug,categories";
+	"title,image,description,date_created,date_created,author.*,slug,categories";
 
 async function getPostsPreview({
 	categorySlug,
