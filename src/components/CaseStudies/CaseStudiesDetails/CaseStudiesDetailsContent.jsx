@@ -12,12 +12,14 @@ const CaseStudiesDetailsContent = ({ case_ }) => {
 
 			<section className={styles.detailsSection}>
 				<div className={styles.detailsContainer}>
-					<div
-						className={styles.detailsContent}
-						dangerouslySetInnerHTML={{ __html: content }}
-					/>
+					<div className={styles.content}>
+						<div
+							className={styles.detailsContent}
+							dangerouslySetInnerHTML={{ __html: content }}
+						/>
+					</div>
+					<ContactSection />
 				</div>
-				<ContactSection />
 			</section>
 		</div>
 	);

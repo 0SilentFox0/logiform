@@ -101,32 +101,41 @@ function VisionSection() {
 	return (
 		<section className={styles.background}>
 			<div className={styles.container}>
-				{
-					<div className={styles.logos}>
-						<div className={styles.logosSlide}>
-							{companyLogos.map((logo, index) => (
-								<Image
-									key={index}
-									src={logo.src}
-									alt={logo.alt}
-									width={80}
-									height={30}
-								/>
-							))}
-						</div>
-						<div className={styles.logosSlide}>
-							{companyLogos.map((logo, index) => (
-								<Image
-									key={index + companyLogos.length}
-									src={logo.src}
-									alt={logo.alt}
-									width={60}
-									height={20}
-								/>
-							))}
-						</div>
+				<div className={styles.logos}>
+					<div className={styles.logosSlide}>
+						{companyLogos.map((logo, index) => (
+							<Image
+								key={`logo1-${index}`}
+								src={logo.src}
+								alt={logo.alt}
+								width={80}
+								height={30}
+							/>
+						))}
 					</div>
-				}
+					<div className={styles.logosSlide}>
+						{companyLogos.map((logo, index) => (
+							<Image
+								key={`logo2-${index}`}
+								src={logo.src}
+								alt={logo.alt}
+								width={80}
+								height={30}
+							/>
+						))}
+					</div>
+					<div className={styles.logosSlide}>
+						{companyLogos.map((logo, index) => (
+							<Image
+								key={`logo3-${index}`}
+								src={logo.src}
+								alt={logo.alt}
+								width={80}
+								height={30}
+							/>
+						))}
+					</div>
+				</div>
 
 				<div className={styles.content}>
 					<div className={styles.title}>

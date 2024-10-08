@@ -120,8 +120,17 @@
 	backdrop-filter: blur(6px);
 }
 
-.detailsContent p {
-	font-size: 20px !important;
+.detailsContainer {
+	background: var(--Neutral-Neutral-10, #f6f6f6);
+}
+
+.content {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.detailsContent h1 {
+	font-size: 72px;
 }
 
 @media (max-width: 1200px) {
@@ -158,7 +167,7 @@
 	}
 
 	.detailsContent {
-		padding: 100px 60px !important;
+		padding: 50px 50px !important;
 	}
 
 	.detailsContent p {
@@ -206,10 +215,6 @@
 	width: 100%;
 }
 
-.detailsContainer {
-	background-color: black;
-}
-
 .detailsContent {
 	display: flex;
 	padding: 48px 120px 80px 120px;
@@ -218,14 +223,14 @@
 	align-self: stretch;
 	gap: 24px;
 	width: 100%;
-	background: var(--Neutral-Neutral-10, #f6f6f6);
+
 	box-sizing: border-box;
 
 	border-radius: 48px 48px 0 0;
 }
 
 .detailsContent h1 {
-	font-size: 24px;
+	font-size: 64px;
 }
 
 .detailsContent p {

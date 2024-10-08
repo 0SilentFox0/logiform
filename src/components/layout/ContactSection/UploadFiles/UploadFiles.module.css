@@ -11,29 +11,29 @@
 }
 
 .dragging {
-    border: 2px solid var(--Cyan-Cyan-10, #dbecf6);
+	border: 2px solid var(--Cyan-Cyan-10, #dbecf6);
 	background: var(--Cyan-Cyan-05, rgba(12, 75, 147, 0.2));
 }
 
 .uploadFile {
 	display: flex;
-	width: 128px;
+	width: 200px;
 	flex-direction: column;
 	align-items: center;
 	gap: 8px;
-    border: none;
-    background: none;
+	border: none;
+	background: none;
 }
 
 .uploadImg {
-    color: white;
+	color: white;
 	width: 20px;
 	height: 20px;
 }
 
 .draggingImg {
-    color: white;
-    font-size: 47px
+	color: white;
+	font-size: 47px;
 }
 
 .uploadFile p {
@@ -47,86 +47,84 @@
 }
 
 .fileCard {
-    width: 270px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border: 1px solid white;
-    border-radius: 6px;
-    padding: 8px 15px;
+	width: 270px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	border: 1px solid white;
+	border-radius: 6px;
+	padding: 8px 15px;
 }
 
 .fileInfo {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    overflow: hidden;
-
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	overflow: hidden;
 }
 
 .fileInfo h6 {
-    flex: 1;
-    font-size: 14px;
-    font-weight: 400;
-    color: white;
+	flex: 1;
+	font-size: 14px;
+	font-weight: 400;
+	color: white;
 }
 
 .progressBg {
-    width: 100%;
-    height: 5px;
-    background-color: rgb(230, 230, 230);
-    border-radius: 8px;
-    margin-top: 8px;
+	width: 100%;
+	height: 5px;
+	background-color: rgb(230, 230, 230);
+	border-radius: 8px;
+	margin-top: 8px;
 }
 
 .progress {
-    width: 0%;
-    height: 5px;
-    background-color: #88d3ff;
-    border-radius: 8px;
-    transition: width .5s ease;
+	width: 0%;
+	height: 5px;
+	background-color: #88d3ff;
+	border-radius: 8px;
+	transition: width 0.5s ease;
 }
 
 .icon {
-    font-size: 30px;
-    color: white;
+	font-size: 30px;
+	color: white;
 }
 
 .closeIcon {
-    font-size: 18px;
-    cursor: pointer;
-    color: white;
+	font-size: 18px;
+	cursor: pointer;
+	color: white;
 }
 
 .fileInfo button,
 .checkCircle {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #88d3ff;
-    border: none;
-    border-radius: 30px;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #88d3ff;
+	border: none;
+	border-radius: 30px;
 }
 
 .uploadBtn {
-    width: 300px;
-    font-size: 14px;
-    font-weight: 500;
-    color: white;
-    background-color: #88d3ff;
-    border: none;
-    margin-top: 15px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 12px;
+	width: 300px;
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	background-color: #88d3ff;
+	border: none;
+	margin-top: 15px;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 12px;
 }
 
-
 @media (max-width: 968px) {
-    .upload {
+	.upload {
 		padding: 24px 0px 24px 0px;
 		border: 2px solid white;
 	}

@@ -1,6 +1,6 @@
 import FAQSection from "@/components/Home/FAQSection/FAQSection";
 import HowItWorksSection from "@/components/Home/HowItWorksSection/HowItWorksSection";
-import PodcastSection from "@/components/Home/PodcastSection/PodcastSection";
+// import PodcastSection from "@/components/Home/PodcastSection/PodcastSection";
 import TechStackSection from "@/components/Home/TechStackSection/TechStackSection";
 import TestimonialsSection from "@/components/Home/TestimonialsSection/TestimonialsSection";
 import ContactSection from "@/components/layout/ContactSection/ContactSection";
@@ -23,7 +23,7 @@ function Home() {
 			<BridgingSection />
 			<TechStackSection />
 			<HowItWorksSection />
-			<PodcastSection />
+			{/* <PodcastSection /> */}
 			<FAQSection />
 			<ContactSection />
 		</>

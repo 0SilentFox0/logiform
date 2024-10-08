@@ -39,47 +39,49 @@ export default function CaseStudiesClient({ cases, categories }) {
 		<div>
 			<section className={styles.background}>
 				<div className={styles.container}>
-					<div className={styles.header}>
-						<div className={styles.actions}>
-							<button
-								className={styles.action}
-								onClick={toggleFilterVisibility}
-							>
-								<VscSettings className={styles.actionImg} />
-							</button>
-
-							{isFilterVisible && (
-								<div
-									className={styles.filterWindow}
-									onMouseLeave={handleMouseLeave}
+					<div className={styles.contentWrapper}>
+						<div className={styles.header}>
+							<div className={styles.actions}>
+								<button
+									className={styles.action}
+									onClick={toggleFilterVisibility}
 								>
-									{categories.length
-										? categories.map((category) => (
-												<label key={category} className={styles.filterLabel}>
-													<input
-														type="checkbox"
-														value={category}
-														checked={selectedCategories.includes(category)}
-														onChange={() => handleCategoryChange(category)}
-													/>
-													{category}
-												</label>
-										  ))
-										: ""}
-								</div>
-							)}
-						</div>
-					</div>
+									<VscSettings className={styles.actionImg} />
+								</button>
 
-					<div className={styles.content}>
-						<div className={styles.grid}>
-							{filteredCases.map((case_) => (
-								<Card key={case_.id} {...case_} />
-							))}
+								{isFilterVisible && (
+									<div
+										className={styles.filterWindow}
+										onMouseLeave={handleMouseLeave}
+									>
+										{categories && categories.length
+											? categories.map((category) => (
+													<label key={category} className={styles.filterLabel}>
+														<input
+															type="checkbox"
+															value={category}
+															checked={selectedCategories.includes(category)}
+															onChange={() => handleCategoryChange(category)}
+														/>
+														{category}
+													</label>
+											  ))
+											: ""}
+									</div>
+								)}
+							</div>
 						</div>
-					</div>
 
-					<ContactSection />
+						<div className={styles.content}>
+							<div className={styles.grid}>
+								{filteredCases.map((case_) => (
+									<Card key={case_.id} {...case_} />
+								))}
+							</div>
+						</div>
+
+						<ContactSection />
+					</div>
 				</div>
 			</section>
 		</div>
