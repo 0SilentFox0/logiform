@@ -41,14 +41,6 @@
 	backdrop-filter: blur(6px);
 }
 
-.blogTextContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	overflow: hidden;
-	align-self: stretch;
-}
-
 .blogText {
 	display: flex;
 	justify-content: space-between;
@@ -61,7 +53,7 @@
 	font-size: 48px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 120%; /* 57.6px */
+	line-height: 120%;
 	letter-spacing: -1.92px;
 	text-wrap: balance;
 }
@@ -84,7 +76,7 @@
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 150%; /* 19.2px */
+	line-height: 150%;
 	letter-spacing: -0.32px;
 	text-wrap: balance;
 }
@@ -106,7 +98,7 @@
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 120%; /* 24px */
+	line-height: 120%;
 }
 
 @media (max-width: 1200px) {
@@ -177,22 +169,30 @@
 }
 
 .postContainer {
-	background: var(--Neutral-Neutral-10, #f6f6f6);
-	border-radius: 48px 48px 0 0;
-	padding-top: 48px;
-	gap: 48px;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 40px;
 }
 
-.postContent {
-	display: flex;
-	justify-content: space-between;
+/* Main content layout */
+.mainContent {
+	display: grid;
+	grid-template-columns: 300px 1fr 100px;
 	gap: 40px;
+	position: relative;
+}
+
+/* Table of Contents */
+.tableWrapper {
+	height: calc(100% - 160px);
+	position: relative;
 }
 
 .postTableContainer {
-	padding-left: 40px;
-	top: 20px; /* Adjust as needed */
-	z-index: 10; /* Ensure it's above other content */
+	position: sticky;
+	top: 80px;
+	max-height: calc(100% - 160px);
+	overflow-y: auto;
 }
 
 .postTable {
@@ -200,23 +200,9 @@
 	padding: 20px;
 	flex-direction: column;
 	gap: 32px;
-
 	border-radius: 32px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
-}
-
-.tableName {
-	font-size: 40px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 120%; /* 48px */
-	letter-spacing: -0.8px;
-}
-
-.line {
-	width: 100%;
-	height: 1px;
-	background-color: #9a9fa6;
+	background: var(--Neutral-Neutral-05, #fff);
 }
 
 .tableInfo {
@@ -227,39 +213,57 @@
 }
 
 .tableTitle {
-	max-width: 312px;
 	font-size: 24px;
-	font-style: normal;
 	font-weight: 700;
-	line-height: 120%; /* 28.8px */
+	line-height: 120%;
 	letter-spacing: -0.96px;
 }
 
 .tablePart {
-	text-decoration: none;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	transition: all 0.3s ease;
 }
 
-.tablePart span:hover,
 .tablePart p {
+	color: var(--Neutral-Neutral-50, #7c7f86);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 120%;
+	letter-spacing: -0.96px;
+	transition: color 0.3s ease;
+}
+
+.tablePart:hover p,
+.activeLink p {
 	color: black;
 }
 
-.tablePart span,
-.tablePart p {
-	color: var(--Neutral-Neutral-50, #7c7f86);
-	font-size: 24px !important;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 120%; /* 28.8px */
-	letter-spacing: -0.96px;
-	transition: 0.3s ease;
+.activeLink {
+	position: relative;
+	padding-left: 10px;
 }
 
+.activeLink::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 3px;
+	height: 70%;
+	background: var(--Cyan-Cyan, #1b9ce1);
+	border-radius: 2px;
+}
+
+/* Main content area */
 .postCases {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
 	width: 100%;
+	min-width: 0;
 }
 
 .casesTitle {
@@ -268,7 +272,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 24px;
-	align-self: stretch;
 	width: 100%;
 }
 
@@ -277,20 +280,17 @@
 	padding: 8px 12px;
 	justify-content: center;
 	align-items: center;
-
 	border-radius: 180px;
 	background: var(--Neutral-Neutral-30, #ededed);
 	backdrop-filter: blur(6px);
-
 	font-size: 14px;
 	font-weight: 400;
 }
 
 .casesTitle h1 {
 	font-size: 64px;
-	font-style: normal;
 	font-weight: 700;
-	line-height: 100%; /* 64px */
+	line-height: 100%;
 	letter-spacing: -2.56px;
 	width: 100%;
 }
@@ -300,7 +300,6 @@
 	padding: 24px 0px;
 	flex-direction: column;
 	align-items: flex-start;
-	align-self: stretch;
 	gap: 24px;
 	width: 100%;
 	overflow: hidden;
@@ -308,24 +307,22 @@
 
 .casesValueSection pre,
 .casesValueSection code {
-	display: flex;
-	width: 300px;
+	width: 100%;
+	overflow-x: auto;
 }
 
 .casesValueSection span {
 	font-size: 48px !important;
-	font-style: normal;
 	font-weight: 500;
-	line-height: 120%; /* 57.6px */
+	line-height: 120%;
 	letter-spacing: -1.92px;
 	width: 100%;
 }
 
 .casesValueSection p {
 	font-size: 20px;
-	font-style: normal;
 	font-weight: 400;
-	line-height: 120%; /* 24px */
+	line-height: 120%;
 	width: 100%;
 }
 
@@ -334,29 +331,26 @@
 	border-radius: 32px;
 }
 
+/* Social Share Section */
 .postShare {
+	position: sticky;
+	top: 80px;
+	height: fit-content;
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
 	gap: 32px;
-	padding-right: 120px;
-	position: sticky;
-	top: 80px; /* Adjust based on header height */
-	z-index: 10; /* Ensure it's above other content */
 }
 
 .postShare h3 {
 	font-size: 40px;
-	font-style: normal;
 	font-weight: 400;
-	line-height: 120%; /* 48px */
+	line-height: 120%;
 	letter-spacing: -0.8px;
 }
 
 .shareLinks {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
 	gap: 16px;
 }
 
@@ -366,19 +360,17 @@
 	width: 62px;
 	justify-content: center;
 	align-items: center;
-	gap: 11.429px;
-	align-self: stretch;
-
 	border-radius: 91.429px;
 	border: 1px solid var(--Neutral-Neutral-40, #9a9fa6);
 	background: var(--Neutral-Neutral-05, #fff);
+	transition: background 0.3s ease;
 }
 
 .shareLinks a:hover {
-	background: rgba(255, 255, 255, 0.35); /* Lighten background on hover */
-	transition: background 0.3s ease; /* Smooth transition */
+	background: rgba(255, 255, 255, 0.35);
 }
 
+/* Latest Articles Section */
 .latestArticle {
 	display: flex;
 	padding: 80px 120px;
@@ -389,31 +381,26 @@
 
 .articlesTitle h1 {
 	font-size: 48px;
-	font-style: normal;
 	font-weight: 700;
-	line-height: 120%; /* 57.6px */
+	line-height: 120%;
 	letter-spacing: -1.92px;
 }
 
 .articles {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr); /* 3 columns */
-	gap: 16px; /* Spacing between cards */
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
 }
 
+/* Responsive Styles */
 @media (max-width: 1200px) {
-	.postContent {
+	.hero {
+		padding: 156px 100px 177px 100px;
+	}
+
+	.mainContent {
+		grid-template-columns: 250px 1fr 80px;
 		gap: 30px;
-	}
-
-	.tableName {
-		font-size: 36px;
-	}
-
-	.tableTitle,
-	.tableInfo p {
-		font-size: 20px;
-		width: 100%;
 	}
 
 	.casesTitle h1 {
@@ -428,45 +415,36 @@
 		font-size: 18px;
 	}
 
-	.postShare {
-		padding-right: 90px;
-	}
-
 	.postShare h3 {
 		font-size: 32px;
 	}
 }
 
 @media (max-width: 968px) {
-	.casesTitle {
-		display: none;
+	.hero {
+		padding: 120px 60px 130px 60px;
 	}
 
-	.postContainer {
-		padding: 40px 60px 0 60px;
+	.mainContent {
+		grid-template-columns: 1fr;
+	}
+
+	.tableWrapper {
+		height: auto;
 	}
 
 	.postTableContainer {
-		padding: 0;
-		box-sizing: border-box; /* Include padding and border in element width */
-		width: 100%;
-	}
-
-	.postTable {
-		width: 100%;
-		box-sizing: border-box; /* Prevent padding from affecting total width */
-	}
-
-	.postContent {
-		flex-direction: column;
-		align-items: center;
+		position: relative;
+		top: 0;
+		max-height: none;
 	}
 
 	.postShare {
-		padding: 40px 0;
-		display: flex;
+		position: relative;
+		top: 0;
+		flex-direction: row;
 		justify-content: center;
-		align-items: center;
+		padding: 40px 0;
 	}
 
 	.shareLinks {
@@ -487,20 +465,16 @@
 }
 
 @media (max-width: 500px) {
+	.hero {
+		padding: 120px 24px 164px 24px;
+	}
+
 	.postContainer {
-		padding: 40px 20px 0 20px;
-	}
-
-	.postContent {
-		gap: 0;
-	}
-
-	.tableName {
-		font-size: 32px;
+		padding: 40px 20px;
 	}
 
 	.tableTitle,
-	.tableInfo p {
+	.tablePart p {
 		font-size: 18px;
 	}
 

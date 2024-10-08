@@ -47,7 +47,7 @@ function HeroSection({
 			<div className={styles.content}>
 				<div className={styles.text}>
 					<h1>
-						{title}
+						{title} <br />
 						{glitchEffect && <span>{glitchEffect}</span>}
 					</h1>
 					<p>{description}</p>
