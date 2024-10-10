@@ -9,16 +9,17 @@ const CaseStudiesDetailsContent = ({ case_ }) => {
 	return (
 		<div className={styles.detailsTextContainer}>
 			<CaseStudiesDetailsHeader case_={case_} />
-
 			<section className={styles.detailsSection}>
-				<div className={styles.detailsContainer}>
-					<div className={styles.content}>
-						<div
-							className={styles.detailsContent}
-							dangerouslySetInnerHTML={{ __html: content }}
-						/>
+				<div className={styles.container}>
+					<div className={styles.detailsContainer}>
+						<div className={styles.content}>
+							<div
+								className={styles.detailsContent}
+								dangerouslySetInnerHTML={{ __html: content }}
+							/>
+						</div>
+						<ContactSection />
 					</div>
-					<ContactSection />
 				</div>
 			</section>
 		</div>

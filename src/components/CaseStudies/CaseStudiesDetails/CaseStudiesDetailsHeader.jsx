@@ -36,53 +36,54 @@ const CaseStudiesDetailsHeader = ({ case_ }) => {
 		MERNStack: MERNSTACK,
 		Bitcoinjs: BITCOIN,
 		AWS: AWS,
-		Solidity: SOLIDITY,
 	};
 
 	return (
 		<div className={styles.hero}>
-			<div className={styles.content}>
-				<div className={styles.navigationButtons}>
-					<Link href="/case-studies" className={styles.prevPageButton}>
-						<Image src={PrevButtonImage} alt="Go back" />
-					</Link>
-					{categories && categories.length ? (
-						<div className={styles.tabsWrapper}>
-							{categories.map((category) => (
-								<button key={category} className={styles.tabButton}>
-									{category}
-								</button>
-							))}
-						</div>
-					) : null}
-				</div>
+			<div className={styles.container}>
+				<div className={styles.contentHeader}>
+					<div className={styles.navigationButtons}>
+						<Link href="/case-studies" className={styles.prevPageButton}>
+							<Image src={PrevButtonImage} alt="Go back" />
+						</Link>
+						{categories && categories.length ? (
+							<div className={styles.tabsWrapper}>
+								{categories.map((category) => (
+									<button key={category} className={styles.tabButton}>
+										{category}
+									</button>
+								))}
+							</div>
+						) : null}
+					</div>
 
-				<div className={styles.projectTitle}>
-					<h1>{title}</h1>
-				</div>
+					<div className={styles.projectTitle}>
+						<h1>{title}</h1>
+					</div>
 
-				<div className={styles.projectDescription}>
-					<p>{description}</p>
-					{technologies && technologies.length ? (
-						<div className={styles.actionButtons}>
-							{technologies.map((tech) => {
-								const normalizedTech = tech.replace(/\s|\./g, "");
+					<div className={styles.projectDescription}>
+						<p>{description}</p>
+						{technologies && technologies.length ? (
+							<div className={styles.actionButtons}>
+								{technologies.map((tech) => {
+									const normalizedTech = tech.replace(/\s|\./g, "");
 
-								return (
-									techImages[normalizedTech] && ( // Проверка, существует ли изображение для нормализованного названия технологии
-										<button key={tech} className={styles.actionButton}>
-											<Image
-												src={techImages[normalizedTech]}
-												alt={tech}
-												width={20}
-												height={20}
-											/>
-										</button>
-									)
-								);
-							})}
-						</div>
-					) : null}
+									return (
+										techImages[normalizedTech] && ( // Проверка, существует ли изображение для нормализованного названия технологии
+											<button key={tech} className={styles.actionButton}>
+												<Image
+													src={techImages[normalizedTech]}
+													alt={tech}
+													width={20}
+													height={20}
+												/>
+											</button>
+										)
+									);
+								})}
+							</div>
+						) : null}
+					</div>
 				</div>
 			</div>
 		</div>

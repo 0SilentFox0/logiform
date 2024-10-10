@@ -21,6 +21,17 @@
 }
 
 .content {
+	display: contents;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 32px;
+	align-self: stretch;
+	width: 100%;
+	z-index: 2;
+	text-align: justify;
+}
+
+.contentHeader {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -28,6 +39,12 @@
 	align-self: stretch;
 	width: 100%;
 	z-index: 2;
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .navigationButtons {
@@ -120,17 +137,24 @@
 	backdrop-filter: blur(6px);
 }
 
-.detailsContainer {
-	background: var(--Neutral-Neutral-10, #f6f6f6);
-}
-
-.content {
-	max-width: 1440px;
-	margin: 0 auto;
-}
-
 .detailsContent h1 {
-	font-size: 72px;
+	font-size: 54px;
+}
+
+.detailsContent p {
+	font-size: 18px;
+}
+
+.detailsContent ul,
+.detailsContent ol {
+	font-size: 18px !important;
+	padding-left: 30px;
+	text-decoration: dotted;
+}
+
+.detailsContent ul li,
+.detailsContent ol li {
+	margin-top: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -161,13 +185,24 @@
 		line-height: 20px;
 	}
 
+	.detailsContent h1 {
+		font-size: 32px;
+	}
+
+	.detailsContent p {
+		font-size: 16px;
+	}
+
+	.detailsContent ul,
+	.detailsContent ol {
+		font-size: 16px !important;
+		padding-left: 10px;
+		text-decoration: dotted;
+	}
+
 	.prevPageButton {
 		width: 50px;
 		height: 50px;
-	}
-
-	.detailsContent {
-		padding: 50px 50px !important;
 	}
 
 	.detailsContent p {
@@ -213,6 +248,7 @@
 
 .detailsSection {
 	width: 100%;
+	background: var(--Neutral-Neutral-10, #f6f6f6);
 }
 
 .detailsContent {
@@ -227,14 +263,6 @@
 	box-sizing: border-box;
 
 	border-radius: 48px 48px 0 0;
-}
-
-.detailsContent h1 {
-	font-size: 64px;
-}
-
-.detailsContent p {
-	font-size: 24px;
 }
 
 .detailsContent img {
