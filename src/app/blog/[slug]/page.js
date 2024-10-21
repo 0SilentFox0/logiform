@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
 		};
 	}
 
-	const title = `Logiform | Blog | ${post.title}`;
+	const title = `${post.title} | Logiform | Blog`;
 	const description =
 		post.description || "Read our latest blog post on Logiform";
 	const ogImage = `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${post.image.id}`;

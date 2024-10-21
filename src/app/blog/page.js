@@ -5,7 +5,7 @@ import { SITE_URL } from "@/utils/constants";
 import Script from "next/script";
 
 export const metadata = {
-	title: "Logiform | Blog",
+	title: "Blog | Logiform",
 	description: "Explore our latest articles and insights on Logiform's blog.",
 	openGraph: {
 		title: "Logiform | Blog",

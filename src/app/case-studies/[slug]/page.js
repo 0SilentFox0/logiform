@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
 		};
 	}
 
-	const title = `Logiform | Case Study | ${case_.title}`;
+	const title = `${case_.title} | Logiform | Case Study`;
 	const description =
 		case_.description || "Read our latest case study on Logiform";
 	const ogImage = `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${case_.image.id}`;

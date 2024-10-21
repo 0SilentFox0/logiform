@@ -7,6 +7,8 @@ export const metadata = {
 	title: "Logiform - Agile Secure Solutions",
 	description:
 		"We provide agile secure solutions for web 3 and beyond. No bureaucracy, no excuses – raw talent and relentless execution for startups and mid-sized companies.",
+	keywords:
+		"web3 development, blockchain development, smart contracts, DApp development, NFT marketplace development, ethereum development, solidity programming, blockchain consulting, web3 agency, cryptocurrency solutions, defi hedge funds, retrodrop crypto, layer 1 blockchain comparison",
 	openGraph: {
 		title: "Logiform - Agile Secure Solutions",
 		description:
@@ -21,6 +23,9 @@ export const metadata = {
 				alt: "Logiform - Agile Secure Solutions",
 			},
 		],
+		alternates: {
+			canonical: "https://logiform.io",
+		},
 	},
 };
 

@@ -1,0 +1,10 @@
+# public/robots.txt
+User-agent: *
+Allow: /
+
+# Add any pages you want to disallow
+Disallow: /admin/
+Disallow: /private/
+
+# Add your sitemap location
+Sitemap: https://logiform.io/sitemap.xml
