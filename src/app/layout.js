@@ -24,7 +24,19 @@ export const metadata = {
 			},
 		],
 		alternates: {
-			canonical: "https://logiform.io",
+			canonical: "/",
+		},
+		metadataBase: new URL("https://logiform.io"),
+		robots: {
+			index: true,
+			follow: true,
+			googleBot: {
+				index: true,
+				follow: true,
+				"max-video-preview": -1,
+				"max-image-preview": "large",
+				"max-snippet": -1,
+			},
 		},
 	},
 };
@@ -82,7 +94,9 @@ export default function RootLayout({ children }) {
 					/>
 				</noscript>
 				<Header />
-				<div id="root">{children}</div>
+				<main>
+					<div id="root">{children}</div>
+				</main>
 				<Footer />
 				<BackToTopButton />
 			</body>

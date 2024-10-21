@@ -60,6 +60,9 @@ export async function generateMetadata({ params }) {
 				},
 			],
 		},
+		alternates: {
+			canonical: `/${slug}`,
+		},
 	};
 }
 

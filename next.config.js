@@ -1,6 +1,31 @@
 import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 
 const nextConfig = {
+	async headers() {
+		const headers = [
+			{
+				key: "Permissions-Policy",
+				value:
+					"camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=()",
+			},
+		];
+
+		// Add development-specific headers
+		if (process.env.NODE_ENV === "development") {
+			headers.push({
+				key: "Permissions-Policy",
+				value:
+					"private-state-token-redemption=(), private-state-token-issuance=()",
+			});
+		}
+
+		return [
+			{
+				source: "/:path*",
+				headers,
+			},
+		];
+	},
 	output: "export", // Generates a static site.
 	distDir: "./build", // Custom build directory.
 	images: {
