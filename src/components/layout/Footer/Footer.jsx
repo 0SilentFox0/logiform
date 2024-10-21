@@ -19,11 +19,11 @@ function Footer() {
 					<nav className={styles.info}>
 						<div className={styles.actions}>
 							<Link href="/blog">Blog</Link>
-							<Link href="/resources">Resources</Link>
+							{/* <Link href="/resources">Resources</Link> */}
 							<Link href="#contact">Partner with us</Link>
 						</div>
 						<div className={styles.actions}>
-							<Link href="/services">Services</Link>
+							{/* <Link href="/services">Services</Link> */}
 							<Link href="/case-studies">Case studies</Link>
 							<Link href="/about-us">About us</Link>
 						</div>
