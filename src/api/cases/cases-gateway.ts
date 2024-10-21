@@ -46,7 +46,7 @@ async function getCase(slug: string): Promise<CaseStudiesInterface.Post> {
 
 async function getAllSlugs(): Promise<string[]> {
 	const params: IParamsDirectus = {
-		fields: "slug",
+		fields: "slug, date_updated, date_created",
 		filter: {
 			status: POST_STATUS.published,
 		},

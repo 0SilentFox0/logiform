@@ -72,7 +72,7 @@ async function getPost({
 
 async function getAllSlugs(): Promise<string[]> {
 	const params: IParamsDirectus = {
-		fields: "slug",
+		fields: "slug, date_updated, date_created",
 		filter: {
 			status: POST_STATUS.published,
 		},
