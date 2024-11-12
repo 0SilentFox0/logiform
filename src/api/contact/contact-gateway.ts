@@ -1,11 +1,13 @@
 import axios from "axios";
 
 const API_KEY = process.env.NEXT_PUBLIC_PIPEDRIVE_API;
-const baseURL = "https://logiform.pipedrive.com/";
+const baseURL = "https://logiform.pipedrive.com/v1";
 
 const pipedriveApi = axios.create({
 	baseURL,
-	params: { api_token: API_KEY },
+	params: {
+		api_token: `${API_KEY}`,
+	},
 });
 
 async function createPerson(data) {
