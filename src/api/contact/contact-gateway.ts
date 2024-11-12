@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_KEY = process.env.NEXT_PUBLIC_PIPEDRIVE_API;
-const baseURL = "https://api.pipedrive.com/v1";
+const baseURL = "https://logiform.pipedrive.com/";
 
 const pipedriveApi = axios.create({
 	baseURL,
